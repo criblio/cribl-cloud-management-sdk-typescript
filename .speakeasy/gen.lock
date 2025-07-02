@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: 7a8de831173f0ec0957910fd7d54e49a
+  docChecksum: 5931799d36141c722b6ae4e871d2fcbc
   docVersion: 0.0.1
-  speakeasyVersion: 1.574.1
+  speakeasyVersion: 1.575.0
   generationVersion: 2.647.2
   releaseVersion: 0.0.1
-  configChecksum: 53fce64f7c577073a7bd96a8486f68d5
+  configChecksum: 60dd0cf85260df59afd02908916e8258
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -24,6 +24,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
+    tests: 0.17.0
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -39,6 +40,9 @@ generatedFiles:
   - eslint.config.mjs
   - jsr.json
   - package.json
+  - src/__tests__/assertions.ts
+  - src/__tests__/criblmgmtplane.test.ts
+  - src/__tests__/files.ts
   - src/__tests__/mockserver/.gitignore
   - src/__tests__/mockserver/Dockerfile
   - src/__tests__/mockserver/Makefile
@@ -53,6 +57,7 @@ generatedFiles:
   - src/__tests__/mockserver/internal/handler/doc.go
   - src/__tests__/mockserver/internal/handler/generated_handler.go
   - src/__tests__/mockserver/internal/handler/generated_handlers.go
+  - src/__tests__/mockserver/internal/handler/pathgetstatus.go
   - src/__tests__/mockserver/internal/handler/values/files.go
   - src/__tests__/mockserver/internal/logging/doc.go
   - src/__tests__/mockserver/internal/logging/formats.go
@@ -84,6 +89,7 @@ generatedFiles:
   - src/__tests__/mockserver/internal/server/templates/log/style.css.tmpl
   - src/__tests__/mockserver/internal/tracking/requesttracker.go
   - src/__tests__/mockserver/main.go
+  - src/__tests__/testclient.ts
   - src/core.ts
   - src/funcs/dummyServiceStatus.ts
   - src/hooks/hooks.ts
@@ -143,3 +149,5 @@ generatedFiles:
 examples:
   dummyServiceStatus: {}
 examplesVersion: 1.0.2
+generatedTests:
+  dummyServiceStatus: "2025-07-02T19:33:07+02:00"
