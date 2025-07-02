@@ -1,0 +1,37 @@
+speakeasyVersion: 1.574.1
+sources:
+    Cribl Cloud Management API:
+        sourceNamespace: cribl-cloud-management-api
+        sourceRevisionDigest: sha256:0d9024c6daf3a65e0e94cd806e6c0a1cf8b2dd609468140627ce8d7146951f04
+        sourceBlobDigest: sha256:bf63ae874bb1f02fe2629cf898648a28292bd2b51703c529cd71944986671086
+        tags:
+            - latest
+            - 0.0.1
+targets:
+    cribl-mgmt-plane:
+        source: Cribl Cloud Management API
+        sourceNamespace: cribl-cloud-management-api
+        sourceRevisionDigest: sha256:0d9024c6daf3a65e0e94cd806e6c0a1cf8b2dd609468140627ce8d7146951f04
+        sourceBlobDigest: sha256:bf63ae874bb1f02fe2629cf898648a28292bd2b51703c529cd71944986671086
+        codeSamplesNamespace: cribl-cloud-management-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:72dfe4bf56a46fb4ff9dc0d05534ef27f950c7b9c0a3123706f8baf7300cb2f0
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Cribl Cloud Management API:
+            inputs:
+                - location: ./openapi.yml
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/cribl/cribl/cribl-cloud-management-api
+    targets:
+        cribl-mgmt-plane:
+            target: typescript
+            source: Cribl Cloud Management API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/cribl/cribl/cribl-cloud-management-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
