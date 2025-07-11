@@ -11,6 +11,9 @@ targets:
     cribl-mgmt-plane:
         target: typescript
         source: Cribl Cloud Management API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/cribl/cribl/cribl-cloud-management-api-typescript-code-samples
