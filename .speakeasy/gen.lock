@@ -3,14 +3,15 @@ id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
   docChecksum: 5931799d36141c722b6ae4e871d2fcbc
   docVersion: 0.0.1
-  speakeasyVersion: 1.575.0
-  generationVersion: 2.647.2
+  speakeasyVersion: 1.581.0
+  generationVersion: 2.656.5
   releaseVersion: 0.0.1
-  configChecksum: 60dd0cf85260df59afd02908916e8258
+  configChecksum: 14d2aa0c9f54433ec1ed9f604525e5db
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.11
+    core: 3.21.14
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.1.2
@@ -24,7 +25,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    tests: 0.17.0
+    tests: 0.17.1
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -38,6 +39,10 @@ generatedFiles:
   - docs/models/security.md
   - docs/sdks/criblmgmtplane/README.md
   - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/dummyServiceStatus.example.ts
+  - examples/package.json
   - jsr.json
   - package.json
   - src/__tests__/assertions.ts
