@@ -1,4 +1,4 @@
-speakeasyVersion: 1.575.0
+speakeasyVersion: 1.581.0
 sources:
     Cribl Cloud Management API:
         sourceNamespace: cribl-cloud-management-api
@@ -14,10 +14,10 @@ targets:
         sourceRevisionDigest: sha256:668b5eaaf353ba246ba9f70aefff9b6a76ec81b869b87c5cb6a94ac81b97bc57
         sourceBlobDigest: sha256:7fb1f3d728617a02f2932d57815317f561f7843dc5bc948b59b9d26b612c649b
         codeSamplesNamespace: cribl-cloud-management-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:4e6400f423222fbe3b581ede2303549ca4717fe72c99b2ae2f4a04963f03f6fc
+        codeSamplesRevisionDigest: sha256:073fc11e72797af27be439b08d5e23cbf2e522d8e5dc3c705d23ae9b95d59d78
 workflow:
     workflowVersion: 1.0.0
-    speakeasyVersion: 1.574.1
+    speakeasyVersion: 1.581.0
     sources:
         Cribl Cloud Management API:
             inputs:
@@ -29,6 +29,9 @@ workflow:
         cribl-mgmt-plane:
             target: typescript
             source: Cribl Cloud Management API
+            publish:
+                npm:
+                    token: $npm_token
             codeSamples:
                 registry:
                     location: registry.speakeasyapi.dev/cribl/cribl/cribl-cloud-management-api-typescript-code-samples

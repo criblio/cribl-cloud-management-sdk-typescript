@@ -43,6 +43,7 @@ typescript:
   envVarPrefix: CRIBLMGMTPLANE
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
+  generateExamples: true
   imports:
     option: openapi
     paths:
