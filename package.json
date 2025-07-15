@@ -1,6 +1,6 @@
 {
   "name": "cribl-mgmt-plane",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Speakeasy",
   "type": "module",
   "bin": {
@@ -21,6 +21,10 @@
     }
   },
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/criblio/cribl-cloud-management-sdk-typescript.git"
+  },
   "scripts": {
     "test": "vitest run src --reporter=junit --outputFile=.speakeasy/reports/tests.xml --reporter=default",
     "check": "npm run test && npm run lint",

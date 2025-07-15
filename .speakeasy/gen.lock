@@ -5,8 +5,10 @@ management:
   docVersion: 0.0.1
   speakeasyVersion: 1.581.0
   generationVersion: 2.656.5
-  releaseVersion: 0.0.1
-  configChecksum: 14d2aa0c9f54433ec1ed9f604525e5db
+  releaseVersion: 0.0.2
+  configChecksum: 37b24f8017b7d88744fd8d2d74659dc7
+  repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
+  installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
 features:
   typescript:
