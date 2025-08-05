@@ -3,15 +3,15 @@ id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
   docChecksum: 1f2337c40f02b577023b35ead2f3017e
   docVersion: 0.0.1
-  speakeasyVersion: 1.585.0
-  generationVersion: 2.660.0
-  releaseVersion: 0.0.4
-  configChecksum: 5fc394802040447cd77ded955a18ac52
+  speakeasyVersion: 1.596.1
+  generationVersion: 2.672.0
+  releaseVersion: 0.0.5
+  configChecksum: d78db6d33751243a4d00084eb31f5168
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.14
+    core: 3.21.19
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.1.2
@@ -20,11 +20,9 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
     methodArguments: 0.1.2
-    mockServer: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    tests: 0.17.1
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -44,56 +42,6 @@ generatedFiles:
   - examples/package.json
   - jsr.json
   - package.json
-  - src/__tests__/assertions.ts
-  - src/__tests__/criblmgmtplane.test.ts
-  - src/__tests__/files.ts
-  - src/__tests__/mockserver/.gitignore
-  - src/__tests__/mockserver/Dockerfile
-  - src/__tests__/mockserver/Makefile
-  - src/__tests__/mockserver/README.md
-  - src/__tests__/mockserver/go.mod
-  - src/__tests__/mockserver/go.sum
-  - src/__tests__/mockserver/internal/handler/assert/contenttype.go
-  - src/__tests__/mockserver/internal/handler/assert/header.go
-  - src/__tests__/mockserver/internal/handler/assert/parameter.go
-  - src/__tests__/mockserver/internal/handler/assert/pointer.go
-  - src/__tests__/mockserver/internal/handler/assert/security.go
-  - src/__tests__/mockserver/internal/handler/doc.go
-  - src/__tests__/mockserver/internal/handler/generated_handler.go
-  - src/__tests__/mockserver/internal/handler/generated_handlers.go
-  - src/__tests__/mockserver/internal/handler/pathgetstatus.go
-  - src/__tests__/mockserver/internal/handler/values/files.go
-  - src/__tests__/mockserver/internal/logging/doc.go
-  - src/__tests__/mockserver/internal/logging/formats.go
-  - src/__tests__/mockserver/internal/logging/http_file.go
-  - src/__tests__/mockserver/internal/logging/http_logger.go
-  - src/__tests__/mockserver/internal/logging/levels.go
-  - src/__tests__/mockserver/internal/logging/logger.go
-  - src/__tests__/mockserver/internal/logging/oas_operation.go
-  - src/__tests__/mockserver/internal/logging/oas_operation_call.go
-  - src/__tests__/mockserver/internal/sdk/models/components/httpmetadata.go
-  - src/__tests__/mockserver/internal/sdk/models/components/security.go
-  - src/__tests__/mockserver/internal/sdk/models/operations/dummyservicestatus.go
-  - src/__tests__/mockserver/internal/sdk/types/bigint.go
-  - src/__tests__/mockserver/internal/sdk/types/date.go
-  - src/__tests__/mockserver/internal/sdk/types/datetime.go
-  - src/__tests__/mockserver/internal/sdk/types/decimal.go
-  - src/__tests__/mockserver/internal/sdk/types/jsonl/jsonl.go
-  - src/__tests__/mockserver/internal/sdk/types/pointers.go
-  - src/__tests__/mockserver/internal/sdk/utils/json.go
-  - src/__tests__/mockserver/internal/sdk/utils/reflect.go
-  - src/__tests__/mockserver/internal/sdk/utils/sort.go
-  - src/__tests__/mockserver/internal/server/doc.go
-  - src/__tests__/mockserver/internal/server/generated_handlers.go
-  - src/__tests__/mockserver/internal/server/internal_handlers.go
-  - src/__tests__/mockserver/internal/server/server.go
-  - src/__tests__/mockserver/internal/server/server_option.go
-  - src/__tests__/mockserver/internal/server/templates/log/index.html.tmpl
-  - src/__tests__/mockserver/internal/server/templates/log/operation.html.tmpl
-  - src/__tests__/mockserver/internal/server/templates/log/style.css.tmpl
-  - src/__tests__/mockserver/internal/tracking/requesttracker.go
-  - src/__tests__/mockserver/main.go
-  - src/__tests__/testclient.ts
   - src/core.ts
   - src/funcs/dummyServiceStatus.ts
   - src/hooks/hooks.ts
