@@ -14,6 +14,7 @@ Service status
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="dummyServiceStatus" method="get" path="/status" -->
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 

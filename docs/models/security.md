@@ -5,7 +5,9 @@
 ```typescript
 import { Security } from "cribl-mgmt-plane/models";
 
-let value: Security = {};
+let value: Security = {
+  bearerAuth: "<value>",
+};
 ```
 
 ## Fields
