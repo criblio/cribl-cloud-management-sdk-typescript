@@ -2,7 +2,7 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Cribl Cloud Management API: Lorem Ipsum
+Cribl.Cloud Public API: Serves as a public API for the Cribl.Cloud platform and powers the Speakeasy SDK
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -17,6 +17,7 @@ Cribl Cloud Management API: Lorem Ipsum
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
   * [Debugging](#debugging)
 
@@ -73,12 +74,14 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
-  await criblMgmtPlane.dummyServiceStatus();
+  await criblMgmtPlane.health.getHealthStatus();
 }
 
 run();
@@ -93,21 +96,56 @@ run();
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type | Scheme      | Environment Variable         |
-| ------------ | ---- | ----------- | ---------------------------- |
-| `bearerAuth` | http | HTTP Bearer | `CRIBLMGMTPLANE_BEARER_AUTH` |
+| Name                          | Type   | Scheme                         | Environment Variable                                                                         |
+| ----------------------------- | ------ | ------------------------------ | -------------------------------------------------------------------------------------------- |
+| `clientID`<br/>`clientSecret` | oauth2 | OAuth2 Client Credentials Flow | `CRIBLMGMTPLANE_CLIENT_ID`<br/>`CRIBLMGMTPLANE_CLIENT_SECRET`<br/>`CRIBLMGMTPLANE_TOKEN_URL` |
 
-To authenticate with the API the `bearerAuth` parameter must be set when initializing the SDK client instance. For example:
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
-  await criblMgmtPlane.dummyServiceStatus();
+  await criblMgmtPlane.health.getHealthStatus();
+}
+
+run();
+
+```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```typescript
+import { CriblMgmtPlane } from "cribl-mgmt-plane";
+
+const criblMgmtPlane = new CriblMgmtPlane();
+
+async function run() {
+  const result = await criblMgmtPlane.workspaces.v1WorkspacesCreateWorkspace(
+    {},
+    {
+      organizationId: "<id>",
+      workspaceCreateRequestDTO: {
+        workspaceId: "main",
+        region: "us-west-2",
+        alias: "Production Environment",
+        description: "Main production workspace for customer data processing",
+        tags: [
+          "production",
+          "customer-data",
+        ],
+      },
+    },
+  );
+
+  console.log(result);
 }
 
 run();
@@ -121,9 +159,18 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [CriblMgmtPlane SDK](docs/sdks/criblmgmtplane/README.md)
 
-* [dummyServiceStatus](docs/sdks/criblmgmtplane/README.md#dummyservicestatus) - Service status
+### [health](docs/sdks/health/README.md)
+
+* [getHealthStatus](docs/sdks/health/README.md#gethealthstatus) - Get the health status of the application
+
+### [workspaces](docs/sdks/workspaces/README.md)
+
+* [v1WorkspacesCreateWorkspace](docs/sdks/workspaces/README.md#v1workspacescreateworkspace) - Create a new workspace
+* [v1WorkspacesListWorkspaces](docs/sdks/workspaces/README.md#v1workspaceslistworkspaces) - List all workspaces for an organization
+* [v1WorkspacesUpdateWorkspace](docs/sdks/workspaces/README.md#v1workspacesupdateworkspace) - Update an existing workspace
+* [v1WorkspacesDeleteWorkspace](docs/sdks/workspaces/README.md#v1workspacesdeleteworkspace) - Delete a workspace
+* [v1WorkspacesGetWorkspace](docs/sdks/workspaces/README.md#v1workspacesgetworkspace) - Get a specific workspace by ID
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -143,7 +190,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`dummyServiceStatus`](docs/sdks/criblmgmtplane/README.md#dummyservicestatus) - Service status
+- [`healthGetHealthStatus`](docs/sdks/health/README.md#gethealthstatus) - Get the health status of the application
+- [`workspacesV1WorkspacesCreateWorkspace`](docs/sdks/workspaces/README.md#v1workspacescreateworkspace) - Create a new workspace
+- [`workspacesV1WorkspacesDeleteWorkspace`](docs/sdks/workspaces/README.md#v1workspacesdeleteworkspace) - Delete a workspace
+- [`workspacesV1WorkspacesGetWorkspace`](docs/sdks/workspaces/README.md#v1workspacesgetworkspace) - Get a specific workspace by ID
+- [`workspacesV1WorkspacesListWorkspaces`](docs/sdks/workspaces/README.md#v1workspaceslistworkspaces) - List all workspaces for an organization
+- [`workspacesV1WorkspacesUpdateWorkspace`](docs/sdks/workspaces/README.md#v1workspacesupdateworkspace) - Update an existing workspace
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -158,12 +210,14 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
-  await criblMgmtPlane.dummyServiceStatus({
+  await criblMgmtPlane.health.getHealthStatus({
     retries: {
       strategy: "backoff",
       backoff: {
@@ -186,7 +240,6 @@ If you'd like to override the default retry strategy for all operations that sup
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://api.example.com",
   retryConfig: {
     strategy: "backoff",
     backoff: {
@@ -197,11 +250,14 @@ const criblMgmtPlane = new CriblMgmtPlane({
     },
     retryConnectionErrors: false,
   },
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
-  await criblMgmtPlane.dummyServiceStatus();
+  await criblMgmtPlane.health.getHealthStatus();
 }
 
 run();
@@ -228,13 +284,15 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 import * as errors from "cribl-mgmt-plane/models/errors";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
   try {
-    await criblMgmtPlane.dummyServiceStatus();
+    await criblMgmtPlane.health.getHealthStatus();
   } catch (error) {
     if (error instanceof errors.CriblMgmtPlaneError) {
       console.log(error.message);
@@ -270,6 +328,32 @@ run();
 
 </details>
 <!-- End Error Handling [errors] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Override Server URL Per-Client
+
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { CriblMgmtPlane } from "cribl-mgmt-plane";
+
+const criblMgmtPlane = new CriblMgmtPlane({
+  serverURL: "https://publicapi.cribl.cloud",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
+});
+
+async function run() {
+  await criblMgmtPlane.health.getHealthStatus();
+}
+
+run();
+
+```
+<!-- End Server Selection [server] -->
 
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client

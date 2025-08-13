@@ -8,7 +8,9 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type Security = {
-  bearerAuth?: string | undefined;
+  clientID?: string | undefined;
+  clientSecret?: string | undefined;
+  tokenURL?: string | undefined;
 };
 
 /** @internal */
@@ -17,12 +19,16 @@ export const Security$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  bearerAuth: z.string().optional(),
+  clientID: z.string().optional(),
+  clientSecret: z.string().optional(),
+  tokenURL: z.string().default("https://login.cribl.cloud/oauth2/token"),
 });
 
 /** @internal */
 export type Security$Outbound = {
-  bearerAuth?: string | undefined;
+  clientID?: string | undefined;
+  clientSecret?: string | undefined;
+  tokenURL: string;
 };
 
 /** @internal */
@@ -31,7 +37,9 @@ export const Security$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Security
 > = z.object({
-  bearerAuth: z.string().optional(),
+  clientID: z.string().optional(),
+  clientSecret: z.string().optional(),
+  tokenURL: z.string().default("https://login.cribl.cloud/oauth2/token"),
 });
 
 /**

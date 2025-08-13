@@ -8,18 +8,20 @@ dotenv.config();
  * Example usage of the cribl-mgmt-plane SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx dummyServiceStatus.ts
+ * npm run build && npx tsx healthGetHealthStatus.ts
  */
 
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function main() {
-  await criblMgmtPlane.dummyServiceStatus();
+  await criblMgmtPlane.getHealthStatus();
 }
 
 main().catch(console.error);
