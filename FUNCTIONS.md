@@ -20,22 +20,24 @@ specific category of applications.
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { dummyServiceStatus } from "cribl-mgmt-plane/funcs/dummyServiceStatus.js";
+import { healthGetHealthStatus } from "cribl-mgmt-plane/funcs/healthGetHealthStatus.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const criblMgmtPlane = new CriblMgmtPlaneCore({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
-  const res = await dummyServiceStatus(criblMgmtPlane);
+  const res = await healthGetHealthStatus(criblMgmtPlane);
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("dummyServiceStatus failed:", res.error);
+    console.log("healthGetHealthStatus failed:", res.error);
   }
 }
 
