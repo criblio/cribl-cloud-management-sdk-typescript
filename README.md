@@ -81,7 +81,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.getHealthStatus();
+  await criblMgmtPlane.health.get();
 }
 
 run();
@@ -112,7 +112,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.getHealthStatus();
+  await criblMgmtPlane.health.get();
 }
 
 run();
@@ -128,22 +128,19 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 const criblMgmtPlane = new CriblMgmtPlane();
 
 async function run() {
-  const result = await criblMgmtPlane.workspaces.v1WorkspacesCreateWorkspace(
-    {},
-    {
-      organizationId: "<id>",
-      workspaceCreateRequestDTO: {
-        workspaceId: "main",
-        region: "us-west-2",
-        alias: "Production Environment",
-        description: "Main production workspace for customer data processing",
-        tags: [
-          "production",
-          "customer-data",
-        ],
-      },
+  const result = await criblMgmtPlane.workspaces.create({}, {
+    organizationId: "<id>",
+    workspaceCreateRequestDTO: {
+      workspaceId: "main",
+      region: "us-west-2",
+      alias: "Production Environment",
+      description: "Main production workspace for customer data processing",
+      tags: [
+        "production",
+        "customer-data",
+      ],
     },
-  );
+  });
 
   console.log(result);
 }
@@ -162,15 +159,15 @@ run();
 
 ### [health](docs/sdks/health/README.md)
 
-* [getHealthStatus](docs/sdks/health/README.md#gethealthstatus) - Get the health status of the application
+* [get](docs/sdks/health/README.md#get) - Get the health status of the application
 
 ### [workspaces](docs/sdks/workspaces/README.md)
 
-* [v1WorkspacesCreateWorkspace](docs/sdks/workspaces/README.md#v1workspacescreateworkspace) - Create a new workspace
-* [v1WorkspacesListWorkspaces](docs/sdks/workspaces/README.md#v1workspaceslistworkspaces) - List all workspaces for an organization
-* [v1WorkspacesUpdateWorkspace](docs/sdks/workspaces/README.md#v1workspacesupdateworkspace) - Update an existing workspace
-* [v1WorkspacesDeleteWorkspace](docs/sdks/workspaces/README.md#v1workspacesdeleteworkspace) - Delete a workspace
-* [v1WorkspacesGetWorkspace](docs/sdks/workspaces/README.md#v1workspacesgetworkspace) - Get a specific workspace by ID
+* [create](docs/sdks/workspaces/README.md#create) - Create a new workspace
+* [list](docs/sdks/workspaces/README.md#list) - List all workspaces for an organization
+* [update](docs/sdks/workspaces/README.md#update) - Update an existing workspace
+* [delete](docs/sdks/workspaces/README.md#delete) - Delete a workspace
+* [get](docs/sdks/workspaces/README.md#get) - Get a specific workspace by ID
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -190,12 +187,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`healthGetHealthStatus`](docs/sdks/health/README.md#gethealthstatus) - Get the health status of the application
-- [`workspacesV1WorkspacesCreateWorkspace`](docs/sdks/workspaces/README.md#v1workspacescreateworkspace) - Create a new workspace
-- [`workspacesV1WorkspacesDeleteWorkspace`](docs/sdks/workspaces/README.md#v1workspacesdeleteworkspace) - Delete a workspace
-- [`workspacesV1WorkspacesGetWorkspace`](docs/sdks/workspaces/README.md#v1workspacesgetworkspace) - Get a specific workspace by ID
-- [`workspacesV1WorkspacesListWorkspaces`](docs/sdks/workspaces/README.md#v1workspaceslistworkspaces) - List all workspaces for an organization
-- [`workspacesV1WorkspacesUpdateWorkspace`](docs/sdks/workspaces/README.md#v1workspacesupdateworkspace) - Update an existing workspace
+- [`healthGet`](docs/sdks/health/README.md#get) - Get the health status of the application
+- [`workspacesCreate`](docs/sdks/workspaces/README.md#create) - Create a new workspace
+- [`workspacesDelete`](docs/sdks/workspaces/README.md#delete) - Delete a workspace
+- [`workspacesGet`](docs/sdks/workspaces/README.md#get) - Get a specific workspace by ID
+- [`workspacesList`](docs/sdks/workspaces/README.md#list) - List all workspaces for an organization
+- [`workspacesUpdate`](docs/sdks/workspaces/README.md#update) - Update an existing workspace
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -217,7 +214,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.getHealthStatus({
+  await criblMgmtPlane.health.get({
     retries: {
       strategy: "backoff",
       backoff: {
@@ -257,7 +254,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.getHealthStatus();
+  await criblMgmtPlane.health.get();
 }
 
 run();
@@ -292,7 +289,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 
 async function run() {
   try {
-    await criblMgmtPlane.health.getHealthStatus();
+    await criblMgmtPlane.health.get();
   } catch (error) {
     if (error instanceof errors.CriblMgmtPlaneError) {
       console.log(error.message);
@@ -347,7 +344,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.getHealthStatus();
+  await criblMgmtPlane.health.get();
 }
 
 run();

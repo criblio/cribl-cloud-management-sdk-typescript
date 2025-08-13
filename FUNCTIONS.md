@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { healthGetHealthStatus } from "cribl-mgmt-plane/funcs/healthGetHealthStatus.js";
+import { healthGet } from "cribl-mgmt-plane/funcs/healthGet.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -32,12 +32,12 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
 });
 
 async function run() {
-  const res = await healthGetHealthStatus(criblMgmtPlane);
+  const res = await healthGet(criblMgmtPlane);
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("healthGetHealthStatus failed:", res.error);
+    console.log("healthGet failed:", res.error);
   }
 }
 

@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the cribl-mgmt-plane SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx healthGetHealthStatus.ts
+ * npm run build && npx tsx healthGet.ts
  */
 
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
@@ -21,7 +21,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function main() {
-  await criblMgmtPlane.getHealthStatus();
+  await criblMgmtPlane.get();
 }
 
 main().catch(console.error);

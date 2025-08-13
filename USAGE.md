@@ -10,7 +10,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.getHealthStatus();
+  await criblMgmtPlane.health.get();
 }
 
 run();

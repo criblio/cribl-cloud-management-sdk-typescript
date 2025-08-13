@@ -5,13 +5,13 @@
 
 ### Available Operations
 
-* [v1WorkspacesCreateWorkspace](#v1workspacescreateworkspace) - Create a new workspace
-* [v1WorkspacesListWorkspaces](#v1workspaceslistworkspaces) - List all workspaces for an organization
-* [v1WorkspacesUpdateWorkspace](#v1workspacesupdateworkspace) - Update an existing workspace
-* [v1WorkspacesDeleteWorkspace](#v1workspacesdeleteworkspace) - Delete a workspace
-* [v1WorkspacesGetWorkspace](#v1workspacesgetworkspace) - Get a specific workspace by ID
+* [create](#create) - Create a new workspace
+* [list](#list) - List all workspaces for an organization
+* [update](#update) - Update an existing workspace
+* [delete](#delete) - Delete a workspace
+* [get](#get) - Get a specific workspace by ID
 
-## v1WorkspacesCreateWorkspace
+## create
 
 Create a new workspace
 
@@ -23,7 +23,7 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 const criblMgmtPlane = new CriblMgmtPlane();
 
 async function run() {
-  const result = await criblMgmtPlane.workspaces.v1WorkspacesCreateWorkspace({
+  const result = await criblMgmtPlane.workspaces.create({
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -55,14 +55,14 @@ The standalone function version of this method:
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { workspacesV1WorkspacesCreateWorkspace } from "cribl-mgmt-plane/funcs/workspacesV1WorkspacesCreateWorkspace.js";
+import { workspacesCreate } from "cribl-mgmt-plane/funcs/workspacesCreate.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const criblMgmtPlane = new CriblMgmtPlaneCore();
 
 async function run() {
-  const res = await workspacesV1WorkspacesCreateWorkspace(criblMgmtPlane, {
+  const res = await workspacesCreate(criblMgmtPlane, {
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -85,7 +85,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("workspacesV1WorkspacesCreateWorkspace failed:", res.error);
+    console.log("workspacesCreate failed:", res.error);
   }
 }
 
@@ -112,7 +112,7 @@ run();
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | errors.CriblMgmtPlaneDefaultError | 4XX, 5XX                          | \*/\*                             |
 
-## v1WorkspacesListWorkspaces
+## list
 
 List all workspaces for an organization
 
@@ -124,7 +124,7 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 const criblMgmtPlane = new CriblMgmtPlane();
 
 async function run() {
-  const result = await criblMgmtPlane.workspaces.v1WorkspacesListWorkspaces({
+  const result = await criblMgmtPlane.workspaces.list({
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -146,14 +146,14 @@ The standalone function version of this method:
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { workspacesV1WorkspacesListWorkspaces } from "cribl-mgmt-plane/funcs/workspacesV1WorkspacesListWorkspaces.js";
+import { workspacesList } from "cribl-mgmt-plane/funcs/workspacesList.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const criblMgmtPlane = new CriblMgmtPlaneCore();
 
 async function run() {
-  const res = await workspacesV1WorkspacesListWorkspaces(criblMgmtPlane, {
+  const res = await workspacesList(criblMgmtPlane, {
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -166,7 +166,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("workspacesV1WorkspacesListWorkspaces failed:", res.error);
+    console.log("workspacesList failed:", res.error);
   }
 }
 
@@ -193,7 +193,7 @@ run();
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | errors.CriblMgmtPlaneDefaultError | 4XX, 5XX                          | \*/\*                             |
 
-## v1WorkspacesUpdateWorkspace
+## update
 
 Update an existing workspace
 
@@ -205,7 +205,7 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 const criblMgmtPlane = new CriblMgmtPlane();
 
 async function run() {
-  const result = await criblMgmtPlane.workspaces.v1WorkspacesUpdateWorkspace({
+  const result = await criblMgmtPlane.workspaces.update({
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -236,14 +236,14 @@ The standalone function version of this method:
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { workspacesV1WorkspacesUpdateWorkspace } from "cribl-mgmt-plane/funcs/workspacesV1WorkspacesUpdateWorkspace.js";
+import { workspacesUpdate } from "cribl-mgmt-plane/funcs/workspacesUpdate.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const criblMgmtPlane = new CriblMgmtPlaneCore();
 
 async function run() {
-  const res = await workspacesV1WorkspacesUpdateWorkspace(criblMgmtPlane, {
+  const res = await workspacesUpdate(criblMgmtPlane, {
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -265,7 +265,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("workspacesV1WorkspacesUpdateWorkspace failed:", res.error);
+    console.log("workspacesUpdate failed:", res.error);
   }
 }
 
@@ -292,7 +292,7 @@ run();
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | errors.CriblMgmtPlaneDefaultError | 4XX, 5XX                          | \*/\*                             |
 
-## v1WorkspacesDeleteWorkspace
+## delete
 
 Delete a workspace
 
@@ -304,7 +304,7 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 const criblMgmtPlane = new CriblMgmtPlane();
 
 async function run() {
-  await criblMgmtPlane.workspaces.v1WorkspacesDeleteWorkspace({
+  await criblMgmtPlane.workspaces.delete({
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -327,14 +327,14 @@ The standalone function version of this method:
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { workspacesV1WorkspacesDeleteWorkspace } from "cribl-mgmt-plane/funcs/workspacesV1WorkspacesDeleteWorkspace.js";
+import { workspacesDelete } from "cribl-mgmt-plane/funcs/workspacesDelete.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const criblMgmtPlane = new CriblMgmtPlaneCore();
 
 async function run() {
-  const res = await workspacesV1WorkspacesDeleteWorkspace(criblMgmtPlane, {
+  const res = await workspacesDelete(criblMgmtPlane, {
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -348,7 +348,7 @@ async function run() {
     const { value: result } = res;
     
   } else {
-    console.log("workspacesV1WorkspacesDeleteWorkspace failed:", res.error);
+    console.log("workspacesDelete failed:", res.error);
   }
 }
 
@@ -375,7 +375,7 @@ run();
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | errors.CriblMgmtPlaneDefaultError | 4XX, 5XX                          | \*/\*                             |
 
-## v1WorkspacesGetWorkspace
+## get
 
 Get a specific workspace by ID
 
@@ -387,7 +387,7 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 const criblMgmtPlane = new CriblMgmtPlane();
 
 async function run() {
-  const result = await criblMgmtPlane.workspaces.v1WorkspacesGetWorkspace({
+  const result = await criblMgmtPlane.workspaces.get({
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -410,14 +410,14 @@ The standalone function version of this method:
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { workspacesV1WorkspacesGetWorkspace } from "cribl-mgmt-plane/funcs/workspacesV1WorkspacesGetWorkspace.js";
+import { workspacesGet } from "cribl-mgmt-plane/funcs/workspacesGet.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const criblMgmtPlane = new CriblMgmtPlaneCore();
 
 async function run() {
-  const res = await workspacesV1WorkspacesGetWorkspace(criblMgmtPlane, {
+  const res = await workspacesGet(criblMgmtPlane, {
     oauth2: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
@@ -431,7 +431,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("workspacesV1WorkspacesGetWorkspace failed:", res.error);
+    console.log("workspacesGet failed:", res.error);
   }
 }
 

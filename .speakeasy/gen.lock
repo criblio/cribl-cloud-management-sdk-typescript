@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: 092d25eefe129dbe6756c4ac03fe85d8
+  docChecksum: 37fc7e3a855098153f60e35f034d4f01
   docVersion: "1.0"
   speakeasyVersion: 1.585.0
   generationVersion: 2.660.0
-  releaseVersion: 0.0.7
-  configChecksum: 90418861fdf6d6f34b2e6d7c90d6403b
+  releaseVersion: 0.0.8
+  configChecksum: 28c7031037f81331741fe48183ee95f8
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -21,8 +21,10 @@ features:
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
+    groups: 2.81.2
     methodArguments: 0.1.2
     methodSecurity: 2.82.6
+    nameOverrides: 2.81.2
     oauth2ClientCredentials: 0.4.1
     openEnums: 0.1.1
     responseFormat: 0.2.3
@@ -63,17 +65,17 @@ generatedFiles:
   - eslint.config.mjs
   - examples/.env.template
   - examples/README.md
-  - examples/healthGetHealthStatus.example.ts
+  - examples/healthGet.example.ts
   - examples/package.json
   - jsr.json
   - package.json
   - src/core.ts
-  - src/funcs/healthGetHealthStatus.ts
-  - src/funcs/workspacesV1WorkspacesCreateWorkspace.ts
-  - src/funcs/workspacesV1WorkspacesDeleteWorkspace.ts
-  - src/funcs/workspacesV1WorkspacesGetWorkspace.ts
-  - src/funcs/workspacesV1WorkspacesListWorkspaces.ts
-  - src/funcs/workspacesV1WorkspacesUpdateWorkspace.ts
+  - src/funcs/healthGet.ts
+  - src/funcs/workspacesCreate.ts
+  - src/funcs/workspacesDelete.ts
+  - src/funcs/workspacesGet.ts
+  - src/funcs/workspacesList.ts
+  - src/funcs/workspacesUpdate.ts
   - src/hooks/clientcredentials.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts

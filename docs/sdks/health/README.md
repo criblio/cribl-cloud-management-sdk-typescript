@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [getHealthStatus](#gethealthstatus) - Get the health status of the application
+* [get](#get) - Get the health status of the application
 
-## getHealthStatus
+## get
 
 Get the health status of the application
 
@@ -24,7 +24,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.getHealthStatus();
+  await criblMgmtPlane.health.get();
 
 
 }
@@ -38,7 +38,7 @@ The standalone function version of this method:
 
 ```typescript
 import { CriblMgmtPlaneCore } from "cribl-mgmt-plane/core.js";
-import { healthGetHealthStatus } from "cribl-mgmt-plane/funcs/healthGetHealthStatus.js";
+import { healthGet } from "cribl-mgmt-plane/funcs/healthGet.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -50,12 +50,12 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
 });
 
 async function run() {
-  const res = await healthGetHealthStatus(criblMgmtPlane);
+  const res = await healthGet(criblMgmtPlane);
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("healthGetHealthStatus failed:", res.error);
+    console.log("healthGet failed:", res.error);
   }
 }
 

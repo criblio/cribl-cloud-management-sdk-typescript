@@ -3,7 +3,7 @@
  */
 
 import { CriblMgmtPlaneCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -26,12 +26,12 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get a specific workspace by ID
+ * Update an existing workspace
  */
-export function workspacesV1WorkspacesGetWorkspace(
+export function workspacesUpdate(
   client: CriblMgmtPlaneCore,
-  security: operations.V1WorkspacesGetWorkspaceSecurity,
-  request: operations.V1WorkspacesGetWorkspaceRequest,
+  security: operations.V1WorkspacesUpdateWorkspaceSecurity,
+  request: operations.V1WorkspacesUpdateWorkspaceRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -56,8 +56,8 @@ export function workspacesV1WorkspacesGetWorkspace(
 
 async function $do(
   client: CriblMgmtPlaneCore,
-  security: operations.V1WorkspacesGetWorkspaceSecurity,
-  request: operations.V1WorkspacesGetWorkspaceRequest,
+  security: operations.V1WorkspacesUpdateWorkspaceSecurity,
+  request: operations.V1WorkspacesUpdateWorkspaceRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -78,14 +78,16 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.V1WorkspacesGetWorkspaceRequest$outboundSchema.parse(value),
+      operations.V1WorkspacesUpdateWorkspaceRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.WorkspacePatchRequestDTO, {
+    explode: true,
+  });
 
   const pathParams = {
     organizationId: encodeSimple("organizationId", payload.organizationId, {
@@ -103,6 +105,7 @@ async function $do(
   )(pathParams);
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -128,7 +131,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "v1.workspaces.getWorkspace",
+    operationID: "v1.workspaces.updateWorkspace",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -152,7 +155,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "PATCH",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,

@@ -186,16 +186,16 @@ export class ClientCredentialsHook
     }
 
     switch (hookCtx.operationID) {
-      case "v1.workspaces.createWorkspace":
-        return this.getCredentialsV1WorkspacesCreateWorkspace(security);
-      case "v1.workspaces.listWorkspaces":
-        return this.getCredentialsV1WorkspacesListWorkspaces(security);
-      case "v1.workspaces.updateWorkspace":
-        return this.getCredentialsV1WorkspacesUpdateWorkspace(security);
-      case "v1.workspaces.deleteWorkspace":
-        return this.getCredentialsV1WorkspacesDeleteWorkspace(security);
-      case "v1.workspaces.getWorkspace":
-        return this.getCredentialsV1WorkspacesGetWorkspace(security);
+      case "create":
+        return this.getCredentialsCreate(security);
+      case "list":
+        return this.getCredentialsList(security);
+      case "update":
+        return this.getCredentialsUpdate(security);
+      case "delete":
+        return this.getCredentialsDelete(security);
+      case "get":
+        return this.getCredentialsGet(security);
       default:
         return this.getCredentialsGlobal(security);
     }
@@ -218,7 +218,7 @@ export class ClientCredentialsHook
     };
   }
 
-  private async getCredentialsV1WorkspacesCreateWorkspace(
+  private async getCredentialsCreate(
     security: unknown,
   ): Promise<Credentials | null> {
     const out = parse(
@@ -238,7 +238,7 @@ export class ClientCredentialsHook
     };
   }
 
-  private async getCredentialsV1WorkspacesListWorkspaces(
+  private async getCredentialsList(
     security: unknown,
   ): Promise<Credentials | null> {
     const out = parse(
@@ -256,7 +256,7 @@ export class ClientCredentialsHook
     };
   }
 
-  private async getCredentialsV1WorkspacesUpdateWorkspace(
+  private async getCredentialsUpdate(
     security: unknown,
   ): Promise<Credentials | null> {
     const out = parse(
@@ -276,7 +276,7 @@ export class ClientCredentialsHook
     };
   }
 
-  private async getCredentialsV1WorkspacesDeleteWorkspace(
+  private async getCredentialsDelete(
     security: unknown,
   ): Promise<Credentials | null> {
     const out = parse(
@@ -296,7 +296,7 @@ export class ClientCredentialsHook
     };
   }
 
-  private async getCredentialsV1WorkspacesGetWorkspace(
+  private async getCredentialsGet(
     security: unknown,
   ): Promise<Credentials | null> {
     const out = parse(

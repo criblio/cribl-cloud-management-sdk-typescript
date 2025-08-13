@@ -3,7 +3,7 @@
  */
 
 import { CriblMgmtPlaneCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -26,16 +26,16 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * List all workspaces for an organization
+ * Create a new workspace
  */
-export function workspacesV1WorkspacesListWorkspaces(
+export function workspacesCreate(
   client: CriblMgmtPlaneCore,
-  security: operations.V1WorkspacesListWorkspacesSecurity,
-  request: operations.V1WorkspacesListWorkspacesRequest,
+  security: operations.V1WorkspacesCreateWorkspaceSecurity,
+  request: operations.V1WorkspacesCreateWorkspaceRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.WorkspacesListResponseDTO,
+    models.WorkspaceSchema,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -56,13 +56,13 @@ export function workspacesV1WorkspacesListWorkspaces(
 
 async function $do(
   client: CriblMgmtPlaneCore,
-  security: operations.V1WorkspacesListWorkspacesSecurity,
-  request: operations.V1WorkspacesListWorkspacesRequest,
+  security: operations.V1WorkspacesCreateWorkspaceSecurity,
+  request: operations.V1WorkspacesCreateWorkspaceRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.WorkspacesListResponseDTO,
+      models.WorkspaceSchema,
       | CriblMgmtPlaneError
       | ResponseValidationError
       | ConnectionError
@@ -78,14 +78,16 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.V1WorkspacesListWorkspacesRequest$outboundSchema.parse(value),
+      operations.V1WorkspacesCreateWorkspaceRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.WorkspaceCreateRequestDTO, {
+    explode: true,
+  });
 
   const pathParams = {
     organizationId: encodeSimple("organizationId", payload.organizationId, {
@@ -99,6 +101,7 @@ async function $do(
   );
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -124,7 +127,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "v1.workspaces.listWorkspaces",
+    operationID: "v1.workspaces.createWorkspace",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -148,7 +151,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -173,7 +176,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.WorkspacesListResponseDTO,
+    models.WorkspaceSchema,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -183,7 +186,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.WorkspacesListResponseDTO$inboundSchema),
+    M.json(201, models.WorkspaceSchema$inboundSchema),
     M.fail("4XX"),
     M.fail([500, "5XX"]),
   )(response, req);
