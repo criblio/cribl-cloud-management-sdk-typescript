@@ -3,12 +3,14 @@
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["CRIBLMGMTPLANE_BEARER_AUTH"] ?? "",
+  security: {
+    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
-  await criblMgmtPlane.dummyServiceStatus();
+  await criblMgmtPlane.health.getHealthStatus();
 }
 
 run();

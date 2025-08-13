@@ -242,9 +242,14 @@ export function resolveGlobalSecurity(
   return resolveSecurity(
     [
       {
-        fieldName: "Authorization",
-        type: "http:bearer",
-        value: security?.bearerAuth ?? env().CRIBLMGMTPLANE_BEARER_AUTH,
+        fieldName: "clientID",
+        type: "oauth2:client_credentials",
+        value: security?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID,
+      },
+      {
+        fieldName: "clientSecret",
+        type: "oauth2:client_credentials",
+        value: security?.clientSecret ?? env().CRIBLMGMTPLANE_CLIENT_SECRET,
       },
     ],
   );
