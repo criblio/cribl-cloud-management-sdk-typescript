@@ -28,7 +28,7 @@ import { Result } from "../types/fp.js";
 /**
  * Delete a workspace
  */
-export function workspacesV1WorkspacesDeleteWorkspace(
+export function workspacesDelete(
   client: CriblMgmtPlaneCore,
   security: operations.V1WorkspacesDeleteWorkspaceSecurity,
   request: operations.V1WorkspacesDeleteWorkspaceRequest,
