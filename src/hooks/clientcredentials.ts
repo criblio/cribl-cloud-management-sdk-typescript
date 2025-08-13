@@ -259,6 +259,7 @@ export class ClientCredentialsHook
       clientSecret: out?.oauth2?.clientSecret
         ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
       tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
+      audience: getAudience("https://publicapi.cribl.cloud"),
     };
   }
 
@@ -277,6 +278,7 @@ export class ClientCredentialsHook
       clientSecret: out?.oauth2?.clientSecret
         ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
       tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
+      audience: getAudience("https://publicapi.cribl.cloud"),
     };
   }
 
@@ -297,6 +299,7 @@ export class ClientCredentialsHook
       clientSecret: out?.oauth2?.clientSecret
         ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
       tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
+      audience: getAudience("https://publicapi.cribl.cloud"),
     };
   }
 
@@ -317,6 +320,7 @@ export class ClientCredentialsHook
       clientSecret: out?.oauth2?.clientSecret
         ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
       tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
+      audience: getAudience("https://publicapi.cribl.cloud"),
     };
   }
 
@@ -335,6 +339,7 @@ export class ClientCredentialsHook
       clientSecret: out?.oauth2?.clientSecret
         ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
       tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
+      audience: getAudience("https://publicapi.cribl.cloud"),
     };
   }
 
