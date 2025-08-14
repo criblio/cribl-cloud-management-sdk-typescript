@@ -26,8 +26,11 @@ import { healthGet } from "cribl-mgmt-plane/funcs/healthGet.js";
 // You can create one instance of it to use across an application.
 const criblMgmtPlane = new CriblMgmtPlaneCore({
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 

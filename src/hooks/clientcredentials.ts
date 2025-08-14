@@ -8,7 +8,6 @@ import { env } from "../lib/env.js";
 import { HTTPClient } from "../lib/http.js";
 import { parse } from "../lib/schemas.js";
 import * as models from "../models/index.js";
-import * as operations from "../models/operations/index.js";
 import {
   AfterErrorContext,
   AfterErrorHook,
@@ -185,20 +184,7 @@ export class ClientCredentialsHook
       security = await source();
     }
 
-    switch (hookCtx.operationID) {
-      case "create":
-        return this.getCredentialsCreate(security);
-      case "list":
-        return this.getCredentialsList(security);
-      case "update":
-        return this.getCredentialsUpdate(security);
-      case "delete":
-        return this.getCredentialsDelete(security);
-      case "get":
-        return this.getCredentialsGet(security);
-      default:
-        return this.getCredentialsGlobal(security);
-    }
+    return this.getCredentialsGlobal(security);
   }
 
   private async getCredentialsGlobal(
@@ -211,106 +197,12 @@ export class ClientCredentialsHook
     );
 
     return {
-      clientID: out?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID ?? "",
-      clientSecret: out?.clientSecret ?? env().CRIBLMGMTPLANE_CLIENT_SECRET
+      clientID: out?.clientOauth?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID
         ?? "",
-      tokenURL: out?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
-    };
-  }
-
-  private async getCredentialsCreate(
-    security: unknown,
-  ): Promise<Credentials | null> {
-    const out = parse(
-      security,
-      (val) =>
-        operations.V1WorkspacesCreateWorkspaceSecurity$outboundSchema.parse(
-          val,
-        ),
-      "unexpected security type",
-    );
-
-    return {
-      clientID: out?.oauth2?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID ?? "",
-      clientSecret: out?.oauth2?.clientSecret
+      clientSecret: out?.clientOauth?.clientSecret
         ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
-      tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
-    };
-  }
-
-  private async getCredentialsList(
-    security: unknown,
-  ): Promise<Credentials | null> {
-    const out = parse(
-      security,
-      (val) =>
-        operations.V1WorkspacesListWorkspacesSecurity$outboundSchema.parse(val),
-      "unexpected security type",
-    );
-
-    return {
-      clientID: out?.oauth2?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID ?? "",
-      clientSecret: out?.oauth2?.clientSecret
-        ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
-      tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
-    };
-  }
-
-  private async getCredentialsUpdate(
-    security: unknown,
-  ): Promise<Credentials | null> {
-    const out = parse(
-      security,
-      (val) =>
-        operations.V1WorkspacesUpdateWorkspaceSecurity$outboundSchema.parse(
-          val,
-        ),
-      "unexpected security type",
-    );
-
-    return {
-      clientID: out?.oauth2?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID ?? "",
-      clientSecret: out?.oauth2?.clientSecret
-        ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
-      tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
-    };
-  }
-
-  private async getCredentialsDelete(
-    security: unknown,
-  ): Promise<Credentials | null> {
-    const out = parse(
-      security,
-      (val) =>
-        operations.V1WorkspacesDeleteWorkspaceSecurity$outboundSchema.parse(
-          val,
-        ),
-      "unexpected security type",
-    );
-
-    return {
-      clientID: out?.oauth2?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID ?? "",
-      clientSecret: out?.oauth2?.clientSecret
-        ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
-      tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
-    };
-  }
-
-  private async getCredentialsGet(
-    security: unknown,
-  ): Promise<Credentials | null> {
-    const out = parse(
-      security,
-      (val) =>
-        operations.V1WorkspacesGetWorkspaceSecurity$outboundSchema.parse(val),
-      "unexpected security type",
-    );
-
-    return {
-      clientID: out?.oauth2?.clientID ?? env().CRIBLMGMTPLANE_CLIENT_ID ?? "",
-      clientSecret: out?.oauth2?.clientSecret
-        ?? env().CRIBLMGMTPLANE_CLIENT_SECRET ?? "",
-      tokenURL: out?.oauth2?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL ?? "",
+      tokenURL: out?.clientOauth?.tokenURL ?? env().CRIBLMGMTPLANE_TOKEN_URL
+        ?? "",
     };
   }
 

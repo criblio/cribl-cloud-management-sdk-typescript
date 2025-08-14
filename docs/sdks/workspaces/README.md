@@ -20,16 +20,18 @@ Create a new workspace
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
-const criblMgmtPlane = new CriblMgmtPlane();
-
-async function run() {
-  const result = await criblMgmtPlane.workspaces.create({
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlane({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const result = await criblMgmtPlane.workspaces.create({
     organizationId: "<id>",
     workspaceCreateRequestDTO: {
       workspaceId: "main",
@@ -59,16 +61,18 @@ import { workspacesCreate } from "cribl-mgmt-plane/funcs/workspacesCreate.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const criblMgmtPlane = new CriblMgmtPlaneCore();
-
-async function run() {
-  const res = await workspacesCreate(criblMgmtPlane, {
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlaneCore({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const res = await workspacesCreate(criblMgmtPlane, {
     organizationId: "<id>",
     workspaceCreateRequestDTO: {
       workspaceId: "main",
@@ -97,7 +101,6 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.V1WorkspacesCreateWorkspaceRequest](../../models/operations/v1workspacescreateworkspacerequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.V1WorkspacesCreateWorkspaceSecurity](../../models/operations/v1workspacescreateworkspacesecurity.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -121,16 +124,18 @@ List all workspaces for an organization
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
-const criblMgmtPlane = new CriblMgmtPlane();
-
-async function run() {
-  const result = await criblMgmtPlane.workspaces.list({
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlane({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const result = await criblMgmtPlane.workspaces.list({
     organizationId: "<id>",
   });
 
@@ -150,16 +155,18 @@ import { workspacesList } from "cribl-mgmt-plane/funcs/workspacesList.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const criblMgmtPlane = new CriblMgmtPlaneCore();
-
-async function run() {
-  const res = await workspacesList(criblMgmtPlane, {
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlaneCore({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const res = await workspacesList(criblMgmtPlane, {
     organizationId: "<id>",
   });
   if (res.ok) {
@@ -178,7 +185,6 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.V1WorkspacesListWorkspacesRequest](../../models/operations/v1workspaceslistworkspacesrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.V1WorkspacesListWorkspacesSecurity](../../models/operations/v1workspaceslistworkspacessecurity.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -202,16 +208,18 @@ Update an existing workspace
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
-const criblMgmtPlane = new CriblMgmtPlane();
-
-async function run() {
-  const result = await criblMgmtPlane.workspaces.update({
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlane({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const result = await criblMgmtPlane.workspaces.update({
     organizationId: "<id>",
     workspaceId: "<id>",
     workspacePatchRequestDTO: {
@@ -240,16 +248,18 @@ import { workspacesUpdate } from "cribl-mgmt-plane/funcs/workspacesUpdate.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const criblMgmtPlane = new CriblMgmtPlaneCore();
-
-async function run() {
-  const res = await workspacesUpdate(criblMgmtPlane, {
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlaneCore({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const res = await workspacesUpdate(criblMgmtPlane, {
     organizationId: "<id>",
     workspaceId: "<id>",
     workspacePatchRequestDTO: {
@@ -277,7 +287,6 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.V1WorkspacesUpdateWorkspaceRequest](../../models/operations/v1workspacesupdateworkspacerequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.V1WorkspacesUpdateWorkspaceSecurity](../../models/operations/v1workspacesupdateworkspacesecurity.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -301,16 +310,18 @@ Delete a workspace
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
-const criblMgmtPlane = new CriblMgmtPlane();
-
-async function run() {
-  await criblMgmtPlane.workspaces.delete({
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlane({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  await criblMgmtPlane.workspaces.delete({
     organizationId: "<id>",
     workspaceId: "<id>",
   });
@@ -331,16 +342,18 @@ import { workspacesDelete } from "cribl-mgmt-plane/funcs/workspacesDelete.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const criblMgmtPlane = new CriblMgmtPlaneCore();
-
-async function run() {
-  const res = await workspacesDelete(criblMgmtPlane, {
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlaneCore({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const res = await workspacesDelete(criblMgmtPlane, {
     organizationId: "<id>",
     workspaceId: "<id>",
   });
@@ -360,7 +373,6 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.V1WorkspacesDeleteWorkspaceRequest](../../models/operations/v1workspacesdeleteworkspacerequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.V1WorkspacesDeleteWorkspaceSecurity](../../models/operations/v1workspacesdeleteworkspacesecurity.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -384,16 +396,18 @@ Get a specific workspace by ID
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
-const criblMgmtPlane = new CriblMgmtPlane();
-
-async function run() {
-  const result = await criblMgmtPlane.workspaces.get({
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlane({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const result = await criblMgmtPlane.workspaces.get({
     organizationId: "<id>",
     workspaceId: "<id>",
   });
@@ -414,16 +428,18 @@ import { workspacesGet } from "cribl-mgmt-plane/funcs/workspacesGet.js";
 
 // Use `CriblMgmtPlaneCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const criblMgmtPlane = new CriblMgmtPlaneCore();
-
-async function run() {
-  const res = await workspacesGet(criblMgmtPlane, {
-    oauth2: {
+const criblMgmtPlane = new CriblMgmtPlaneCore({
+  security: {
+    clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
     },
-  }, {
+  },
+});
+
+async function run() {
+  const res = await workspacesGet(criblMgmtPlane, {
     organizationId: "<id>",
     workspaceId: "<id>",
   });
@@ -443,7 +459,6 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.V1WorkspacesGetWorkspaceRequest](../../models/operations/v1workspacesgetworkspacerequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.V1WorkspacesGetWorkspaceSecurity](../../models/operations/v1workspacesgetworkspacesecurity.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

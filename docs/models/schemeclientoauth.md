@@ -1,11 +1,11 @@
-# SchemeOauth2
+# SchemeClientOauth
 
 ## Example Usage
 
 ```typescript
-import { SchemeOauth2 } from "cribl-mgmt-plane/models";
+import { SchemeClientOauth } from "cribl-mgmt-plane/models";
 
-let value: SchemeOauth2 = {
+let value: SchemeClientOauth = {
   clientID: "<id>",
   clientSecret: "<value>",
 };

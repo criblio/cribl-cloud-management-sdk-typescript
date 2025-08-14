@@ -6,15 +6,17 @@
 import { Security } from "cribl-mgmt-plane/models";
 
 let value: Security = {
-  clientID: "<id>",
-  clientSecret: "<value>",
+  clientOauth: {
+    clientID: "<id>",
+    clientSecret: "<value>",
+  },
+  bearerAuth: "<value>",
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `clientID`         | *string*           | :heavy_minus_sign: | N/A                |
-| `clientSecret`     | *string*           | :heavy_minus_sign: | N/A                |
-| `tokenURL`         | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                                      | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `clientOauth`                                              | [models.SchemeClientOauth](../models/schemeclientoauth.md) | :heavy_minus_sign:                                         | N/A                                                        |
+| `bearerAuth`                                               | *string*                                                   | :heavy_minus_sign:                                         | N/A                                                        |

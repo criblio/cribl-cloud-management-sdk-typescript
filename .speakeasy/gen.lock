@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: 37fc7e3a855098153f60e35f034d4f01
+  docChecksum: ed3a691b3bbb76c9367641dc92a71ced
   docVersion: "1.0"
   speakeasyVersion: 1.585.0
   generationVersion: 2.660.0
-  releaseVersion: 0.0.8
-  configChecksum: 28c7031037f81331741fe48183ee95f8
+  releaseVersion: 0.0.9
+  configChecksum: 8f03a725d3399faa55b3da256eec5f4b
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -23,7 +23,6 @@ features:
     globalServerURLs: 2.82.5
     groups: 2.81.2
     methodArguments: 0.1.2
-    methodSecurity: 2.82.6
     nameOverrides: 2.81.2
     oauth2ClientCredentials: 0.4.1
     openEnums: 0.1.1
@@ -41,16 +40,11 @@ generatedFiles:
   - USAGE.md
   - docs/lib/utils/retryconfig.md
   - docs/models/operations/v1workspacescreateworkspacerequest.md
-  - docs/models/operations/v1workspacescreateworkspacesecurity.md
   - docs/models/operations/v1workspacesdeleteworkspacerequest.md
-  - docs/models/operations/v1workspacesdeleteworkspacesecurity.md
   - docs/models/operations/v1workspacesgetworkspacerequest.md
-  - docs/models/operations/v1workspacesgetworkspacesecurity.md
   - docs/models/operations/v1workspaceslistworkspacesrequest.md
-  - docs/models/operations/v1workspaceslistworkspacessecurity.md
   - docs/models/operations/v1workspacesupdateworkspacerequest.md
-  - docs/models/operations/v1workspacesupdateworkspacesecurity.md
-  - docs/models/schemeoauth2.md
+  - docs/models/schemeclientoauth.md
   - docs/models/security.md
   - docs/models/state.md
   - docs/models/workspacecreaterequestdto.md
@@ -110,7 +104,7 @@ generatedFiles:
   - src/models/operations/v1workspacesgetworkspace.ts
   - src/models/operations/v1workspaceslistworkspaces.ts
   - src/models/operations/v1workspacesupdateworkspace.ts
-  - src/models/schemeoauth2.ts
+  - src/models/schemeclientoauth.ts
   - src/models/security.ts
   - src/models/workspacecreaterequestdto.ts
   - src/models/workspacepatchrequestdto.ts

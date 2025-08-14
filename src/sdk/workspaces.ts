@@ -17,13 +17,11 @@ export class Workspaces extends ClientSDK {
    * Create a new workspace
    */
   async create(
-    security: operations.V1WorkspacesCreateWorkspaceSecurity,
     request: operations.V1WorkspacesCreateWorkspaceRequest,
     options?: RequestOptions,
   ): Promise<models.WorkspaceSchema> {
     return unwrapAsync(workspacesCreate(
       this,
-      security,
       request,
       options,
     ));
@@ -33,13 +31,11 @@ export class Workspaces extends ClientSDK {
    * List all workspaces for an organization
    */
   async list(
-    security: operations.V1WorkspacesListWorkspacesSecurity,
     request: operations.V1WorkspacesListWorkspacesRequest,
     options?: RequestOptions,
   ): Promise<models.WorkspacesListResponseDTO> {
     return unwrapAsync(workspacesList(
       this,
-      security,
       request,
       options,
     ));
@@ -49,13 +45,11 @@ export class Workspaces extends ClientSDK {
    * Update an existing workspace
    */
   async update(
-    security: operations.V1WorkspacesUpdateWorkspaceSecurity,
     request: operations.V1WorkspacesUpdateWorkspaceRequest,
     options?: RequestOptions,
   ): Promise<models.WorkspaceSchema> {
     return unwrapAsync(workspacesUpdate(
       this,
-      security,
       request,
       options,
     ));
@@ -65,13 +59,11 @@ export class Workspaces extends ClientSDK {
    * Delete a workspace
    */
   async delete(
-    security: operations.V1WorkspacesDeleteWorkspaceSecurity,
     request: operations.V1WorkspacesDeleteWorkspaceRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(workspacesDelete(
       this,
-      security,
       request,
       options,
     ));
@@ -81,13 +73,11 @@ export class Workspaces extends ClientSDK {
    * Get a specific workspace by ID
    */
   async get(
-    security: operations.V1WorkspacesGetWorkspaceSecurity,
     request: operations.V1WorkspacesGetWorkspaceRequest,
     options?: RequestOptions,
   ): Promise<models.WorkspaceSchema> {
     return unwrapAsync(workspacesGet(
       this,
-      security,
       request,
       options,
     ));

@@ -15,8 +15,11 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 

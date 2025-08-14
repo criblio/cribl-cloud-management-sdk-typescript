@@ -75,8 +75,11 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 
@@ -94,55 +97,29 @@ run();
 
 ### Per-Client Security Schemes
 
-This SDK supports the following security scheme globally:
+This SDK supports the following security schemes globally:
 
-| Name                          | Type   | Scheme                         | Environment Variable                                                                         |
-| ----------------------------- | ------ | ------------------------------ | -------------------------------------------------------------------------------------------- |
-| `clientID`<br/>`clientSecret` | oauth2 | OAuth2 Client Credentials Flow | `CRIBLMGMTPLANE_CLIENT_ID`<br/>`CRIBLMGMTPLANE_CLIENT_SECRET`<br/>`CRIBLMGMTPLANE_TOKEN_URL` |
+| Name          | Type   | Scheme       | Environment Variable          |
+| ------------- | ------ | ------------ | ----------------------------- |
+| `clientOauth` | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_CLIENT_OAUTH` |
+| `bearerAuth`  | http   | HTTP Bearer  | `CRIBLMGMTPLANE_BEARER_AUTH`  |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 
 async function run() {
   await criblMgmtPlane.health.get();
-}
-
-run();
-
-```
-
-### Per-Operation Security Schemes
-
-Some operations in this SDK require the security scheme to be specified at the request level. For example:
-```typescript
-import { CriblMgmtPlane } from "cribl-mgmt-plane";
-
-const criblMgmtPlane = new CriblMgmtPlane();
-
-async function run() {
-  const result = await criblMgmtPlane.workspaces.create({}, {
-    organizationId: "<id>",
-    workspaceCreateRequestDTO: {
-      workspaceId: "main",
-      region: "us-west-2",
-      alias: "Production Environment",
-      description: "Main production workspace for customer data processing",
-      tags: [
-        "production",
-        "customer-data",
-      ],
-    },
-  });
-
-  console.log(result);
 }
 
 run();
@@ -208,8 +185,11 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 
@@ -248,8 +228,11 @@ const criblMgmtPlane = new CriblMgmtPlane({
     retryConnectionErrors: false,
   },
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 
@@ -282,8 +265,11 @@ import * as errors from "cribl-mgmt-plane/models/errors";
 
 const criblMgmtPlane = new CriblMgmtPlane({
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 
@@ -338,8 +324,11 @@ import { CriblMgmtPlane } from "cribl-mgmt-plane";
 const criblMgmtPlane = new CriblMgmtPlane({
   serverURL: "https://publicapi.cribl.cloud",
   security: {
-    clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
-    clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+    clientOauth: {
+      clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+    },
   },
 });
 
