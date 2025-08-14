@@ -6,12 +6,6 @@ import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import * as models from "../index.js";
-
-export type V1WorkspacesGetWorkspaceSecurity = {
-  oauth2?: models.SchemeOauth2 | undefined;
-  bearer?: string | undefined;
-};
 
 export type V1WorkspacesGetWorkspaceRequest = {
   /**
@@ -23,65 +17,6 @@ export type V1WorkspacesGetWorkspaceRequest = {
    */
   workspaceId: string;
 };
-
-/** @internal */
-export const V1WorkspacesGetWorkspaceSecurity$inboundSchema: z.ZodType<
-  V1WorkspacesGetWorkspaceSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  oauth2: models.SchemeOauth2$inboundSchema.optional(),
-  bearer: z.string().optional(),
-});
-
-/** @internal */
-export type V1WorkspacesGetWorkspaceSecurity$Outbound = {
-  oauth2?: models.SchemeOauth2$Outbound | undefined;
-  bearer?: string | undefined;
-};
-
-/** @internal */
-export const V1WorkspacesGetWorkspaceSecurity$outboundSchema: z.ZodType<
-  V1WorkspacesGetWorkspaceSecurity$Outbound,
-  z.ZodTypeDef,
-  V1WorkspacesGetWorkspaceSecurity
-> = z.object({
-  oauth2: models.SchemeOauth2$outboundSchema.optional(),
-  bearer: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace V1WorkspacesGetWorkspaceSecurity$ {
-  /** @deprecated use `V1WorkspacesGetWorkspaceSecurity$inboundSchema` instead. */
-  export const inboundSchema = V1WorkspacesGetWorkspaceSecurity$inboundSchema;
-  /** @deprecated use `V1WorkspacesGetWorkspaceSecurity$outboundSchema` instead. */
-  export const outboundSchema = V1WorkspacesGetWorkspaceSecurity$outboundSchema;
-  /** @deprecated use `V1WorkspacesGetWorkspaceSecurity$Outbound` instead. */
-  export type Outbound = V1WorkspacesGetWorkspaceSecurity$Outbound;
-}
-
-export function v1WorkspacesGetWorkspaceSecurityToJSON(
-  v1WorkspacesGetWorkspaceSecurity: V1WorkspacesGetWorkspaceSecurity,
-): string {
-  return JSON.stringify(
-    V1WorkspacesGetWorkspaceSecurity$outboundSchema.parse(
-      v1WorkspacesGetWorkspaceSecurity,
-    ),
-  );
-}
-
-export function v1WorkspacesGetWorkspaceSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<V1WorkspacesGetWorkspaceSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => V1WorkspacesGetWorkspaceSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'V1WorkspacesGetWorkspaceSecurity' from JSON`,
-  );
-}
 
 /** @internal */
 export const V1WorkspacesGetWorkspaceRequest$inboundSchema: z.ZodType<

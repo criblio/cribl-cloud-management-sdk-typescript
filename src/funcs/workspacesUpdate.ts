@@ -8,7 +8,7 @@ import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { resolveSecurity } from "../lib/security.js";
+import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import { CriblMgmtPlaneError } from "../models/errors/criblmgmtplaneerror.js";
 import {
@@ -30,7 +30,6 @@ import { Result } from "../types/fp.js";
  */
 export function workspacesUpdate(
   client: CriblMgmtPlaneCore,
-  security: operations.V1WorkspacesUpdateWorkspaceSecurity,
   request: operations.V1WorkspacesUpdateWorkspaceRequest,
   options?: RequestOptions,
 ): APIPromise<
@@ -48,7 +47,6 @@ export function workspacesUpdate(
 > {
   return new APIPromise($do(
     client,
-    security,
     request,
     options,
   ));
@@ -56,7 +54,6 @@ export function workspacesUpdate(
 
 async function $do(
   client: CriblMgmtPlaneCore,
-  security: operations.V1WorkspacesUpdateWorkspaceSecurity,
   request: operations.V1WorkspacesUpdateWorkspaceRequest,
   options?: RequestOptions,
 ): Promise<
@@ -109,24 +106,8 @@ async function $do(
     Accept: "application/json",
   }));
 
-  const requestSecurity = resolveSecurity(
-    [
-      {
-        type: "oauth2:client_credentials",
-        value: {
-          clientID: security?.oauth2?.clientID,
-          clientSecret: security?.oauth2?.clientSecret,
-        },
-      },
-    ],
-    [
-      {
-        fieldName: "Authorization",
-        type: "http:bearer",
-        value: security?.bearer,
-      },
-    ],
-  );
+  const securityInput = await extractSecurity(client._options.security);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
     options: client._options,
@@ -136,7 +117,7 @@ async function $do(
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: security,
+    securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig
       || {
