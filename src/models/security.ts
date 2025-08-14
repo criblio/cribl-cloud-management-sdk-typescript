@@ -6,11 +6,16 @@ import * as z from "zod";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
+import {
+  SchemeClientOauth,
+  SchemeClientOauth$inboundSchema,
+  SchemeClientOauth$Outbound,
+  SchemeClientOauth$outboundSchema,
+} from "./schemeclientoauth.js";
 
 export type Security = {
-  clientID?: string | undefined;
-  clientSecret?: string | undefined;
-  tokenURL?: string | undefined;
+  clientOauth?: SchemeClientOauth | undefined;
+  bearerAuth?: string | undefined;
 };
 
 /** @internal */
@@ -19,16 +24,14 @@ export const Security$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  clientID: z.string().optional(),
-  clientSecret: z.string().optional(),
-  tokenURL: z.string().default("https://login.cribl.cloud/oauth2/token"),
+  clientOauth: SchemeClientOauth$inboundSchema.optional(),
+  bearerAuth: z.string().optional(),
 });
 
 /** @internal */
 export type Security$Outbound = {
-  clientID?: string | undefined;
-  clientSecret?: string | undefined;
-  tokenURL: string;
+  clientOauth?: SchemeClientOauth$Outbound | undefined;
+  bearerAuth?: string | undefined;
 };
 
 /** @internal */
@@ -37,9 +40,8 @@ export const Security$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Security
 > = z.object({
-  clientID: z.string().optional(),
-  clientSecret: z.string().optional(),
-  tokenURL: z.string().default("https://login.cribl.cloud/oauth2/token"),
+  clientOauth: SchemeClientOauth$outboundSchema.optional(),
+  bearerAuth: z.string().optional(),
 });
 
 /**
