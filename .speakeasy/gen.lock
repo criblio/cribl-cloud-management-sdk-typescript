@@ -5,8 +5,8 @@ management:
   docVersion: "1.0"
   speakeasyVersion: 1.585.0
   generationVersion: 2.660.0
-  releaseVersion: 0.0.9
-  configChecksum: 8f03a725d3399faa55b3da256eec5f4b
+  releaseVersion: 0.0.10
+  configChecksum: 721d678633dc3685fd1d68c374763ceb
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -70,7 +70,6 @@ generatedFiles:
   - src/funcs/workspacesGet.ts
   - src/funcs/workspacesList.ts
   - src/funcs/workspacesUpdate.ts
-  - src/hooks/clientcredentials.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
