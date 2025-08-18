@@ -13,6 +13,7 @@ Get the health status of the application
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getHealthStatus" method="get" path="/" -->
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
@@ -22,6 +23,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -51,6 +53,7 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });

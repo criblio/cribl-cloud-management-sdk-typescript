@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the cribl-mgmt-plane SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx healthGet.ts
+ * npm run build && npx tsx healthGet.example.ts
  */
 
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
@@ -19,6 +19,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });

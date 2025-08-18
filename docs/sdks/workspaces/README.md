@@ -17,6 +17,7 @@ Create a new workspace
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="v1.workspaces.createWorkspace" method="post" path="/v1/organizations/{organizationId}/workspaces" -->
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
@@ -26,6 +27,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -67,6 +69,7 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -121,6 +124,7 @@ List all workspaces for an organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="v1.workspaces.listWorkspaces" method="get" path="/v1/organizations/{organizationId}/workspaces" -->
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
@@ -130,6 +134,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -161,6 +166,7 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -205,6 +211,7 @@ Update an existing workspace
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="v1.workspaces.updateWorkspace" method="patch" path="/v1/organizations/{organizationId}/workspaces/{workspaceId}" -->
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
@@ -214,6 +221,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -254,6 +262,7 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -307,6 +316,7 @@ Delete a workspace
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="v1.workspaces.deleteWorkspace" method="delete" path="/v1/organizations/{organizationId}/workspaces/{workspaceId}" -->
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
@@ -316,6 +326,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -348,6 +359,7 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -393,6 +405,7 @@ Get a specific workspace by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="v1.workspaces.getWorkspace" method="get" path="/v1/organizations/{organizationId}/workspaces/{workspaceId}" -->
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
@@ -402,6 +415,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
@@ -434,6 +448,7 @@ const criblMgmtPlane = new CriblMgmtPlaneCore({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });

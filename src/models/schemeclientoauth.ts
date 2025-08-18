@@ -11,6 +11,7 @@ export type SchemeClientOauth = {
   clientID: string;
   clientSecret: string;
   tokenURL?: string | undefined;
+  audience: string;
 };
 
 /** @internal */
@@ -22,6 +23,7 @@ export const SchemeClientOauth$inboundSchema: z.ZodType<
   clientID: z.string(),
   clientSecret: z.string(),
   tokenURL: z.string().default("https://login.cribl.cloud/oauth2/token"),
+  audience: z.string(),
 });
 
 /** @internal */
@@ -29,6 +31,7 @@ export type SchemeClientOauth$Outbound = {
   clientID: string;
   clientSecret: string;
   tokenURL: string;
+  audience: string;
 };
 
 /** @internal */
@@ -40,6 +43,7 @@ export const SchemeClientOauth$outboundSchema: z.ZodType<
   clientID: z.string(),
   clientSecret: z.string(),
   tokenURL: z.string().default("https://login.cribl.cloud/oauth2/token"),
+  audience: z.string(),
 });
 
 /**
