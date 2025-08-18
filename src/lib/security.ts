@@ -84,7 +84,12 @@ type SecurityInputOAuth2 = {
 type SecurityInputOAuth2ClientCredentials = {
   type: "oauth2:client_credentials";
   value:
-    | { clientID?: string | undefined; clientSecret?: string | undefined }
+    | {
+      clientID?: string | undefined;
+      clientSecret?: string | undefined;
+      audience?: string | undefined;
+      tokenURL?: string | undefined;
+    }
     | null
     | string
     | undefined;
@@ -248,6 +253,8 @@ export function resolveGlobalSecurity(
             ?? env().CRIBLMGMTPLANE_CLIENT_ID,
           clientSecret: security?.clientOauth?.clientSecret
             ?? env().CRIBLMGMTPLANE_CLIENT_SECRET,
+          audience: security?.clientOauth?.audience
+            ?? env().CRIBLMGMTPLANE_AUDIENCE,
         },
       },
     ],

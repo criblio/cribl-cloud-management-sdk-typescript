@@ -8,6 +8,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
+      audience: "https://publicapi.cribl.cloud",
     },
   },
 });
