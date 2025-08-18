@@ -8,13 +8,15 @@ import { SchemeClientOauth } from "cribl-mgmt-plane/models";
 let value: SchemeClientOauth = {
   clientID: "<id>",
   clientSecret: "<value>",
+  audience: "https://publicapi.cribl.cloud",
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `clientID`         | *string*           | :heavy_check_mark: | N/A                |
-| `clientSecret`     | *string*           | :heavy_check_mark: | N/A                |
-| `tokenURL`         | *string*           | :heavy_check_mark: | N/A                |
+| Field                         | Type                          | Required                      | Description                   | Example                       |
+| ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
+| `clientID`                    | *string*                      | :heavy_check_mark:            | N/A                           |                               |
+| `clientSecret`                | *string*                      | :heavy_check_mark:            | N/A                           |                               |
+| `tokenURL`                    | *string*                      | :heavy_check_mark:            | N/A                           |                               |
+| `audience`                    | *string*                      | :heavy_check_mark:            | N/A                           | https://publicapi.cribl.cloud |
