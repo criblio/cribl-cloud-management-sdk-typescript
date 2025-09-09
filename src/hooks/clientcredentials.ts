@@ -156,7 +156,7 @@ export class ClientCredentialsHook
       throw new Error("Unexpected response format");
     }
 
-    if (data.token_type !== "Bearer") {
+    if (data.token_type?.toLowerCase() !== "bearer") {
       throw new Error("Unexpected token type");
     }
 
