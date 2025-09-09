@@ -25,7 +25,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function main() {
-  await criblMgmtPlane.get();
+  await criblMgmtPlane.health.get();
 }
 
 main().catch(console.error);
