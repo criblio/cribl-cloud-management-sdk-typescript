@@ -79,7 +79,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
-      audience: "https://publicapi.cribl.cloud",
+      audience: "https://api.cribl.cloud",
     },
   },
 });
@@ -115,7 +115,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
-      audience: "https://publicapi.cribl.cloud",
+      audience: "https://api.cribl.cloud",
     },
   },
 });
@@ -191,7 +191,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
-      audience: "https://publicapi.cribl.cloud",
+      audience: "https://api.cribl.cloud",
     },
   },
 });
@@ -235,7 +235,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
-      audience: "https://publicapi.cribl.cloud",
+      audience: "https://api.cribl.cloud",
     },
   },
 });
@@ -273,7 +273,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
-      audience: "https://publicapi.cribl.cloud",
+      audience: "https://api.cribl.cloud",
     },
   },
 });
@@ -327,13 +327,13 @@ The default server can be overridden globally by passing a URL to the `serverURL
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
 
 const criblMgmtPlane = new CriblMgmtPlane({
-  serverURL: "https://publicapi.cribl.cloud",
+  serverURL: "https://gateway.cribl.cloud",
   security: {
     clientOauth: {
       clientID: process.env["CRIBLMGMTPLANE_CLIENT_ID"] ?? "",
       clientSecret: process.env["CRIBLMGMTPLANE_CLIENT_SECRET"] ?? "",
       tokenURL: process.env["CRIBLMGMTPLANE_TOKEN_URL"] ?? "",
-      audience: "https://publicapi.cribl.cloud",
+      audience: "https://api.cribl.cloud",
     },
   },
 });
