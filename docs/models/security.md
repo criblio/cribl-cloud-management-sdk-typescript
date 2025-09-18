@@ -9,7 +9,7 @@ let value: Security = {
   clientOauth: {
     clientID: "<id>",
     clientSecret: "<value>",
-    audience: "https://publicapi.cribl.cloud",
+    audience: "https://api.cribl.cloud",
   },
   bearerAuth: "<value>",
 };
