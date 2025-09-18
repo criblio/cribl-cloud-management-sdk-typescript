@@ -12,7 +12,7 @@ import { Params, pathToFunc } from "./url.js";
  * Contains the list of servers available to the SDK
  */
 export const ServerList = [
-  "https://publicapi.cribl.cloud",
+  "https://gateway.cribl.cloud",
 ] as const;
 
 export type SDKOptions = {
@@ -62,7 +62,7 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
   language: "typescript",
   openapiDocVersion: "1.0",
-  sdkVersion: "0.0.14",
+  sdkVersion: "0.0.15",
   genVersion: "2.696.0",
-  userAgent: "speakeasy-sdk/typescript 0.0.14 2.696.0 1.0 cribl-mgmt-plane",
+  userAgent: "speakeasy-sdk/typescript 0.0.15 2.696.0 1.0 cribl-mgmt-plane",
 } as const;
