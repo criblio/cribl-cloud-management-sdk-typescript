@@ -39,7 +39,7 @@ async function run() {
   const res = await healthGet(criblMgmtPlane);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("healthGet failed:", res.error);
   }

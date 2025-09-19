@@ -12,7 +12,7 @@ export class Health extends ClientSDK {
    */
   async get(
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<string | undefined> {
     return unwrapAsync(healthGet(
       this,
       options,

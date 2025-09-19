@@ -85,7 +85,9 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.get();
+  const result = await criblMgmtPlane.health.get();
+
+  console.log(result);
 }
 
 run();
@@ -121,7 +123,9 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.get();
+  const result = await criblMgmtPlane.health.get();
+
+  console.log(result);
 }
 
 run();
@@ -197,7 +201,7 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.get({
+  const result = await criblMgmtPlane.health.get({
     retries: {
       strategy: "backoff",
       backoff: {
@@ -209,6 +213,8 @@ async function run() {
       retryConnectionErrors: false,
     },
   });
+
+  console.log(result);
 }
 
 run();
@@ -241,7 +247,9 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.get();
+  const result = await criblMgmtPlane.health.get();
+
+  console.log(result);
 }
 
 run();
@@ -280,7 +288,9 @@ const criblMgmtPlane = new CriblMgmtPlane({
 
 async function run() {
   try {
-    await criblMgmtPlane.health.get();
+    const result = await criblMgmtPlane.health.get();
+
+    console.log(result);
   } catch (error) {
     if (error instanceof errors.CriblMgmtPlaneError) {
       console.log(error.message);
@@ -339,7 +349,9 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.get();
+  const result = await criblMgmtPlane.health.get();
+
+  console.log(result);
 }
 
 run();
