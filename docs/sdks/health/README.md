@@ -29,9 +29,9 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.health.get();
+  const result = await criblMgmtPlane.health.get();
 
-
+  console.log(result);
 }
 
 run();
@@ -62,7 +62,7 @@ async function run() {
   const res = await healthGet(criblMgmtPlane);
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("healthGet failed:", res.error);
   }
@@ -81,7 +81,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 

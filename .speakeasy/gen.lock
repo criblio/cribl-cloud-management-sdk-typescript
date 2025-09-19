@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: 7404c277a0729540f2d95a7398460668
+  docChecksum: d3d33dc8a115e8df70f0526bdacbfb60
   docVersion: "1.0"
-  speakeasyVersion: 1.613.0
-  generationVersion: 2.696.0
-  releaseVersion: 0.0.15
-  configChecksum: 66a87f0e40799d4488aa04dc96280820
+  speakeasyVersion: 1.621.0
+  generationVersion: 2.707.0
+  releaseVersion: 0.0.16
+  configChecksum: 23cf2defeb4805d6a6abc51b06d52059
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -15,10 +15,10 @@ features:
     additionalDependencies: 0.1.0
     core: 3.21.22
     defaultEnabledRetries: 0.1.0
-    devContainers: 2.90.0
+    devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
@@ -126,7 +126,11 @@ generatedFiles:
   - tsconfig.json
 examples:
   dummyServiceStatus: {}
-  getHealthStatus: {}
+  getHealthStatus:
+    speakeasy-default-get-health-status:
+      responses:
+        "200":
+          application/json: "OK"
   v1.workspaces.createWorkspace:
     speakeasy-default-v1-workspaces-create-workspace:
       parameters:
@@ -174,3 +178,6 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `criblmgmtplane.health.get()`:  `response` **Changed** **Breaking** :warning:

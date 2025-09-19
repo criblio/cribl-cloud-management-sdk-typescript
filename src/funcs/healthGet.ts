@@ -30,7 +30,7 @@ export function healthGet(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    void,
+    string | undefined,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -53,7 +53,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      void,
+      string | undefined,
       | CriblMgmtPlaneError
       | ResponseValidationError
       | ConnectionError
@@ -69,7 +69,7 @@ async function $do(
   const path = pathToFunc("/")();
 
   const headers = new Headers(compactMap({
-    Accept: "*/*",
+    Accept: "application/json",
   }));
 
   const securityInput = await extractSecurity(client._options.security);
@@ -126,7 +126,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    void,
+    string | undefined,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -136,9 +136,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.nil(200, z.void()),
+    M.json(200, z.string().optional()),
     M.fail("4XX"),
     M.fail("5XX"),
+    M.nil("default", z.string().optional()),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
