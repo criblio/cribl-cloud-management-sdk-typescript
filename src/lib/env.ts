@@ -20,7 +20,7 @@ export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
   CRIBLMGMTPLANE_CLIENT_ID: z.string().optional(),
   CRIBLMGMTPLANE_CLIENT_SECRET: z.string().optional(),
   CRIBLMGMTPLANE_TOKEN_URL: z.string().default(
-    "https://login.cribl.cloud/oauth2/token",
+    "https://login.cribl.cloud/oauth/token",
   ),
   CRIBLMGMTPLANE_AUDIENCE: z.string().optional(),
   CRIBLMGMTPLANE_BEARER_AUTH: z.string().optional(),
