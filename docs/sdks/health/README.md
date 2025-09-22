@@ -81,7 +81,7 @@ run();
 
 ### Response
 
-**Promise\<[string](../../models/.md)\>**
+**Promise\<[operations.GetHealthStatusResponse](../../models/operations/gethealthstatusresponse.md)\>**
 
 ### Errors
 
