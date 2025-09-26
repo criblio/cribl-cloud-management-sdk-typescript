@@ -1,4 +1,4 @@
-name: Generate alpha SDK from dev-remote
+name: Generate RC SDK from dev-remote
 permissions:
   checks: write
   contents: write
