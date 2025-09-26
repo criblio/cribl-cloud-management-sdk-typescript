@@ -3,6 +3,7 @@
  */
 
 export * from "./criblmgmtplanedefaulterror.js";
+export * from "./criblmgmtplaneerror.js";
 export * from "./httpclienterrors.js";
 export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";
