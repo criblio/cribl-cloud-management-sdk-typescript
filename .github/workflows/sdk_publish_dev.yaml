@@ -1,4 +1,4 @@
-name: Publish alpha SDK
+name: Publish Prerelease SDK (alpha/beta/rc)
 permissions:
   checks: write
   contents: write
@@ -20,14 +20,14 @@ jobs:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
-      - name: Check prerelease version (X.Y.Z-alpha.<n>)
+      - name: Check prerelease version (X.Y.Z-alpha/beta/rc.<n>)
         id: ver
         run: |
           VERSION=$(yq '.typescript.version' .speakeasy/gen.yaml)
           echo "Detected version: $VERSION"
 
-          if [[ "$VERSION" != *"-alpha."* ]]; then
-            echo "::error::Version is not an alpha prerelease (expected format X.Y.Z-alpha.<n>)"
+          if [[ "$VERSION" != *"-alpha."* && "$VERSION" != *"-beta."* && "$VERSION" != *"-rc."* ]]; then
+            echo "::error::Version is not a prerelease (expected format X.Y.Z-alpha.<n>, X.Y.Z-beta.<n>, or X.Y.Z-rc.<n>)"
             exit 1
           fi
 
