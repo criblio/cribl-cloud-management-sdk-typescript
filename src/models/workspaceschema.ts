@@ -15,19 +15,21 @@ import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 /**
  * AWS region where the workspace is deployed
  */
-export const WorkspaceSchemaRegion = {
+export const Region = {
   UsWest2: "us-west-2",
   UsEast1: "us-east-1",
+  UsEast2: "us-east-2",
   EuCentral1: "eu-central-1",
+  EuCentral2: "eu-central-2",
   EuWest2: "eu-west-2",
+  ApSoutheast1: "ap-southeast-1",
   ApSoutheast2: "ap-southeast-2",
   CaCentral1: "ca-central-1",
-  UsEast2: "us-east-2",
 } as const;
 /**
  * AWS region where the workspace is deployed
  */
-export type WorkspaceSchemaRegion = OpenEnum<typeof WorkspaceSchemaRegion>;
+export type Region = OpenEnum<typeof Region>;
 
 /**
  * Current state of the workspace
@@ -60,7 +62,7 @@ export type WorkspaceSchema = {
   /**
    * AWS region where the workspace is deployed
    */
-  region: WorkspaceSchemaRegion;
+  region: Region;
   /**
    * Timestamp when the workspace was last updated
    */
@@ -88,35 +90,28 @@ export type WorkspaceSchema = {
 };
 
 /** @internal */
-export const WorkspaceSchemaRegion$inboundSchema: z.ZodType<
-  WorkspaceSchemaRegion,
-  z.ZodTypeDef,
-  unknown
-> = z
+export const Region$inboundSchema: z.ZodType<Region, z.ZodTypeDef, unknown> = z
   .union([
-    z.nativeEnum(WorkspaceSchemaRegion),
+    z.nativeEnum(Region),
     z.string().transform(catchUnrecognizedEnum),
   ]);
 
 /** @internal */
-export const WorkspaceSchemaRegion$outboundSchema: z.ZodType<
-  WorkspaceSchemaRegion,
-  z.ZodTypeDef,
-  WorkspaceSchemaRegion
-> = z.union([
-  z.nativeEnum(WorkspaceSchemaRegion),
-  z.string().and(z.custom<Unrecognized<string>>()),
-]);
+export const Region$outboundSchema: z.ZodType<Region, z.ZodTypeDef, Region> = z
+  .union([
+    z.nativeEnum(Region),
+    z.string().and(z.custom<Unrecognized<string>>()),
+  ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace WorkspaceSchemaRegion$ {
-  /** @deprecated use `WorkspaceSchemaRegion$inboundSchema` instead. */
-  export const inboundSchema = WorkspaceSchemaRegion$inboundSchema;
-  /** @deprecated use `WorkspaceSchemaRegion$outboundSchema` instead. */
-  export const outboundSchema = WorkspaceSchemaRegion$outboundSchema;
+export namespace Region$ {
+  /** @deprecated use `Region$inboundSchema` instead. */
+  export const inboundSchema = Region$inboundSchema;
+  /** @deprecated use `Region$outboundSchema` instead. */
+  export const outboundSchema = Region$outboundSchema;
 }
 
 /** @internal */
@@ -151,7 +146,7 @@ export const WorkspaceSchema$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   workspaceId: z.string(),
-  region: WorkspaceSchemaRegion$inboundSchema,
+  region: Region$inboundSchema,
   lastUpdated: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ),
@@ -181,7 +176,7 @@ export const WorkspaceSchema$outboundSchema: z.ZodType<
   WorkspaceSchema
 > = z.object({
   workspaceId: z.string(),
-  region: WorkspaceSchemaRegion$outboundSchema,
+  region: Region$outboundSchema,
   lastUpdated: z.date().transform(v => v.toISOString()),
   leaderFQDN: z.string(),
   state: State$outboundSchema,

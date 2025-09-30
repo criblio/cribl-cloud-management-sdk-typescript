@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: 633acd97d990f091600e865bf339b0e0
+  docChecksum: ca76ceb1cc9305417f0c6ee9d56037f9
   docVersion: "1.0"
   speakeasyVersion: 1.630.0
   generationVersion: 2.716.10
-  releaseVersion: 0.0.19
-  configChecksum: 393eeb4a7da1345072947d255360ff13
+  releaseVersion: 0.0.20
+  configChecksum: 3bcd2e9b4f2f09fed2c5beb3fa2847a2
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -45,14 +45,13 @@ generatedFiles:
   - docs/models/operations/v1workspacesgetworkspacerequest.md
   - docs/models/operations/v1workspaceslistworkspacesrequest.md
   - docs/models/operations/v1workspacesupdateworkspacerequest.md
+  - docs/models/region.md
   - docs/models/schemeclientoauth.md
   - docs/models/security.md
   - docs/models/state.md
   - docs/models/workspacecreaterequestdto.md
-  - docs/models/workspacecreaterequestdtoregion.md
   - docs/models/workspacepatchrequestdto.md
   - docs/models/workspaceschema.md
-  - docs/models/workspaceschemaregion.md
   - docs/models/workspaceslistresponsedto.md
   - docs/sdks/criblmgmtplane/README.md
   - docs/sdks/health/README.md
@@ -139,7 +138,7 @@ examples:
         path:
           organizationId: "<id>"
       requestBody:
-        application/json: {"workspaceId": "main", "region": "us-west-2", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        application/json: {"workspaceId": "main", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
       responses:
         "201":
           application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
@@ -180,3 +179,4 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `criblmgmtplane.workspaces.create()`: \n  *  `request.workspaceCreateRequestDto.region` **Removed** **Breaking** :warning:\n"
