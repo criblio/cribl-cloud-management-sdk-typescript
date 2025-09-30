@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: 0d92af91f65020024afcb5ddf963eea6
+  docChecksum: 633acd97d990f091600e865bf339b0e0
   docVersion: "1.0"
   speakeasyVersion: 1.630.0
   generationVersion: 2.716.10
-  releaseVersion: 0.0.18
-  configChecksum: cbe446178a30f05da473965336fc3b81
+  releaseVersion: 0.0.19
+  configChecksum: 393eeb4a7da1345072947d255360ff13
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
