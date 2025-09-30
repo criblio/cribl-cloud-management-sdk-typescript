@@ -39,7 +39,6 @@ async function run() {
     organizationId: "<id>",
     workspaceCreateRequestDTO: {
       workspaceId: "main",
-      region: "us-west-2",
       alias: "Production Environment",
       description: "Main production workspace for customer data processing",
       tags: [
@@ -81,7 +80,6 @@ async function run() {
     organizationId: "<id>",
     workspaceCreateRequestDTO: {
       workspaceId: "main",
-      region: "us-west-2",
       alias: "Production Environment",
       description: "Main production workspace for customer data processing",
       tags: [

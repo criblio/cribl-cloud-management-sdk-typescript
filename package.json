@@ -1,6 +1,6 @@
 {
   "name": "cribl-mgmt-plane",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {

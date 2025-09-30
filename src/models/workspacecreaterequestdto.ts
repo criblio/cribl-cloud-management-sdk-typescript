@@ -4,42 +4,14 @@
 
 import * as z from "zod";
 import { safeParse } from "../lib/schemas.js";
-import {
-  catchUnrecognizedEnum,
-  OpenEnum,
-  Unrecognized,
-} from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-
-/**
- * AWS region where the workspace is deployed
- */
-export const WorkspaceCreateRequestDTORegion = {
-  UsWest2: "us-west-2",
-  UsEast1: "us-east-1",
-  EuCentral1: "eu-central-1",
-  EuWest2: "eu-west-2",
-  ApSoutheast2: "ap-southeast-2",
-  CaCentral1: "ca-central-1",
-  UsEast2: "us-east-2",
-} as const;
-/**
- * AWS region where the workspace is deployed
- */
-export type WorkspaceCreateRequestDTORegion = OpenEnum<
-  typeof WorkspaceCreateRequestDTORegion
->;
 
 export type WorkspaceCreateRequestDTO = {
   /**
    * Unique identifier for the workspace
    */
   workspaceId: string;
-  /**
-   * AWS region where the workspace is deployed
-   */
-  region: WorkspaceCreateRequestDTORegion;
   /**
    * User-friendly alias for the workspace
    */
@@ -55,45 +27,12 @@ export type WorkspaceCreateRequestDTO = {
 };
 
 /** @internal */
-export const WorkspaceCreateRequestDTORegion$inboundSchema: z.ZodType<
-  WorkspaceCreateRequestDTORegion,
-  z.ZodTypeDef,
-  unknown
-> = z
-  .union([
-    z.nativeEnum(WorkspaceCreateRequestDTORegion),
-    z.string().transform(catchUnrecognizedEnum),
-  ]);
-
-/** @internal */
-export const WorkspaceCreateRequestDTORegion$outboundSchema: z.ZodType<
-  WorkspaceCreateRequestDTORegion,
-  z.ZodTypeDef,
-  WorkspaceCreateRequestDTORegion
-> = z.union([
-  z.nativeEnum(WorkspaceCreateRequestDTORegion),
-  z.string().and(z.custom<Unrecognized<string>>()),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WorkspaceCreateRequestDTORegion$ {
-  /** @deprecated use `WorkspaceCreateRequestDTORegion$inboundSchema` instead. */
-  export const inboundSchema = WorkspaceCreateRequestDTORegion$inboundSchema;
-  /** @deprecated use `WorkspaceCreateRequestDTORegion$outboundSchema` instead. */
-  export const outboundSchema = WorkspaceCreateRequestDTORegion$outboundSchema;
-}
-
-/** @internal */
 export const WorkspaceCreateRequestDTO$inboundSchema: z.ZodType<
   WorkspaceCreateRequestDTO,
   z.ZodTypeDef,
   unknown
 > = z.object({
   workspaceId: z.string(),
-  region: WorkspaceCreateRequestDTORegion$inboundSchema,
   alias: z.string().optional(),
   description: z.string().optional(),
   tags: z.array(z.string()).optional(),
@@ -102,7 +41,6 @@ export const WorkspaceCreateRequestDTO$inboundSchema: z.ZodType<
 /** @internal */
 export type WorkspaceCreateRequestDTO$Outbound = {
   workspaceId: string;
-  region: string;
   alias?: string | undefined;
   description?: string | undefined;
   tags?: Array<string> | undefined;
@@ -115,7 +53,6 @@ export const WorkspaceCreateRequestDTO$outboundSchema: z.ZodType<
   WorkspaceCreateRequestDTO
 > = z.object({
   workspaceId: z.string(),
-  region: WorkspaceCreateRequestDTORegion$outboundSchema,
   alias: z.string().optional(),
   description: z.string().optional(),
   tags: z.array(z.string()).optional(),
