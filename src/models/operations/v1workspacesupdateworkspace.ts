@@ -11,11 +11,11 @@ import * as models from "../index.js";
 
 export type V1WorkspacesUpdateWorkspaceRequest = {
   /**
-   * Organization identifier
+   * The <code>id</code> of the Organization that contains the Workspace.
    */
   organizationId: string;
   /**
-   * Workspace identifier
+   * The <code>id</code> of the Workspace to update.
    */
   workspaceId: string;
   workspacePatchRequestDTO: models.WorkspacePatchRequestDTO;

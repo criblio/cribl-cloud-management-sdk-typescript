@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type V1WorkspacesListWorkspacesRequest = {
   /**
-   * Organization identifier
+   * The <code>id</code> of the Organization that contains the Workspaces.
    */
   organizationId: string;
 };

@@ -26,7 +26,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Delete a workspace
+ * Delete a Workspace
+ *
+ * @remarks
+ * Delete the specified Workspace in the specified Organization.
  */
 export function workspacesDelete(
   client: CriblMgmtPlaneCore,

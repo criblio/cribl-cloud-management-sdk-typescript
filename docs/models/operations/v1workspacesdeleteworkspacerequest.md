@@ -13,7 +13,7 @@ let value: V1WorkspacesDeleteWorkspaceRequest = {
 
 ## Fields
 
-| Field                   | Type                    | Required                | Description             |
-| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| `organizationId`        | *string*                | :heavy_check_mark:      | Organization identifier |
-| `workspaceId`           | *string*                | :heavy_check_mark:      | Workspace identifier    |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `organizationId`                                                     | *string*                                                             | :heavy_check_mark:                                                   | The <code>id</code> of the Organization that contains the Workspace. |
+| `workspaceId`                                                        | *string*                                                             | :heavy_check_mark:                                                   | The <code>id</code> of the Workspace to delete.                      |

@@ -26,7 +26,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * List all workspaces for an organization
+ * List all Workspaces for the specified Organization
+ *
+ * @remarks
+ * Get a list of all Workspaces for the specified Organization.
  */
 export function workspacesList(
   client: CriblMgmtPlaneCore,

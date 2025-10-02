@@ -14,7 +14,10 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class Workspaces extends ClientSDK {
   /**
-   * Create a new workspace
+   * Create a Workspace in the specified Organization
+   *
+   * @remarks
+   * Create a new Workspace in the specified Organization.
    */
   async create(
     request: operations.V1WorkspacesCreateWorkspaceRequest,
@@ -28,7 +31,10 @@ export class Workspaces extends ClientSDK {
   }
 
   /**
-   * List all workspaces for an organization
+   * List all Workspaces for the specified Organization
+   *
+   * @remarks
+   * Get a list of all Workspaces for the specified Organization.
    */
   async list(
     request: operations.V1WorkspacesListWorkspacesRequest,
@@ -42,7 +48,10 @@ export class Workspaces extends ClientSDK {
   }
 
   /**
-   * Update an existing workspace
+   * Update a Workspace
+   *
+   * @remarks
+   * Update the specified Workspace.
    */
   async update(
     request: operations.V1WorkspacesUpdateWorkspaceRequest,
@@ -56,7 +65,10 @@ export class Workspaces extends ClientSDK {
   }
 
   /**
-   * Delete a workspace
+   * Delete a Workspace
+   *
+   * @remarks
+   * Delete the specified Workspace in the specified Organization.
    */
   async delete(
     request: operations.V1WorkspacesDeleteWorkspaceRequest,
@@ -70,7 +82,10 @@ export class Workspaces extends ClientSDK {
   }
 
   /**
-   * Get a specific workspace by ID
+   * Get a Workspace
+   *
+   * @remarks
+   * Get the specified Workspace.
    */
   async get(
     request: operations.V1WorkspacesGetWorkspaceRequest,
