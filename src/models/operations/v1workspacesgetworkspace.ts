@@ -9,11 +9,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type V1WorkspacesGetWorkspaceRequest = {
   /**
-   * Organization identifier
+   * The <code>id</code> of the Organization that contains the Workspace.
    */
   organizationId: string;
   /**
-   * Workspace identifier
+   * The <code>id</code> of the Workspace to get.
    */
   workspaceId: string;
 };
