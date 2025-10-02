@@ -11,7 +11,7 @@ import * as models from "../index.js";
 
 export type V1WorkspacesCreateWorkspaceRequest = {
   /**
-   * Organization identifier
+   * The <code>id</code> of the Organization where you want to create the Workspace.
    */
   organizationId: string;
   workspaceCreateRequestDTO: models.WorkspaceCreateRequestDTO;

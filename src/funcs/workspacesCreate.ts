@@ -26,7 +26,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Create a new workspace
+ * Create a Workspace in the specified Organization
+ *
+ * @remarks
+ * Create a new Workspace in the specified Organization.
  */
 export function workspacesCreate(
   client: CriblMgmtPlaneCore,

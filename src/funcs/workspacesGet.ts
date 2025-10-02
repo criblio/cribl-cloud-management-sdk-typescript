@@ -26,7 +26,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get a specific workspace by ID
+ * Get a Workspace
+ *
+ * @remarks
+ * Get the specified Workspace.
  */
 export function workspacesGet(
   client: CriblMgmtPlaneCore,

@@ -12,6 +12,6 @@ let value: V1WorkspacesListWorkspacesRequest = {
 
 ## Fields
 
-| Field                   | Type                    | Required                | Description             |
-| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| `organizationId`        | *string*                | :heavy_check_mark:      | Organization identifier |
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `organizationId`                                                      | *string*                                                              | :heavy_check_mark:                                                    | The <code>id</code> of the Organization that contains the Workspaces. |

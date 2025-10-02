@@ -26,7 +26,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Update an existing workspace
+ * Update a Workspace
+ *
+ * @remarks
+ * Update the specified Workspace.
  */
 export function workspacesUpdate(
   client: CriblMgmtPlaneCore,

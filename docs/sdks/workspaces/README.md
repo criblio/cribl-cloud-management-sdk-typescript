@@ -3,19 +3,19 @@
 
 ## Overview
 
-Operations related to workspaces
+Operations related to Workspaces
 
 ### Available Operations
 
-* [create](#create) - Create a new workspace
-* [list](#list) - List all workspaces for an organization
-* [update](#update) - Update an existing workspace
-* [delete](#delete) - Delete a workspace
-* [get](#get) - Get a specific workspace by ID
+* [create](#create) - Create a Workspace in the specified Organization
+* [list](#list) - List all Workspaces for the specified Organization
+* [update](#update) - Update a Workspace
+* [delete](#delete) - Delete a Workspace
+* [get](#get) - Get a Workspace
 
 ## create
 
-Create a new workspace
+Create a new Workspace in the specified Organization.
 
 ### Example Usage
 
@@ -120,7 +120,7 @@ run();
 
 ## list
 
-List all workspaces for an organization
+Get a list of all Workspaces for the specified Organization.
 
 ### Example Usage
 
@@ -207,7 +207,7 @@ run();
 
 ## update
 
-Update an existing workspace
+Update the specified Workspace.
 
 ### Example Usage
 
@@ -312,7 +312,7 @@ run();
 
 ## delete
 
-Delete a workspace
+Delete the specified Workspace in the specified Organization.
 
 ### Example Usage
 
@@ -401,7 +401,7 @@ run();
 
 ## get
 
-Get a specific workspace by ID
+Get the specified Workspace.
 
 ### Example Usage
 
