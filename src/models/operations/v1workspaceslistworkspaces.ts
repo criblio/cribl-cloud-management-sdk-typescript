@@ -6,6 +6,7 @@ import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import * as models from "../index.js";
 
 export type V1WorkspacesListWorkspacesRequest = {
   /**
@@ -13,6 +14,10 @@ export type V1WorkspacesListWorkspacesRequest = {
    */
   organizationId: string;
 };
+
+export type V1WorkspacesListWorkspacesResponse =
+  | models.WorkspacesListResponseDTO
+  | models.DefaultErrorDTO;
 
 /** @internal */
 export const V1WorkspacesListWorkspacesRequest$inboundSchema: z.ZodType<
@@ -68,5 +73,65 @@ export function v1WorkspacesListWorkspacesRequestFromJSON(
     jsonString,
     (x) => V1WorkspacesListWorkspacesRequest$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'V1WorkspacesListWorkspacesRequest' from JSON`,
+  );
+}
+
+/** @internal */
+export const V1WorkspacesListWorkspacesResponse$inboundSchema: z.ZodType<
+  V1WorkspacesListWorkspacesResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  models.WorkspacesListResponseDTO$inboundSchema,
+  models.DefaultErrorDTO$inboundSchema,
+]);
+
+/** @internal */
+export type V1WorkspacesListWorkspacesResponse$Outbound =
+  | models.WorkspacesListResponseDTO$Outbound
+  | models.DefaultErrorDTO$Outbound;
+
+/** @internal */
+export const V1WorkspacesListWorkspacesResponse$outboundSchema: z.ZodType<
+  V1WorkspacesListWorkspacesResponse$Outbound,
+  z.ZodTypeDef,
+  V1WorkspacesListWorkspacesResponse
+> = z.union([
+  models.WorkspacesListResponseDTO$outboundSchema,
+  models.DefaultErrorDTO$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace V1WorkspacesListWorkspacesResponse$ {
+  /** @deprecated use `V1WorkspacesListWorkspacesResponse$inboundSchema` instead. */
+  export const inboundSchema = V1WorkspacesListWorkspacesResponse$inboundSchema;
+  /** @deprecated use `V1WorkspacesListWorkspacesResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    V1WorkspacesListWorkspacesResponse$outboundSchema;
+  /** @deprecated use `V1WorkspacesListWorkspacesResponse$Outbound` instead. */
+  export type Outbound = V1WorkspacesListWorkspacesResponse$Outbound;
+}
+
+export function v1WorkspacesListWorkspacesResponseToJSON(
+  v1WorkspacesListWorkspacesResponse: V1WorkspacesListWorkspacesResponse,
+): string {
+  return JSON.stringify(
+    V1WorkspacesListWorkspacesResponse$outboundSchema.parse(
+      v1WorkspacesListWorkspacesResponse,
+    ),
+  );
+}
+
+export function v1WorkspacesListWorkspacesResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<V1WorkspacesListWorkspacesResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      V1WorkspacesListWorkspacesResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'V1WorkspacesListWorkspacesResponse' from JSON`,
   );
 }

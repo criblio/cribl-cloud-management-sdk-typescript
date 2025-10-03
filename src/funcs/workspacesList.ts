@@ -20,7 +20,6 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -37,7 +36,7 @@ export function workspacesList(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.WorkspacesListResponseDTO,
+    operations.V1WorkspacesListWorkspacesResponse,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +61,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.WorkspacesListResponseDTO,
+      operations.V1WorkspacesListWorkspacesResponse,
       | CriblMgmtPlaneError
       | ResponseValidationError
       | ConnectionError
@@ -157,7 +156,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.WorkspacesListResponseDTO,
+    operations.V1WorkspacesListWorkspacesResponse,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -167,9 +166,13 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.WorkspacesListResponseDTO$inboundSchema),
+    M.json(200, operations.V1WorkspacesListWorkspacesResponse$inboundSchema),
     M.fail("4XX"),
     M.fail([500, "5XX"]),
+    M.json(
+      "default",
+      operations.V1WorkspacesListWorkspacesResponse$inboundSchema,
+    ),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

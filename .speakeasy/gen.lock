@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: ebd81f0fb2def17a26c531456e8fd0ea
+  docChecksum: 7c6f31bbc6cac1d219c098a091740054
   docVersion: "1.0"
-  speakeasyVersion: 1.630.0
-  generationVersion: 2.716.10
-  releaseVersion: 0.0.21
-  configChecksum: 1ad50386c0d2b24480e343ed3a18b62c
+  speakeasyVersion: 1.634.1
+  generationVersion: 2.721.0
+  releaseVersion: 0.0.22
+  configChecksum: bc94574487092b85cd8faa69e47f340f
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.25
+    core: 3.21.26
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -39,12 +39,17 @@ generatedFiles:
   - RUNTIMES.md
   - USAGE.md
   - docs/lib/utils/retryconfig.md
+  - docs/models/defaulterrordto.md
   - docs/models/operations/gethealthstatusresponse.md
   - docs/models/operations/v1workspacescreateworkspacerequest.md
+  - docs/models/operations/v1workspacescreateworkspaceresponse.md
   - docs/models/operations/v1workspacesdeleteworkspacerequest.md
   - docs/models/operations/v1workspacesgetworkspacerequest.md
+  - docs/models/operations/v1workspacesgetworkspaceresponse.md
   - docs/models/operations/v1workspaceslistworkspacesrequest.md
+  - docs/models/operations/v1workspaceslistworkspacesresponse.md
   - docs/models/operations/v1workspacesupdateworkspacerequest.md
+  - docs/models/operations/v1workspacesupdateworkspaceresponse.md
   - docs/models/region.md
   - docs/models/schemeclientoauth.md
   - docs/models/security.md
@@ -91,6 +96,7 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
+  - src/models/defaulterrordto.ts
   - src/models/errors/criblmgmtplanedefaulterror.ts
   - src/models/errors/criblmgmtplaneerror.ts
   - src/models/errors/httpclienterrors.ts
@@ -142,6 +148,8 @@ examples:
       responses:
         "201":
           application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 2135.91, "message": "<value>"}
   v1.workspaces.listWorkspaces:
     speakeasy-default-v1-workspaces-list-workspaces:
       parameters:
@@ -150,6 +158,8 @@ examples:
       responses:
         "200":
           application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
+        default:
+          application/json: {"statusCode": 5622.58, "message": "<value>"}
   v1.workspaces.updateWorkspace:
     speakeasy-default-v1-workspaces-update-workspace:
       parameters:
@@ -161,12 +171,17 @@ examples:
       responses:
         "200":
           application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 8141.25, "message": "<value>"}
   v1.workspaces.deleteWorkspace:
     speakeasy-default-v1-workspaces-delete-workspace:
       parameters:
         path:
           organizationId: "<id>"
           workspaceId: "<id>"
+      responses:
+        default:
+          application/json: {"statusCode": 8158.92, "message": "<value>"}
   v1.workspaces.getWorkspace:
     speakeasy-default-v1-workspaces-get-workspace:
       parameters:
@@ -176,6 +191,15 @@ examples:
       responses:
         "200":
           application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 8847.69, "message": "<value>"}
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `criblmgmtplane.workspaces.create()`:  `response.status[default]` **Added** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.list()`:  `response.status[default]` **Added** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.update()`:  `response.status[default]` **Added** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.delete()`:  `response.status[default]` **Added** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.get()`:  `response.status[default]` **Added** **Breaking** :warning:

@@ -17,6 +17,10 @@ export type V1WorkspacesCreateWorkspaceRequest = {
   workspaceCreateRequestDTO: models.WorkspaceCreateRequestDTO;
 };
 
+export type V1WorkspacesCreateWorkspaceResponse =
+  | models.WorkspaceSchema
+  | models.DefaultErrorDTO;
+
 /** @internal */
 export const V1WorkspacesCreateWorkspaceRequest$inboundSchema: z.ZodType<
   V1WorkspacesCreateWorkspaceRequest,
@@ -83,5 +87,66 @@ export function v1WorkspacesCreateWorkspaceRequestFromJSON(
     (x) =>
       V1WorkspacesCreateWorkspaceRequest$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'V1WorkspacesCreateWorkspaceRequest' from JSON`,
+  );
+}
+
+/** @internal */
+export const V1WorkspacesCreateWorkspaceResponse$inboundSchema: z.ZodType<
+  V1WorkspacesCreateWorkspaceResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  models.WorkspaceSchema$inboundSchema,
+  models.DefaultErrorDTO$inboundSchema,
+]);
+
+/** @internal */
+export type V1WorkspacesCreateWorkspaceResponse$Outbound =
+  | models.WorkspaceSchema$Outbound
+  | models.DefaultErrorDTO$Outbound;
+
+/** @internal */
+export const V1WorkspacesCreateWorkspaceResponse$outboundSchema: z.ZodType<
+  V1WorkspacesCreateWorkspaceResponse$Outbound,
+  z.ZodTypeDef,
+  V1WorkspacesCreateWorkspaceResponse
+> = z.union([
+  models.WorkspaceSchema$outboundSchema,
+  models.DefaultErrorDTO$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace V1WorkspacesCreateWorkspaceResponse$ {
+  /** @deprecated use `V1WorkspacesCreateWorkspaceResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    V1WorkspacesCreateWorkspaceResponse$inboundSchema;
+  /** @deprecated use `V1WorkspacesCreateWorkspaceResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    V1WorkspacesCreateWorkspaceResponse$outboundSchema;
+  /** @deprecated use `V1WorkspacesCreateWorkspaceResponse$Outbound` instead. */
+  export type Outbound = V1WorkspacesCreateWorkspaceResponse$Outbound;
+}
+
+export function v1WorkspacesCreateWorkspaceResponseToJSON(
+  v1WorkspacesCreateWorkspaceResponse: V1WorkspacesCreateWorkspaceResponse,
+): string {
+  return JSON.stringify(
+    V1WorkspacesCreateWorkspaceResponse$outboundSchema.parse(
+      v1WorkspacesCreateWorkspaceResponse,
+    ),
+  );
+}
+
+export function v1WorkspacesCreateWorkspaceResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<V1WorkspacesCreateWorkspaceResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      V1WorkspacesCreateWorkspaceResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'V1WorkspacesCreateWorkspaceResponse' from JSON`,
   );
 }

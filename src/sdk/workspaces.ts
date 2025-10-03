@@ -22,7 +22,7 @@ export class Workspaces extends ClientSDK {
   async create(
     request: operations.V1WorkspacesCreateWorkspaceRequest,
     options?: RequestOptions,
-  ): Promise<models.WorkspaceSchema> {
+  ): Promise<operations.V1WorkspacesCreateWorkspaceResponse> {
     return unwrapAsync(workspacesCreate(
       this,
       request,
@@ -39,7 +39,7 @@ export class Workspaces extends ClientSDK {
   async list(
     request: operations.V1WorkspacesListWorkspacesRequest,
     options?: RequestOptions,
-  ): Promise<models.WorkspacesListResponseDTO> {
+  ): Promise<operations.V1WorkspacesListWorkspacesResponse> {
     return unwrapAsync(workspacesList(
       this,
       request,
@@ -56,7 +56,7 @@ export class Workspaces extends ClientSDK {
   async update(
     request: operations.V1WorkspacesUpdateWorkspaceRequest,
     options?: RequestOptions,
-  ): Promise<models.WorkspaceSchema> {
+  ): Promise<operations.V1WorkspacesUpdateWorkspaceResponse> {
     return unwrapAsync(workspacesUpdate(
       this,
       request,
@@ -73,7 +73,7 @@ export class Workspaces extends ClientSDK {
   async delete(
     request: operations.V1WorkspacesDeleteWorkspaceRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<models.DefaultErrorDTO | undefined> {
     return unwrapAsync(workspacesDelete(
       this,
       request,
@@ -90,7 +90,7 @@ export class Workspaces extends ClientSDK {
   async get(
     request: operations.V1WorkspacesGetWorkspaceRequest,
     options?: RequestOptions,
-  ): Promise<models.WorkspaceSchema> {
+  ): Promise<operations.V1WorkspacesGetWorkspaceResponse> {
     return unwrapAsync(workspacesGet(
       this,
       request,
