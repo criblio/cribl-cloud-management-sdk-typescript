@@ -110,7 +110,7 @@ run();
 
 ### Response
 
-**Promise\<[models.WorkspaceSchema](../../models/workspaceschema.md)\>**
+**Promise\<[operations.V1WorkspacesCreateWorkspaceResponse](../../models/operations/v1workspacescreateworkspaceresponse.md)\>**
 
 ### Errors
 
@@ -197,7 +197,7 @@ run();
 
 ### Response
 
-**Promise\<[models.WorkspacesListResponseDTO](../../models/workspaceslistresponsedto.md)\>**
+**Promise\<[operations.V1WorkspacesListWorkspacesResponse](../../models/operations/v1workspaceslistworkspacesresponse.md)\>**
 
 ### Errors
 
@@ -302,7 +302,7 @@ run();
 
 ### Response
 
-**Promise\<[models.WorkspaceSchema](../../models/workspaceschema.md)\>**
+**Promise\<[operations.V1WorkspacesUpdateWorkspaceResponse](../../models/operations/v1workspacesupdateworkspaceresponse.md)\>**
 
 ### Errors
 
@@ -332,12 +332,12 @@ const criblMgmtPlane = new CriblMgmtPlane({
 });
 
 async function run() {
-  await criblMgmtPlane.workspaces.delete({
+  const result = await criblMgmtPlane.workspaces.delete({
     organizationId: "<id>",
     workspaceId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -371,7 +371,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("workspacesDelete failed:", res.error);
   }
@@ -391,7 +391,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[models.DefaultErrorDTO](../../models/defaulterrordto.md)\>**
 
 ### Errors
 
@@ -480,7 +480,7 @@ run();
 
 ### Response
 
-**Promise\<[models.WorkspaceSchema](../../models/workspaceschema.md)\>**
+**Promise\<[operations.V1WorkspacesGetWorkspaceResponse](../../models/operations/v1workspacesgetworkspaceresponse.md)\>**
 
 ### Errors
 
