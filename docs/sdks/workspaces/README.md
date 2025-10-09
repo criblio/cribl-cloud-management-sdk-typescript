@@ -302,7 +302,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.V1WorkspacesUpdateWorkspaceResponse](../../models/operations/v1workspacesupdateworkspaceresponse.md)\>**
+**Promise\<[models.DefaultErrorDTO](../../models/defaulterrordto.md)\>**
 
 ### Errors
 

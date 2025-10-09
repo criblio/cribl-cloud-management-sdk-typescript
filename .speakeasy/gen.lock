@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: ff37b4b00bc63ca3571bac4de75352c8
+  docChecksum: 078e5c90c41b18dc69a380573ef6a88f
   docVersion: "1.0"
   speakeasyVersion: 1.634.1
   generationVersion: 2.721.0
-  releaseVersion: 0.0.24
-  configChecksum: 99b595e7bca83943b77791b110e05479
+  releaseVersion: 0.0.25
+  configChecksum: e1ed50e8b8c9ab6f3ed1e1d350fbc52e
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -49,7 +49,6 @@ generatedFiles:
   - docs/models/operations/v1workspaceslistworkspacesrequest.md
   - docs/models/operations/v1workspaceslistworkspacesresponse.md
   - docs/models/operations/v1workspacesupdateworkspacerequest.md
-  - docs/models/operations/v1workspacesupdateworkspaceresponse.md
   - docs/models/region.md
   - docs/models/schemeclientoauth.md
   - docs/models/security.md
@@ -196,3 +195,6 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `criblmgmtplane.workspaces.update()`:  `response` **Changed** **Breaking** :warning:
