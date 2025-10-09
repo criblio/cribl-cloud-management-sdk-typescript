@@ -35,19 +35,11 @@ export type Region = OpenEnum<typeof Region>;
  * Current state of the workspace
  */
 export const State = {
-  WorkspaceRequested: "Workspace-Requested",
-  WorkspaceProvisioning: "Workspace-Provisioning",
-  WorkspaceProvisioningFailed: "Workspace-Provisioning-Failed",
-  WorkspaceProvisioned: "Workspace-Provisioned",
-  WorkspaceActive: "Workspace-Active",
-  WorkspaceUpdated: "Workspace-Updated",
-  WorkspaceFailedUpdate: "Workspace-Failed-Update",
-  WorkspaceCleanupRequested: "Workspace-Cleanup-Requested",
-  WorkspaceCleanupStarted: "Workspace-Cleanup-Started",
-  WorkspaceCleanupTerraformCompleted: "Workspace-Cleanup-Terraform-Completed",
-  WorkspaceCleanupTerraformFailed: "Workspace-Cleanup-Terraform-Failed",
-  WorkspaceCleanupCompleted: "Workspace-Cleanup-Completed",
-  WorkspaceCleanupFailed: "Workspace-Cleanup-Failed",
+  Provisioning: "Provisioning",
+  Active: "Active",
+  Inactive: "Inactive",
+  Failed: "Failed",
+  Deprovisioning: "Deprovisioning",
 } as const;
 /**
  * Current state of the workspace

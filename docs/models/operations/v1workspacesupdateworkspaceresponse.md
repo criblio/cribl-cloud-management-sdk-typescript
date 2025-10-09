@@ -11,7 +11,7 @@ const value: models.WorkspaceSchema = {
   region: "us-west-2",
   lastUpdated: new Date("2023-01-01T12:00:00Z"),
   leaderFQDN: "workspace-leader.example.com",
-  state: "Workspace-Active",
+  state: "Active",
   alias: "Production Environment",
   description: "Main production workspace for customer data processing",
   tags: [
