@@ -56,7 +56,7 @@ export class Workspaces extends ClientSDK {
   async update(
     request: operations.V1WorkspacesUpdateWorkspaceRequest,
     options?: RequestOptions,
-  ): Promise<operations.V1WorkspacesUpdateWorkspaceResponse> {
+  ): Promise<models.DefaultErrorDTO | undefined> {
     return unwrapAsync(workspacesUpdate(
       this,
       request,
