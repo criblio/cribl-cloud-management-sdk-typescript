@@ -154,7 +154,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["4XX", "500", "5XX"],
+    errorCodes: ["4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -176,7 +176,7 @@ async function $do(
   >(
     M.nil(204, models.DefaultErrorDTO$inboundSchema.optional()),
     M.fail("4XX"),
-    M.fail([500, "5XX"]),
+    M.fail("5XX"),
     M.json("default", models.DefaultErrorDTO$inboundSchema.optional()),
   )(response, req);
   if (!result.ok) {

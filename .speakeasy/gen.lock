@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: efbf5e09333c7adda6b763105736a925
+  docChecksum: 00f8800b6f97b6c95d67679254616680
   docVersion: "1.0"
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.0.26
-  configChecksum: 43795e1366478f7159b26b854d61e2bb
+  releaseVersion: 0.0.27
+  configChecksum: d8a3ad102c82b3589c5b19495ce493a7
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -195,3 +195,10 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `criblmgmtplane.workspaces.create()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.list()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.update()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.delete()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `criblmgmtplane.workspaces.get()`:  `error.status[500]` **Removed** **Breaking** :warning:
