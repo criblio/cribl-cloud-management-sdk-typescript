@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
-  docChecksum: 00f8800b6f97b6c95d67679254616680
+  docChecksum: 78122e10b4222a74a9bab96f15f1ada1
   docVersion: "1.0"
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.1.0
-  configChecksum: d6f66fd3d8806250ae2f2c3d5b5bb396
+  releaseVersion: 0.1.1
+  configChecksum: cbddaf7094ca258dfdeb4ed22f678810
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
@@ -41,6 +41,7 @@ generatedFiles:
   - docs/lib/utils/retryconfig.md
   - docs/models/defaulterrordto.md
   - docs/models/operations/gethealthstatusresponse.md
+  - docs/models/operations/gethealthstatusresponsebody.md
   - docs/models/operations/v1workspacescreateworkspacerequest.md
   - docs/models/operations/v1workspacescreateworkspaceresponse.md
   - docs/models/operations/v1workspacesdeleteworkspacerequest.md
@@ -137,6 +138,8 @@ examples:
       responses:
         "200":
           application/json: {"status": "OK"}
+        default:
+          application/json: {"statusCode": 1397.13, "message": "<value>"}
   v1.workspaces.createWorkspace:
     speakeasy-default-v1-workspaces-create-workspace:
       parameters:
@@ -195,3 +198,6 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `criblmgmtplane.health.get()`:  `response.status[default]` **Added**

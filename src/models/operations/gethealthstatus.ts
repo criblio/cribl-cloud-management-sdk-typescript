@@ -6,17 +6,22 @@ import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import * as models from "../index.js";
 
 /**
  * Health status
  */
-export type GetHealthStatusResponse = {
+export type GetHealthStatusResponseBody = {
   status?: string | undefined;
 };
 
+export type GetHealthStatusResponse =
+  | models.DefaultErrorDTO
+  | GetHealthStatusResponseBody;
+
 /** @internal */
-export const GetHealthStatusResponse$inboundSchema: z.ZodType<
-  GetHealthStatusResponse,
+export const GetHealthStatusResponseBody$inboundSchema: z.ZodType<
+  GetHealthStatusResponseBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -24,18 +29,76 @@ export const GetHealthStatusResponse$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetHealthStatusResponse$Outbound = {
+export type GetHealthStatusResponseBody$Outbound = {
   status?: string | undefined;
 };
+
+/** @internal */
+export const GetHealthStatusResponseBody$outboundSchema: z.ZodType<
+  GetHealthStatusResponseBody$Outbound,
+  z.ZodTypeDef,
+  GetHealthStatusResponseBody
+> = z.object({
+  status: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetHealthStatusResponseBody$ {
+  /** @deprecated use `GetHealthStatusResponseBody$inboundSchema` instead. */
+  export const inboundSchema = GetHealthStatusResponseBody$inboundSchema;
+  /** @deprecated use `GetHealthStatusResponseBody$outboundSchema` instead. */
+  export const outboundSchema = GetHealthStatusResponseBody$outboundSchema;
+  /** @deprecated use `GetHealthStatusResponseBody$Outbound` instead. */
+  export type Outbound = GetHealthStatusResponseBody$Outbound;
+}
+
+export function getHealthStatusResponseBodyToJSON(
+  getHealthStatusResponseBody: GetHealthStatusResponseBody,
+): string {
+  return JSON.stringify(
+    GetHealthStatusResponseBody$outboundSchema.parse(
+      getHealthStatusResponseBody,
+    ),
+  );
+}
+
+export function getHealthStatusResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetHealthStatusResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetHealthStatusResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetHealthStatusResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetHealthStatusResponse$inboundSchema: z.ZodType<
+  GetHealthStatusResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  models.DefaultErrorDTO$inboundSchema,
+  z.lazy(() => GetHealthStatusResponseBody$inboundSchema),
+]);
+
+/** @internal */
+export type GetHealthStatusResponse$Outbound =
+  | models.DefaultErrorDTO$Outbound
+  | GetHealthStatusResponseBody$Outbound;
 
 /** @internal */
 export const GetHealthStatusResponse$outboundSchema: z.ZodType<
   GetHealthStatusResponse$Outbound,
   z.ZodTypeDef,
   GetHealthStatusResponse
-> = z.object({
-  status: z.string().optional(),
-});
+> = z.union([
+  models.DefaultErrorDTO$outboundSchema,
+  z.lazy(() => GetHealthStatusResponseBody$outboundSchema),
+]);
 
 /**
  * @internal
