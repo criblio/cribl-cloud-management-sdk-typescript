@@ -1,19 +1,22 @@
 # GetHealthStatusResponse
 
-Health status
 
-## Example Usage
+## Supported Types
+
+### `operations.GetHealthStatusResponseBody`
 
 ```typescript
-import { GetHealthStatusResponse } from "cribl-mgmt-plane/models/operations";
-
-let value: GetHealthStatusResponse = {
+const value: operations.GetHealthStatusResponseBody = {
   status: "OK",
 };
 ```
 
-## Fields
+### `models.DefaultErrorDTO`
 
-| Field              | Type               | Required           | Description        | Example            |
-| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `status`           | *string*           | :heavy_minus_sign: | N/A                | OK                 |
+```typescript
+const value: models.DefaultErrorDTO = {
+  statusCode: 4882.16,
+  message: "<value>",
+};
+```
+
