@@ -30,7 +30,7 @@ export function healthGet(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetHealthStatusResponse | undefined,
+    operations.GetHealthStatusResponse,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -53,7 +53,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.GetHealthStatusResponse | undefined,
+      operations.GetHealthStatusResponse,
       | CriblMgmtPlaneError
       | ResponseValidationError
       | ConnectionError
@@ -126,7 +126,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.GetHealthStatusResponse | undefined,
+    operations.GetHealthStatusResponse,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -136,13 +136,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetHealthStatusResponse$inboundSchema.optional()),
+    M.json(200, operations.GetHealthStatusResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-    M.nil(
-      "default",
-      operations.GetHealthStatusResponse$inboundSchema.optional(),
-    ),
+    M.json("default", operations.GetHealthStatusResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
