@@ -10,7 +10,6 @@ let value: WorkspacesListResponseDTO = {
     {
       workspaceId: "main",
       region: "us-west-2",
-      lastUpdated: new Date("2023-01-01T12:00:00Z"),
       leaderFQDN: "workspace-leader.example.com",
       state: "Active",
       alias: "Production Environment",
