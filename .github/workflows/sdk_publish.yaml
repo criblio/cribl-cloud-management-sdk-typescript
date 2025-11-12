@@ -1,4 +1,4 @@
-name: Publish SDK (main/openapi-prerelease)
+name: Publish SDK
 permissions:
   checks: write
   contents: write
@@ -27,7 +27,7 @@ jobs:
         run: |
           echo "Current branch: ${GITHUB_REF_NAME}"
           echo "branch=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
-          
+
           # Determine if this is a production release
           if [[ "${GITHUB_REF_NAME}" == "main" ]]; then
             echo "is-production=true" >> "$GITHUB_OUTPUT"
@@ -36,18 +36,16 @@ jobs:
             echo "is-production=false" >> "$GITHUB_OUTPUT"
             echo "✅ Prerelease from ${GITHUB_REF_NAME} branch"
 
-            # For non-standard branches, check prerelease version
-            if [[ "${GITHUB_REF_NAME}" != "dev" && "${GITHUB_REF_NAME}" != "stage" ]]; then
-              VERSION=$(yq '.typescript.version' .speakeasy/gen.yaml)
-              echo "Detected version: $VERSION"
-              
-              if [[ "$VERSION" == *"-alpha."* ]] || [[ "$VERSION" == *"-beta."* ]] || [[ "$VERSION" == *"-rc."* ]]; then
-                echo "✅ Prerelease version detected: $VERSION"
-              else
-                echo "::error::Version is not a valid prerelease (expected format X.Y.Z-{alpha|beta|rc}.<n>)"
-                echo "::error::Detected version: $VERSION"
-                exit 1
-              fi
+            # Check prerelease version
+            VERSION=$(yq '.typescript.version' .speakeasy/gen.yaml)
+            echo "Detected version: $VERSION"
+
+            if [[ "$VERSION" == *"-alpha."* ]] || [[ "$VERSION" == *"-beta."* ]] || [[ "$VERSION" == *"-rc."* ]] || [[ "$VERSION" == *"-tc."* ]]; then
+              echo "✅ Prerelease version detected: $VERSION"
+            else
+              echo "::error::Version is not a valid prerelease (expected format X.Y.Z-{alpha|beta|rc|tc}.<n>)"
+              echo "::error::Detected version: $VERSION"
+              exit 1
             fi
           fi
 
