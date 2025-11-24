@@ -7,7 +7,7 @@
  * 1. Create an SDK client with OAuth2 client credentials using the
  * client_oauth security scheme.
  * 2. Automatically handle token exchange and refresh.
- * 3. Validate the connection by checking health status and listing Workspaces.
+ * 3. Validate the connection by listing Workspaces.
  *
  * Prerequisites: Replace the placeholder values for ORG_ID, CLIENT_ID, and
  * CLIENT_SECRET with your Organization ID and Client ID and Secret.
@@ -44,17 +44,6 @@ async function main() {
   });
 
   console.log("✅ Cribl.Cloud Management Plane SDK client created");
-
-  // Validate connection with health check
-  const healthResponse = await criblMgmtPlane.health.get();
-
-  // Health response is a union type - check if it has the status property (success type)
-  if ("status" in healthResponse) {
-    const status = healthResponse.status || "unknown";
-    console.log(`✅ Health check passed! Status: ${status}`);
-  } else {
-    console.log(`❌ Health check failed: ${healthResponse.message}`);
-  }
 
   // List all Workspaces for the Organization
   const workspacesResponse = await criblMgmtPlane.workspaces.list({
