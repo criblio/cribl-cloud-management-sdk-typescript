@@ -5,12 +5,14 @@
   "scripts": {
     "build:parent": "cd .. && npm i && npm run build && cd -",
     "build:examples": "npm i",
-    "build": "npm run build:parent && npm run build:examples"
+    "build": "npm run build:parent && npm run build:examples",
+    "typecheck": "npm run build && tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "dotenv": "^16.4.5",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "cribl-mgmt-plane": "file:.."
