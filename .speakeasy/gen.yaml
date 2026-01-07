@@ -50,7 +50,7 @@ typescript:
   enumFormat: union
   envVarPrefix: CRIBLMGMTPLANE
   exportZodModelNamespace: false
-  flatAdditionalProperties: false
+  flatAdditionalProperties: true
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
   formStringArrayEncodeMode: encoded-string
