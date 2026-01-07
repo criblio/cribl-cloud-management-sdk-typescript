@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type WorkspaceCreateRequestDTO = {
   /**
@@ -27,18 +24,6 @@ export type WorkspaceCreateRequestDTO = {
 };
 
 /** @internal */
-export const WorkspaceCreateRequestDTO$inboundSchema: z.ZodType<
-  WorkspaceCreateRequestDTO,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  workspaceId: z.string(),
-  alias: z.string().optional(),
-  description: z.string().optional(),
-  tags: z.array(z.string()).optional(),
-});
-
-/** @internal */
 export type WorkspaceCreateRequestDTO$Outbound = {
   workspaceId: string;
   alias?: string | undefined;
@@ -58,33 +43,10 @@ export const WorkspaceCreateRequestDTO$outboundSchema: z.ZodType<
   tags: z.array(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WorkspaceCreateRequestDTO$ {
-  /** @deprecated use `WorkspaceCreateRequestDTO$inboundSchema` instead. */
-  export const inboundSchema = WorkspaceCreateRequestDTO$inboundSchema;
-  /** @deprecated use `WorkspaceCreateRequestDTO$outboundSchema` instead. */
-  export const outboundSchema = WorkspaceCreateRequestDTO$outboundSchema;
-  /** @deprecated use `WorkspaceCreateRequestDTO$Outbound` instead. */
-  export type Outbound = WorkspaceCreateRequestDTO$Outbound;
-}
-
 export function workspaceCreateRequestDTOToJSON(
   workspaceCreateRequestDTO: WorkspaceCreateRequestDTO,
 ): string {
   return JSON.stringify(
     WorkspaceCreateRequestDTO$outboundSchema.parse(workspaceCreateRequestDTO),
-  );
-}
-
-export function workspaceCreateRequestDTOFromJSON(
-  jsonString: string,
-): SafeParseResult<WorkspaceCreateRequestDTO, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WorkspaceCreateRequestDTO$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WorkspaceCreateRequestDTO' from JSON`,
   );
 }

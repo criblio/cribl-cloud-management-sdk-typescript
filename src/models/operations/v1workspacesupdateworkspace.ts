@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type V1WorkspacesUpdateWorkspaceRequest = {
@@ -20,21 +17,6 @@ export type V1WorkspacesUpdateWorkspaceRequest = {
   workspaceId: string;
   workspacePatchRequestDTO: models.WorkspacePatchRequestDTO;
 };
-
-/** @internal */
-export const V1WorkspacesUpdateWorkspaceRequest$inboundSchema: z.ZodType<
-  V1WorkspacesUpdateWorkspaceRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organizationId: z.string(),
-  workspaceId: z.string(),
-  WorkspacePatchRequestDTO: models.WorkspacePatchRequestDTO$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "WorkspacePatchRequestDTO": "workspacePatchRequestDTO",
-  });
-});
 
 /** @internal */
 export type V1WorkspacesUpdateWorkspaceRequest$Outbound = {
@@ -58,20 +40,6 @@ export const V1WorkspacesUpdateWorkspaceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace V1WorkspacesUpdateWorkspaceRequest$ {
-  /** @deprecated use `V1WorkspacesUpdateWorkspaceRequest$inboundSchema` instead. */
-  export const inboundSchema = V1WorkspacesUpdateWorkspaceRequest$inboundSchema;
-  /** @deprecated use `V1WorkspacesUpdateWorkspaceRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    V1WorkspacesUpdateWorkspaceRequest$outboundSchema;
-  /** @deprecated use `V1WorkspacesUpdateWorkspaceRequest$Outbound` instead. */
-  export type Outbound = V1WorkspacesUpdateWorkspaceRequest$Outbound;
-}
-
 export function v1WorkspacesUpdateWorkspaceRequestToJSON(
   v1WorkspacesUpdateWorkspaceRequest: V1WorkspacesUpdateWorkspaceRequest,
 ): string {
@@ -79,16 +47,5 @@ export function v1WorkspacesUpdateWorkspaceRequestToJSON(
     V1WorkspacesUpdateWorkspaceRequest$outboundSchema.parse(
       v1WorkspacesUpdateWorkspaceRequest,
     ),
-  );
-}
-
-export function v1WorkspacesUpdateWorkspaceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<V1WorkspacesUpdateWorkspaceRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      V1WorkspacesUpdateWorkspaceRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'V1WorkspacesUpdateWorkspaceRequest' from JSON`,
   );
 }

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type V1WorkspacesDeleteWorkspaceRequest = {
   /**
@@ -17,16 +14,6 @@ export type V1WorkspacesDeleteWorkspaceRequest = {
    */
   workspaceId: string;
 };
-
-/** @internal */
-export const V1WorkspacesDeleteWorkspaceRequest$inboundSchema: z.ZodType<
-  V1WorkspacesDeleteWorkspaceRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organizationId: z.string(),
-  workspaceId: z.string(),
-});
 
 /** @internal */
 export type V1WorkspacesDeleteWorkspaceRequest$Outbound = {
@@ -44,20 +31,6 @@ export const V1WorkspacesDeleteWorkspaceRequest$outboundSchema: z.ZodType<
   workspaceId: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace V1WorkspacesDeleteWorkspaceRequest$ {
-  /** @deprecated use `V1WorkspacesDeleteWorkspaceRequest$inboundSchema` instead. */
-  export const inboundSchema = V1WorkspacesDeleteWorkspaceRequest$inboundSchema;
-  /** @deprecated use `V1WorkspacesDeleteWorkspaceRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    V1WorkspacesDeleteWorkspaceRequest$outboundSchema;
-  /** @deprecated use `V1WorkspacesDeleteWorkspaceRequest$Outbound` instead. */
-  export type Outbound = V1WorkspacesDeleteWorkspaceRequest$Outbound;
-}
-
 export function v1WorkspacesDeleteWorkspaceRequestToJSON(
   v1WorkspacesDeleteWorkspaceRequest: V1WorkspacesDeleteWorkspaceRequest,
 ): string {
@@ -65,16 +38,5 @@ export function v1WorkspacesDeleteWorkspaceRequestToJSON(
     V1WorkspacesDeleteWorkspaceRequest$outboundSchema.parse(
       v1WorkspacesDeleteWorkspaceRequest,
     ),
-  );
-}
-
-export function v1WorkspacesDeleteWorkspaceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<V1WorkspacesDeleteWorkspaceRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      V1WorkspacesDeleteWorkspaceRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'V1WorkspacesDeleteWorkspaceRequest' from JSON`,
   );
 }

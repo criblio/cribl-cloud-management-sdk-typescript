@@ -24,16 +24,6 @@ export type V1WorkspacesGetWorkspaceResponse =
   | models.DefaultErrorDTO;
 
 /** @internal */
-export const V1WorkspacesGetWorkspaceRequest$inboundSchema: z.ZodType<
-  V1WorkspacesGetWorkspaceRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organizationId: z.string(),
-  workspaceId: z.string(),
-});
-
-/** @internal */
 export type V1WorkspacesGetWorkspaceRequest$Outbound = {
   organizationId: string;
   workspaceId: string;
@@ -49,19 +39,6 @@ export const V1WorkspacesGetWorkspaceRequest$outboundSchema: z.ZodType<
   workspaceId: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace V1WorkspacesGetWorkspaceRequest$ {
-  /** @deprecated use `V1WorkspacesGetWorkspaceRequest$inboundSchema` instead. */
-  export const inboundSchema = V1WorkspacesGetWorkspaceRequest$inboundSchema;
-  /** @deprecated use `V1WorkspacesGetWorkspaceRequest$outboundSchema` instead. */
-  export const outboundSchema = V1WorkspacesGetWorkspaceRequest$outboundSchema;
-  /** @deprecated use `V1WorkspacesGetWorkspaceRequest$Outbound` instead. */
-  export type Outbound = V1WorkspacesGetWorkspaceRequest$Outbound;
-}
-
 export function v1WorkspacesGetWorkspaceRequestToJSON(
   v1WorkspacesGetWorkspaceRequest: V1WorkspacesGetWorkspaceRequest,
 ): string {
@@ -69,16 +46,6 @@ export function v1WorkspacesGetWorkspaceRequestToJSON(
     V1WorkspacesGetWorkspaceRequest$outboundSchema.parse(
       v1WorkspacesGetWorkspaceRequest,
     ),
-  );
-}
-
-export function v1WorkspacesGetWorkspaceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<V1WorkspacesGetWorkspaceRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => V1WorkspacesGetWorkspaceRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'V1WorkspacesGetWorkspaceRequest' from JSON`,
   );
 }
 
@@ -91,44 +58,6 @@ export const V1WorkspacesGetWorkspaceResponse$inboundSchema: z.ZodType<
   models.WorkspaceSchema$inboundSchema,
   models.DefaultErrorDTO$inboundSchema,
 ]);
-
-/** @internal */
-export type V1WorkspacesGetWorkspaceResponse$Outbound =
-  | models.WorkspaceSchema$Outbound
-  | models.DefaultErrorDTO$Outbound;
-
-/** @internal */
-export const V1WorkspacesGetWorkspaceResponse$outboundSchema: z.ZodType<
-  V1WorkspacesGetWorkspaceResponse$Outbound,
-  z.ZodTypeDef,
-  V1WorkspacesGetWorkspaceResponse
-> = z.union([
-  models.WorkspaceSchema$outboundSchema,
-  models.DefaultErrorDTO$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace V1WorkspacesGetWorkspaceResponse$ {
-  /** @deprecated use `V1WorkspacesGetWorkspaceResponse$inboundSchema` instead. */
-  export const inboundSchema = V1WorkspacesGetWorkspaceResponse$inboundSchema;
-  /** @deprecated use `V1WorkspacesGetWorkspaceResponse$outboundSchema` instead. */
-  export const outboundSchema = V1WorkspacesGetWorkspaceResponse$outboundSchema;
-  /** @deprecated use `V1WorkspacesGetWorkspaceResponse$Outbound` instead. */
-  export type Outbound = V1WorkspacesGetWorkspaceResponse$Outbound;
-}
-
-export function v1WorkspacesGetWorkspaceResponseToJSON(
-  v1WorkspacesGetWorkspaceResponse: V1WorkspacesGetWorkspaceResponse,
-): string {
-  return JSON.stringify(
-    V1WorkspacesGetWorkspaceResponse$outboundSchema.parse(
-      v1WorkspacesGetWorkspaceResponse,
-    ),
-  );
-}
 
 export function v1WorkspacesGetWorkspaceResponseFromJSON(
   jsonString: string,
