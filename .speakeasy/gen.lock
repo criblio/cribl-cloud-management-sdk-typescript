@@ -6,7 +6,7 @@ management:
   speakeasyVersion: 1.682.0
   generationVersion: 2.791.1
   releaseVersion: 0.2.0
-  configChecksum: d7fc69e2387fd172d0ac4bcf8448799b
+  configChecksum: fd1141ba831142ee669e3e00f2394115
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
