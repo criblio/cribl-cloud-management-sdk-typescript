@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type SchemeClientOauth = {
   clientID: string;
@@ -13,18 +10,6 @@ export type SchemeClientOauth = {
   tokenURL?: string | undefined;
   audience: string;
 };
-
-/** @internal */
-export const SchemeClientOauth$inboundSchema: z.ZodType<
-  SchemeClientOauth,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  clientID: z.string(),
-  clientSecret: z.string(),
-  tokenURL: z.string().default("https://login.cribl.cloud/oauth/token"),
-  audience: z.string(),
-});
 
 /** @internal */
 export type SchemeClientOauth$Outbound = {
@@ -46,33 +31,10 @@ export const SchemeClientOauth$outboundSchema: z.ZodType<
   audience: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SchemeClientOauth$ {
-  /** @deprecated use `SchemeClientOauth$inboundSchema` instead. */
-  export const inboundSchema = SchemeClientOauth$inboundSchema;
-  /** @deprecated use `SchemeClientOauth$outboundSchema` instead. */
-  export const outboundSchema = SchemeClientOauth$outboundSchema;
-  /** @deprecated use `SchemeClientOauth$Outbound` instead. */
-  export type Outbound = SchemeClientOauth$Outbound;
-}
-
 export function schemeClientOauthToJSON(
   schemeClientOauth: SchemeClientOauth,
 ): string {
   return JSON.stringify(
     SchemeClientOauth$outboundSchema.parse(schemeClientOauth),
-  );
-}
-
-export function schemeClientOauthFromJSON(
-  jsonString: string,
-): SafeParseResult<SchemeClientOauth, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SchemeClientOauth$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SchemeClientOauth' from JSON`,
   );
 }

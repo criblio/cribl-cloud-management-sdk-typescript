@@ -3,32 +3,496 @@ id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
   docChecksum: 5a299b4b662ba6b29dd1a0d6675a1e51
   docVersion: "1.0"
-  speakeasyVersion: 1.638.1
-  generationVersion: 2.729.2
+  speakeasyVersion: 1.682.0
+  generationVersion: 2.791.1
   releaseVersion: 0.2.0
-  configChecksum: 720acb47cb9908edd24dcc8f43ba1b3c
+  configChecksum: d7fc69e2387fd172d0ac4bcf8448799b
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
+persistentEdits:
+  generation_id: 2a8bf81f-56e8-4d78-b310-651fdce04287
+  pristine_commit_hash: e6a48aeeb0420dbd4705df5f9832ffbb7fc1a53d
+  pristine_tree_hash: 67fd29adbb26e8b772492d8d0629488c8c05aa0a
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.23.0
+    core: 3.26.17
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
-    globalServerURLs: 2.82.5
+    globalServerURLs: 2.83.0
     groups: 2.81.3
     methodArguments: 0.1.2
     nameOverrides: 2.81.2
-    oauth2ClientCredentials: 1.1.0
+    oauth2ClientCredentials: 1.1.1
     openEnums: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.3.0
+    sdkHooks: 0.4.0
+trackedFiles:
+  .devcontainer/README.md:
+    id: b170c0f184ac
+    last_write_checksum: sha1:685ef7680c5e9abb45d2b4613a4562ec38f32322
+    pristine_git_object: 8206e2f0cb3d98a71cf63f9df7ec700e47a19b8d
+  .devcontainer/devcontainer.json:
+    id: b34062a34eb1
+    last_write_checksum: sha1:d0b15193202c961e7d1875864ddb15f9d17c84dd
+    pristine_git_object: 4d560dd5f40afaf10d96eb75b1f02cd48bbd640c
+  .devcontainer/setup.sh:
+    id: 5f1dfbfeb8eb
+    last_write_checksum: sha1:8b39a159c67d60d56a8c904cfd14ec94cc18f27e
+    pristine_git_object: 3242e1d46f88ae50ee971d335ff0fc09a56e4459
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:26d16d8297b104945139da8c25bd38feeaad3e25
+    pristine_git_object: 113eead5093c17d43a46159132885318f281a68a
+  .npmignore:
+    id: aa70c1f807c3
+    last_write_checksum: sha1:3d5eb92f81539175db1ff0280e0aefbdd701f200
+    pristine_git_object: cf98a6bf092538eb10ff0edc915102682ce9a6e6
+  FUNCTIONS.md:
+    id: 21b9df02aaeb
+    last_write_checksum: sha1:c5fd64b72532203f0d279dfce70afcac21f9dd55
+    pristine_git_object: 70e4c5c730f5e8f92f7bdcef95b06e67d60316b4
+  RUNTIMES.md:
+    id: 620c490847b6
+    last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
+    pristine_git_object: 27731c3b5ace66bedc454ed5acbe15075aacd3dc
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:4e17dae766f7d9096f753bf451d1c1a01558d34b
+    pristine_git_object: 39c79479a68ba2a9e9b8caad27e2af7d5e7a73ad
+  docs/lib/utils/retryconfig.md:
+    id: 0ce9707cb848
+    last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
+    pristine_git_object: 08f95f4552349360b2c0b01802aa71ec3a55d2c2
+  docs/models/defaulterrordto.md:
+    id: 2faad791832c
+    last_write_checksum: sha1:0ad798c38689296ab310e5fad4dcaf0f57b398f1
+    pristine_git_object: 1508ab2faa764d3575abdb333a42deb9207e944d
+  docs/models/operations/gethealthstatusresponse.md:
+    id: 22d4bba29dc6
+    last_write_checksum: sha1:50b9336d11ebb0717704db25521617ebf941dd7d
+    pristine_git_object: 3f7828cbfaa873b9ba3ef82629a1edccab0da9ce
+  docs/models/operations/gethealthstatusresponsebody.md:
+    id: eee8b6f44127
+    last_write_checksum: sha1:6c3882158be88cab0c77df444fdb805591db87e1
+    pristine_git_object: 5f602febdacbadd270b35d7f54a17163165c0dc0
+  docs/models/operations/v1workspacescreateworkspacerequest.md:
+    id: 43494c6a74c7
+    last_write_checksum: sha1:97b7b9dc9e4d796df110548d8d327e5c653a0db1
+    pristine_git_object: 10cf999283989b33fd918975dd3c4ec2a5332781
+  docs/models/operations/v1workspacescreateworkspaceresponse.md:
+    id: 67d315009833
+    last_write_checksum: sha1:80f28b0d66a8e8d35c9a7101463ee31b50dfd6c2
+    pristine_git_object: 30acdf478990803ddb7a3b21240fe05d9cb04548
+  docs/models/operations/v1workspacesdeleteworkspacerequest.md:
+    id: b9d00d82d3d5
+    last_write_checksum: sha1:1912fd1fbedc4399a7262c098d984324b82cc8ff
+    pristine_git_object: 91ac23d10babb6f9aa8f9327965b0c9860625afc
+  docs/models/operations/v1workspacesgetworkspacerequest.md:
+    id: 452ab7bd4213
+    last_write_checksum: sha1:d08a1acb6e10a371796d644f2a6996bfe55cb069
+    pristine_git_object: 5807080ed1a2584694edfa8942655ec3c3503544
+  docs/models/operations/v1workspacesgetworkspaceresponse.md:
+    id: 411e02f48f03
+    last_write_checksum: sha1:558221aaec3226b961aa1808e5a1eabbfc85d207
+    pristine_git_object: 996e185b370aad0ff2e7783d520f871e26cb22a7
+  docs/models/operations/v1workspaceslistworkspacesrequest.md:
+    id: 5c6c50a4defd
+    last_write_checksum: sha1:f078b4ed4bf509cb28e10e204e93c1c33cbc6858
+    pristine_git_object: 5712db1ced0a42c2faf4a49df2fbd3f12ab113ca
+  docs/models/operations/v1workspaceslistworkspacesresponse.md:
+    id: c32e6107dcca
+    last_write_checksum: sha1:e30a469d407207cd1862ca2d0206565f614480e2
+    pristine_git_object: 7dd4f2c0c69b1cf42f7f47ede49204254601ce41
+  docs/models/operations/v1workspacesupdateworkspacerequest.md:
+    id: 3c03fb30ff0c
+    last_write_checksum: sha1:ef7b1f59fc1d0ae7ba9280bc1fb7c5914c848d25
+    pristine_git_object: b9ec7e55fe6b90157c14d641b84460cbeb8ccb25
+  docs/models/region.md:
+    id: 79be579f21a7
+    last_write_checksum: sha1:6cc718a9adb972c1666d323f1b49c95893d60461
+    pristine_git_object: 5a61d506fac04153a7832a83423eb69d0aaa50f6
+  docs/models/schemeclientoauth.md:
+    id: 961e796e86c2
+    last_write_checksum: sha1:65f02272ff57d4d793923b9e9b5997ee46f1dd76
+    pristine_git_object: 3642d73c58a7576d3df823eb20a1ec16202343f6
+  docs/models/security.md:
+    id: 452e4d4eb67a
+    last_write_checksum: sha1:5a920193c740662f738e969cd60e5a21b030248c
+    pristine_git_object: f0af4c7ff3895afe7c67a8c2ca536b53908856f5
+  docs/models/state.md:
+    id: e560b4e72643
+    last_write_checksum: sha1:23db67f43f010c55f42b16326dac6bc1c6fc401f
+    pristine_git_object: cc113c2733e10d08b3dbcfb672e6b990ed593e0a
+  docs/models/workspacecreaterequestdto.md:
+    id: c6d2d66f4333
+    last_write_checksum: sha1:8b3a6a8401d0ced466f20ac332079fd4aa869ea8
+    pristine_git_object: 6b90d21cd9fcd6681ac5c661fef39fecc6c6c3f0
+  docs/models/workspacepatchrequestdto.md:
+    id: c23d2f32d55f
+    last_write_checksum: sha1:22f80ebd064a121063effccd0a4e60cc27c3deab
+    pristine_git_object: b2469559b0a6e3ae6da5a78af770a509e63d8371
+  docs/models/workspaceschema.md:
+    id: 38e9dfa53552
+    last_write_checksum: sha1:bf42244fb948862c8df55269d3a4d39b7479fc2d
+    pristine_git_object: 4d1f2da239aeeed5c6f244819c7ff2b21eb2b886
+  docs/models/workspaceslistresponsedto.md:
+    id: a149445e390c
+    last_write_checksum: sha1:b69e76e24cab1d89ba53f97ba5267bdc8e1eb46e
+    pristine_git_object: 90fa5c1b38f58c58ac05824a357fbab769cd6470
+  docs/sdks/health/README.md:
+    id: 5082c50d5e82
+    last_write_checksum: sha1:3eff8ad9e17781e68e35d3b33bafbd106d862d79
+    pristine_git_object: e24d17f92d46d13e78c98f3baabf750a177e5099
+  docs/sdks/workspaces/README.md:
+    id: 1f5b051a6380
+    last_write_checksum: sha1:f0011667a6f7f16c97ed7c541881b973716545ec
+    pristine_git_object: 5fc9c579dc24dc8bdb22841efb66ffc1f28ed9be
+  eslint.config.mjs:
+    id: 461c8d07f6da
+    last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
+    pristine_git_object: 67bccfec985be20a00970d90155752832dd47135
+  jsr.json:
+    id: 7f6ab7767282
+    last_write_checksum: sha1:bb42ba95fb015b1759db953ff81a1247cb24cf80
+    pristine_git_object: a468e83e190bb7ce89b18db6079578ea5df765ba
+  package.json:
+    id: 7030d0b2f71b
+    last_write_checksum: sha1:d2009ba980006d526feb3748717bb41017a9857d
+    pristine_git_object: 68215ee14333672f7dbc62235a86aced46fdbcd3
+  src/core.ts:
+    id: f431fdbcd144
+    last_write_checksum: sha1:aa936f7bd2a88be72ba9abff04f666ef9dd4aaf5
+    pristine_git_object: 73d0432c1a2a679de361272933e658fcb9f10ad7
+  src/funcs/healthGet.ts:
+    id: e9c08b6f7e1c
+    last_write_checksum: sha1:3edb339944b0ee846df525208aa744e528fc4de0
+    pristine_git_object: 42cfea737df5f6174e539b922b4d5fbcdea9e938
+  src/funcs/workspacesCreate.ts:
+    id: 151342b46246
+    last_write_checksum: sha1:e35ad871b8d4fd1f8fed876385a85fcc2967c090
+    pristine_git_object: 0a548aefdafdc288d43cc164ac91447bd43845f3
+  src/funcs/workspacesDelete.ts:
+    id: 548699dffed1
+    last_write_checksum: sha1:e4cd46aff7730154d0841300dbf701c84cc46bd8
+    pristine_git_object: 8bd248ae8765ffd91f0a32faf2b0bf3cef249bfd
+  src/funcs/workspacesGet.ts:
+    id: f361d34e5bff
+    last_write_checksum: sha1:6351593dfe137a642642446ea332dec41f6d4dec
+    pristine_git_object: d127addfe5d41cee6b2d8aa158741610e710837f
+  src/funcs/workspacesList.ts:
+    id: 6ff9df556ff5
+    last_write_checksum: sha1:dcf9ca316ed77f2e3954711e8dbf1a083c7d4451
+    pristine_git_object: c48e27532f41a20bf8f0209e0827851c1e507459
+  src/funcs/workspacesUpdate.ts:
+    id: f0404418dd03
+    last_write_checksum: sha1:a431503db8813385123a0f90c0a34acc45ec6e7d
+    pristine_git_object: 9725d6f2fe4eff6569fa5c0ea0dec696587af262
+  src/hooks/clientcredentials.ts:
+    id: 81c2e30380d8
+    last_write_checksum: sha1:ed4b097354be76187355327cf3c0d2e8a600b7b2
+    pristine_git_object: 475129f17f43eec5adca3f762e903a00b37fbd75
+  src/hooks/hooks.ts:
+    id: a2463fc6f69b
+    last_write_checksum: sha1:5b1e3fa9e469c8df8b22ac79c0a3e2c8a39b4845
+    pristine_git_object: c177922a1ae4bf86e3b22e5584248ece7160db24
+  src/hooks/index.ts:
+    id: 5f2dab62b520
+    last_write_checksum: sha1:1a11c073a6cd792932218e1d4ed36b8567bad8ef
+    pristine_git_object: f60ec7acd76141a71d78008c5a362eb0236d8335
+  src/hooks/types.ts:
+    id: 2a02d86ec24f
+    last_write_checksum: sha1:27a3444c4839bec58ae89820fd8c2483edafc3f4
+    pristine_git_object: 9c36bf01332084f735909a71036c3544cc4c7e3a
+  src/index.ts:
+    id: c5fb850250c7
+    last_write_checksum: sha1:35c9cde3ae14b18b3f893a1afe8b6c44f8760f24
+    pristine_git_object: dbcba164a0082e3bb8c43cf21fa7f8ffb9d35dfc
+  src/lib/base64.ts:
+    id: "598522066688"
+    last_write_checksum: sha1:b0b12ddbd8625efb47c0e955a18641aeb10c6532
+    pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
+  src/lib/config.ts:
+    id: 320761608fb3
+    last_write_checksum: sha1:f8e9f10b8f5bc0018f80cc043c43c0370fb1e826
+    pristine_git_object: 5a5258b4de577ef3d0d1d352f07af6bb6d105f12
+  src/lib/dlv.ts:
+    id: b1988214835a
+    last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
+    pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
+  src/lib/encodings.ts:
+    id: 3bd8ead98afd
+    last_write_checksum: sha1:d20c131976ab8ac68b22bdde2b7ed84b5b873922
+    pristine_git_object: 31cd3733907afbee3641b9ab680ed417247a7d33
+  src/lib/env.ts:
+    id: c52972a3b198
+    last_write_checksum: sha1:7e22f08693d49600e150db480d5071c902ad6b63
+    pristine_git_object: 8a89e5d6fdc560b2009c3112cb2948ab1174a12b
+  src/lib/files.ts:
+    id: e5efa54fcb95
+    last_write_checksum: sha1:d0f325f445b8d22e7d73baf052c585ec2dd24841
+    pristine_git_object: 0344cd046d033f9e8a55de02f7935c5cec5dc30b
+  src/lib/http.ts:
+    id: 63a80782d37e
+    last_write_checksum: sha1:797cbf16d3c7c4d62d3ba0eedb08617524938457
+    pristine_git_object: 13cf1fd7894a89f727b8d2db2ad24313a94f68c7
+  src/lib/is-plain-object.ts:
+    id: b9862591096a
+    last_write_checksum: sha1:df687f25a9590b6fd95d39df41a652ae3fd4e517
+    pristine_git_object: 61070d3d7c7e5e95b1ed7e7ea21869eb0767db77
+  src/lib/logger.ts:
+    id: 7ee7741a02bf
+    last_write_checksum: sha1:0ec9d3a2a34c362746b767e4f9a746c055d57a7b
+    pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
+  src/lib/matchers.ts:
+    id: d54b2253b719
+    last_write_checksum: sha1:cca612c52dc658749fa508d8d856fa05bc68b377
+    pristine_git_object: ad30f17633d0449fc6f55d3fc1fceed54e838dc8
+  src/lib/oauth2-sessions.ts:
+    id: 537b7294cec0
+    last_write_checksum: sha1:5dd800929f75f5006fcbaba031a0c21e5f9d9ee9
+    pristine_git_object: 932c170f5c0ab5d76cf789838bd3fe8cba33ba44
+  src/lib/primitives.ts:
+    id: 74859f750b28
+    last_write_checksum: sha1:987869fc54790b9c22e9182099103d6aa7c67016
+    pristine_git_object: d21f1dc49affa4e6d324bdd60811b470fdfa7eb6
+  src/lib/retries.ts:
+    id: b24a69d15639
+    last_write_checksum: sha1:f3da74dffcbe2756c69393f8600205aa1dc06e68
+    pristine_git_object: e3ce9aba72150fc3c18f3105d39b21aba809377b
+  src/lib/schemas.ts:
+    id: deb4b531fae1
+    last_write_checksum: sha1:209cfaabfa7fc1c1310f97453215cb0755619c6e
+    pristine_git_object: 47edb9725c2482c667e2ddc8a56b1fec4285c492
+  src/lib/sdks.ts:
+    id: 8a6d91f1218d
+    last_write_checksum: sha1:91a66848f928b1ed5219d5b9ce855972cf4a67c0
+    pristine_git_object: cca3ee589d08131864fe3d64f21f7bddab69da85
+  src/lib/security.ts:
+    id: 0502afa7922e
+    last_write_checksum: sha1:f0d296d736af1e8c2eb57e8ef6c1517f65729d53
+    pristine_git_object: de1e7783c8291b7d81a56964be1f03606eb05909
+  src/lib/url.ts:
+    id: b0057e24ed76
+    last_write_checksum: sha1:d124050c7e755c0cce233b9e029afb584ff65201
+    pristine_git_object: f3a8de6c021de59c991707946cd294596cae954d
+  src/models/defaulterrordto.ts:
+    id: 992e891a6b22
+    last_write_checksum: sha1:d806c0dcf16095143cf4f5466314acd2b53d5acf
+    pristine_git_object: 57ae576bb57542730d47e0a31c931848f4a3f093
+  src/models/errors/criblmgmtplanedefaulterror.ts:
+    id: 4566c58ab4ba
+    last_write_checksum: sha1:3a152da75f69aeead067594312f4b6f27164d163
+    pristine_git_object: a96d53ba67bd0ca963b3d6a3eb0c7908bc4aff62
+  src/models/errors/criblmgmtplaneerror.ts:
+    id: e9e979aa0c75
+    last_write_checksum: sha1:6f1b55ea08d505ed8c6bcbb3eadcba7ee599dd83
+    pristine_git_object: e416e81946aa9dae7cbf5baf7e8864ff45cc18cd
+  src/models/errors/httpclienterrors.ts:
+    id: 6948de76af99
+    last_write_checksum: sha1:994ced121c54fecd0af038ccfb7855fbfd3868ec
+    pristine_git_object: b34f612124c797c2a1106b9735708f679a90b74f
+  src/models/errors/index.ts:
+    id: c4e22507cb83
+    last_write_checksum: sha1:e064bf615e093817a654d042db5ac7f228ff9b8c
+    pristine_git_object: f9f316f0bc9879a11a1a537bd6d9e26a9f5f1bb4
+  src/models/errors/responsevalidationerror.ts:
+    id: 88ff98a41be9
+    last_write_checksum: sha1:08abf9d9ce39fa4d762d2b180882f0c3d212c8e4
+    pristine_git_object: 7a1747875a39763d1e8da5c5d465f2914d6b00eb
+  src/models/errors/sdkvalidationerror.ts:
+    id: fb6b2b49c445
+    last_write_checksum: sha1:a69da17627bcc32b820544608f3400423ea53f26
+    pristine_git_object: 6826e1208a5d7b7d310535d18909646522bf0fbd
+  src/models/index.ts:
+    id: f93644b0f37e
+    last_write_checksum: sha1:766e0dd496129f70a65c54ba25a4ee311cf11a43
+    pristine_git_object: ce7a45c5c152a7946e8505178ca4d653f9885903
+  src/models/operations/gethealthstatus.ts:
+    id: c80df7055651
+    last_write_checksum: sha1:6c313e1b917bc3269960a48998f486d0b55cf6d2
+    pristine_git_object: 19e945554efd07cd3f7bb6ddfb782bb6a93d43dc
+  src/models/operations/index.ts:
+    id: 0d9ffaf774d2
+    last_write_checksum: sha1:56b2772c750ca8c597d4a32c7ba4a43c36e633f9
+    pristine_git_object: 1094cebb0673a69ea44a2aa796f2f9dd8de8c711
+  src/models/operations/v1workspacescreateworkspace.ts:
+    id: 86ff53feef19
+    last_write_checksum: sha1:78644d987d4668dcfa25bd0fa6a6025b07d58799
+    pristine_git_object: d96d4c8e25a4d4fc2959f6ede854b4e585e24bf5
+  src/models/operations/v1workspacesdeleteworkspace.ts:
+    id: 0d392dc566a7
+    last_write_checksum: sha1:116a5eda7776c075b53ab9b2f0b61e0cc50b669c
+    pristine_git_object: 2c26a6cc56252a8ab265902051f37cb037e5942f
+  src/models/operations/v1workspacesgetworkspace.ts:
+    id: 8db530e3be15
+    last_write_checksum: sha1:8e716c40f1440b663bffd7bffe61b1bd53c737f2
+    pristine_git_object: 579660902559fb34676c9d5c93115aafc72c1a0a
+  src/models/operations/v1workspaceslistworkspaces.ts:
+    id: d5e32039d122
+    last_write_checksum: sha1:4168d00f7ffc626e24f97cc0a7019c667b4c1828
+    pristine_git_object: 72e74cf8a4d99b774cae4ef42ab4bc21d8024752
+  src/models/operations/v1workspacesupdateworkspace.ts:
+    id: ca2e087ddae8
+    last_write_checksum: sha1:912adc18f289b5f3d9e1e8bcc89a96c0e5dc41cd
+    pristine_git_object: 907c56256f23a9cf0a41e6d2a29b88932382d449
+  src/models/schemeclientoauth.ts:
+    id: ec6e10e91995
+    last_write_checksum: sha1:49122acffece0a564b72b46f6f112dd80c2f5bac
+    pristine_git_object: be4787243b0c6d398e87aee426e3113bfedb3ff3
+  src/models/security.ts:
+    id: d90c6c784ca5
+    last_write_checksum: sha1:fa10a8070a02770327a6bb927814e7645bfffd75
+    pristine_git_object: 206e51c330dc8bcff0df7484ce22bcbfde7664cb
+  src/models/workspacecreaterequestdto.ts:
+    id: 08ce8671c087
+    last_write_checksum: sha1:95579d86f925dbf244145adce2efdc6f98dbe32b
+    pristine_git_object: acbdf58fd4684b17cbf27ed56eac9408d12f6b39
+  src/models/workspacepatchrequestdto.ts:
+    id: 9c7a52a533f2
+    last_write_checksum: sha1:e1139529db2af11564009dd33d69839ffabc554b
+    pristine_git_object: d0261aff93c132f4899d9192d412de83b1444b6d
+  src/models/workspaceschema.ts:
+    id: a5d6afbea25d
+    last_write_checksum: sha1:85fcaac2f52c4ad6f3fc91add6e30edf5c8abbc4
+    pristine_git_object: e67d7335d692beb07259a7d5d063d63bc2a4c0cb
+  src/models/workspaceslistresponsedto.ts:
+    id: 5f270357451e
+    last_write_checksum: sha1:e4e35b788608a1bd081246cf7647cc206a3f4750
+    pristine_git_object: 50207eb2425ef8ac468f7a56144defa7cf8d7ada
+  src/sdk/health.ts:
+    id: d2e0a0845caf
+    last_write_checksum: sha1:30eb0bd51c1f73c60dff01a691e8ecda3d6d87b5
+    pristine_git_object: 2d822a41562a8e0194355c4eb71658f3442380ee
+  src/sdk/index.ts:
+    id: a857902a703f
+    last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
+    pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
+  src/sdk/sdk.ts:
+    id: 784571af2f69
+    last_write_checksum: sha1:f6ceadb2b4038842466408de822581fded772e04
+    pristine_git_object: bf5391fc1c9ae174f987c689ca4a878dc2b84fb2
+  src/sdk/workspaces.ts:
+    id: 72b45379c8d9
+    last_write_checksum: sha1:b3e452439980480e73ff6b97e8e270d0606ea213
+    pristine_git_object: b7b80c5d651778bbeb8a194dabbcb218aa183180
+  src/types/async.ts:
+    id: fac8da972f86
+    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
+    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+  src/types/blobs.ts:
+    id: f8ab9b326c86
+    last_write_checksum: sha1:cf45d78916671cb6345a11c97c633c64402bc27c
+    pristine_git_object: cce2892d4f573a120ef3907db90ab15f5979cfda
+  src/types/constdatetime.ts:
+    id: 0f7b6f513917
+    last_write_checksum: sha1:dfaaf9adfaf49808bd4c9dea0039f21b7088d9c0
+    pristine_git_object: fe62144eaf6a2054fc8ca9a98466e70f41b5434d
+  src/types/enums.ts:
+    id: 4d03ddfe5100
+    last_write_checksum: sha1:ee590453d2c87e33e89c633d37ee46907eca0e58
+    pristine_git_object: aba0ffd2a3308a31e516d83b52823d80aa65a8f9
+  src/types/fp.ts:
+    id: ae9f0fb8aab6
+    last_write_checksum: sha1:d24994d58f37a1ca106847fcc6d2e976c6f1c093
+    pristine_git_object: ccbe51eac69dfb0da5131f14fd753c4b47c1d527
+  src/types/index.ts:
+    id: cd7a0a5ed005
+    last_write_checksum: sha1:bf43b3dccb960ca9ae9c5ab940da4786255881cd
+    pristine_git_object: abf0b7ab8f196829df8946da40d627a46da68e3c
+  src/types/operations.ts:
+    id: 314da01dca47
+    last_write_checksum: sha1:c49e724cfb1259296381cb57bc0fcdd2eae45865
+    pristine_git_object: beb81e10f0b9eee2ed398a853fe6f737b743f818
+  src/types/rfcdate.ts:
+    id: 9eb64906dcd6
+    last_write_checksum: sha1:8e5f382e02fe21c2f2e24deb1b7bbf8cddd3dd16
+    pristine_git_object: c79b3f53a3dd922aa2ace5a4191c8652cf9a8e89
+  src/types/streams.ts:
+    id: f99be9c4bf14
+    last_write_checksum: sha1:cc9ced2dd34a76c3a1bd7784ccda1cc3b37ab9a9
+    pristine_git_object: a0163e7a99cea88f21d0ad4ce3af1c720180ee20
+  src/types/unrecognized.ts:
+    id: 476605c40716
+    last_write_checksum: sha1:d33ac686528492f4cdc0dbf81ed343b4afe020fe
+    pristine_git_object: b7a2a13f3dff50663429df24ae2f55b647ff1084
+  tsconfig.json:
+    id: 61ebb9fd6e8c
+    last_write_checksum: sha1:c3ec7996536cdb9a54319e7d1eb3b199b733d34c
+    pristine_git_object: 0ccdbe286a8780e06a469a9eb7e2fb95322fd507
+examples:
+  dummyServiceStatus: {}
+  getHealthStatus:
+    speakeasy-default-get-health-status:
+      responses:
+        "200":
+          application/json: {"status": "OK"}
+        default:
+          application/json: {"statusCode": 1397.13, "message": "<value>"}
+  v1.workspaces.createWorkspace:
+    speakeasy-default-v1-workspaces-create-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+      requestBody:
+        application/json: {"workspaceId": "main", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+      responses:
+        "201":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 2135.91, "message": "<value>"}
+  v1.workspaces.listWorkspaces:
+    speakeasy-default-v1-workspaces-list-workspaces:
+      parameters:
+        path:
+          organizationId: "<id>"
+      responses:
+        "200":
+          application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Inactive", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
+        default:
+          application/json: {"statusCode": 5622.58, "message": "<value>"}
+  v1.workspaces.updateWorkspace:
+    speakeasy-default-v1-workspaces-update-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      requestBody:
+        application/json: {"alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+      responses:
+        "200":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 8141.25, "message": "<value>"}
+  v1.workspaces.deleteWorkspace:
+    speakeasy-default-v1-workspaces-delete-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      responses:
+        default:
+          application/json: {"statusCode": 8158.92, "message": "<value>"}
+  v1.workspaces.getWorkspace:
+    speakeasy-default-v1-workspaces-get-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      responses:
+        "200":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 8847.69, "message": "<value>"}
+examplesVersion: 1.0.2
+generatedTests:
+  dummyServiceStatus: "2025-07-02T19:33:07+02:00"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -131,70 +595,3 @@ generatedFiles:
   - src/types/rfcdate.ts
   - src/types/streams.ts
   - tsconfig.json
-examples:
-  dummyServiceStatus: {}
-  getHealthStatus:
-    speakeasy-default-get-health-status:
-      responses:
-        "200":
-          application/json: {"status": "OK"}
-        default:
-          application/json: {"statusCode": 1397.13, "message": "<value>"}
-  v1.workspaces.createWorkspace:
-    speakeasy-default-v1-workspaces-create-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-      requestBody:
-        application/json: {"workspaceId": "main", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-      responses:
-        "201":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-        default:
-          application/json: {"statusCode": 2135.91, "message": "<value>"}
-  v1.workspaces.listWorkspaces:
-    speakeasy-default-v1-workspaces-list-workspaces:
-      parameters:
-        path:
-          organizationId: "<id>"
-      responses:
-        "200":
-          application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Inactive", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
-        default:
-          application/json: {"statusCode": 5622.58, "message": "<value>"}
-  v1.workspaces.updateWorkspace:
-    speakeasy-default-v1-workspaces-update-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-          workspaceId: "<id>"
-      requestBody:
-        application/json: {"alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-      responses:
-        "200":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-        default:
-          application/json: {"statusCode": 8141.25, "message": "<value>"}
-  v1.workspaces.deleteWorkspace:
-    speakeasy-default-v1-workspaces-delete-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-          workspaceId: "<id>"
-      responses:
-        default:
-          application/json: {"statusCode": 8158.92, "message": "<value>"}
-  v1.workspaces.getWorkspace:
-    speakeasy-default-v1-workspaces-get-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-          workspaceId: "<id>"
-      responses:
-        "200":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-        default:
-          application/json: {"statusCode": 8847.69, "message": "<value>"}
-examplesVersion: 1.0.2
-generatedTests:
-  dummyServiceStatus: "2025-07-02T19:33:07+02:00"

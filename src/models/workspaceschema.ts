@@ -4,11 +4,8 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
-import {
-  catchUnrecognizedEnum,
-  OpenEnum,
-  Unrecognized,
-} from "../types/enums.js";
+import * as openEnums from "../types/enums.js";
+import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
@@ -78,54 +75,12 @@ export type WorkspaceSchema = {
 };
 
 /** @internal */
-export const Region$inboundSchema: z.ZodType<Region, z.ZodTypeDef, unknown> = z
-  .union([
-    z.nativeEnum(Region),
-    z.string().transform(catchUnrecognizedEnum),
-  ]);
+export const Region$inboundSchema: z.ZodType<Region, z.ZodTypeDef, unknown> =
+  openEnums.inboundSchema(Region);
 
 /** @internal */
-export const Region$outboundSchema: z.ZodType<Region, z.ZodTypeDef, Region> = z
-  .union([
-    z.nativeEnum(Region),
-    z.string().and(z.custom<Unrecognized<string>>()),
-  ]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Region$ {
-  /** @deprecated use `Region$inboundSchema` instead. */
-  export const inboundSchema = Region$inboundSchema;
-  /** @deprecated use `Region$outboundSchema` instead. */
-  export const outboundSchema = Region$outboundSchema;
-}
-
-/** @internal */
-export const State$inboundSchema: z.ZodType<State, z.ZodTypeDef, unknown> = z
-  .union([
-    z.nativeEnum(State),
-    z.string().transform(catchUnrecognizedEnum),
-  ]);
-
-/** @internal */
-export const State$outboundSchema: z.ZodType<State, z.ZodTypeDef, State> = z
-  .union([
-    z.nativeEnum(State),
-    z.string().and(z.custom<Unrecognized<string>>()),
-  ]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace State$ {
-  /** @deprecated use `State$inboundSchema` instead. */
-  export const inboundSchema = State$inboundSchema;
-  /** @deprecated use `State$outboundSchema` instead. */
-  export const outboundSchema = State$outboundSchema;
-}
+export const State$inboundSchema: z.ZodType<State, z.ZodTypeDef, unknown> =
+  openEnums.inboundSchema(State);
 
 /** @internal */
 export const WorkspaceSchema$inboundSchema: z.ZodType<
@@ -141,51 +96,6 @@ export const WorkspaceSchema$inboundSchema: z.ZodType<
   description: z.string().optional(),
   tags: z.array(z.string()).optional(),
 });
-
-/** @internal */
-export type WorkspaceSchema$Outbound = {
-  workspaceId: string;
-  region: string;
-  leaderFQDN: string;
-  state: string;
-  alias?: string | undefined;
-  description?: string | undefined;
-  tags?: Array<string> | undefined;
-};
-
-/** @internal */
-export const WorkspaceSchema$outboundSchema: z.ZodType<
-  WorkspaceSchema$Outbound,
-  z.ZodTypeDef,
-  WorkspaceSchema
-> = z.object({
-  workspaceId: z.string(),
-  region: Region$outboundSchema,
-  leaderFQDN: z.string(),
-  state: State$outboundSchema,
-  alias: z.string().optional(),
-  description: z.string().optional(),
-  tags: z.array(z.string()).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WorkspaceSchema$ {
-  /** @deprecated use `WorkspaceSchema$inboundSchema` instead. */
-  export const inboundSchema = WorkspaceSchema$inboundSchema;
-  /** @deprecated use `WorkspaceSchema$outboundSchema` instead. */
-  export const outboundSchema = WorkspaceSchema$outboundSchema;
-  /** @deprecated use `WorkspaceSchema$Outbound` instead. */
-  export type Outbound = WorkspaceSchema$Outbound;
-}
-
-export function workspaceSchemaToJSON(
-  workspaceSchema: WorkspaceSchema,
-): string {
-  return JSON.stringify(WorkspaceSchema$outboundSchema.parse(workspaceSchema));
-}
 
 export function workspaceSchemaFromJSON(
   jsonString: string,
