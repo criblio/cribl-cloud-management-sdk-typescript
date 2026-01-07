@@ -28,43 +28,6 @@ export const GetHealthStatusResponseBody$inboundSchema: z.ZodType<
   status: z.string().optional(),
 });
 
-/** @internal */
-export type GetHealthStatusResponseBody$Outbound = {
-  status?: string | undefined;
-};
-
-/** @internal */
-export const GetHealthStatusResponseBody$outboundSchema: z.ZodType<
-  GetHealthStatusResponseBody$Outbound,
-  z.ZodTypeDef,
-  GetHealthStatusResponseBody
-> = z.object({
-  status: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetHealthStatusResponseBody$ {
-  /** @deprecated use `GetHealthStatusResponseBody$inboundSchema` instead. */
-  export const inboundSchema = GetHealthStatusResponseBody$inboundSchema;
-  /** @deprecated use `GetHealthStatusResponseBody$outboundSchema` instead. */
-  export const outboundSchema = GetHealthStatusResponseBody$outboundSchema;
-  /** @deprecated use `GetHealthStatusResponseBody$Outbound` instead. */
-  export type Outbound = GetHealthStatusResponseBody$Outbound;
-}
-
-export function getHealthStatusResponseBodyToJSON(
-  getHealthStatusResponseBody: GetHealthStatusResponseBody,
-): string {
-  return JSON.stringify(
-    GetHealthStatusResponseBody$outboundSchema.parse(
-      getHealthStatusResponseBody,
-    ),
-  );
-}
-
 export function getHealthStatusResponseBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<GetHealthStatusResponseBody, SDKValidationError> {
@@ -84,42 +47,6 @@ export const GetHealthStatusResponse$inboundSchema: z.ZodType<
   models.DefaultErrorDTO$inboundSchema,
   z.lazy(() => GetHealthStatusResponseBody$inboundSchema),
 ]);
-
-/** @internal */
-export type GetHealthStatusResponse$Outbound =
-  | models.DefaultErrorDTO$Outbound
-  | GetHealthStatusResponseBody$Outbound;
-
-/** @internal */
-export const GetHealthStatusResponse$outboundSchema: z.ZodType<
-  GetHealthStatusResponse$Outbound,
-  z.ZodTypeDef,
-  GetHealthStatusResponse
-> = z.union([
-  models.DefaultErrorDTO$outboundSchema,
-  z.lazy(() => GetHealthStatusResponseBody$outboundSchema),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetHealthStatusResponse$ {
-  /** @deprecated use `GetHealthStatusResponse$inboundSchema` instead. */
-  export const inboundSchema = GetHealthStatusResponse$inboundSchema;
-  /** @deprecated use `GetHealthStatusResponse$outboundSchema` instead. */
-  export const outboundSchema = GetHealthStatusResponse$outboundSchema;
-  /** @deprecated use `GetHealthStatusResponse$Outbound` instead. */
-  export type Outbound = GetHealthStatusResponse$Outbound;
-}
-
-export function getHealthStatusResponseToJSON(
-  getHealthStatusResponse: GetHealthStatusResponse,
-): string {
-  return JSON.stringify(
-    GetHealthStatusResponse$outboundSchema.parse(getHealthStatusResponse),
-  );
-}
 
 export function getHealthStatusResponseFromJSON(
   jsonString: string,

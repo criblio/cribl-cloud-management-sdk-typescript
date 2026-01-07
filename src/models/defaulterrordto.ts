@@ -22,41 +22,6 @@ export const DefaultErrorDTO$inboundSchema: z.ZodType<
   message: z.string(),
 });
 
-/** @internal */
-export type DefaultErrorDTO$Outbound = {
-  statusCode: number;
-  message: string;
-};
-
-/** @internal */
-export const DefaultErrorDTO$outboundSchema: z.ZodType<
-  DefaultErrorDTO$Outbound,
-  z.ZodTypeDef,
-  DefaultErrorDTO
-> = z.object({
-  statusCode: z.number(),
-  message: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DefaultErrorDTO$ {
-  /** @deprecated use `DefaultErrorDTO$inboundSchema` instead. */
-  export const inboundSchema = DefaultErrorDTO$inboundSchema;
-  /** @deprecated use `DefaultErrorDTO$outboundSchema` instead. */
-  export const outboundSchema = DefaultErrorDTO$outboundSchema;
-  /** @deprecated use `DefaultErrorDTO$Outbound` instead. */
-  export type Outbound = DefaultErrorDTO$Outbound;
-}
-
-export function defaultErrorDTOToJSON(
-  defaultErrorDTO: DefaultErrorDTO,
-): string {
-  return JSON.stringify(DefaultErrorDTO$outboundSchema.parse(defaultErrorDTO));
-}
-
 export function defaultErrorDTOFromJSON(
   jsonString: string,
 ): SafeParseResult<DefaultErrorDTO, SDKValidationError> {
