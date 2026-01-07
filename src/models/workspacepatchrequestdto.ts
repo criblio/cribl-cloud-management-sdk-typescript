@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type WorkspacePatchRequestDTO = {
   /**
@@ -21,17 +18,6 @@ export type WorkspacePatchRequestDTO = {
    */
   tags?: Array<string> | undefined;
 };
-
-/** @internal */
-export const WorkspacePatchRequestDTO$inboundSchema: z.ZodType<
-  WorkspacePatchRequestDTO,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  alias: z.string().optional(),
-  description: z.string().optional(),
-  tags: z.array(z.string()).optional(),
-});
 
 /** @internal */
 export type WorkspacePatchRequestDTO$Outbound = {
@@ -51,33 +37,10 @@ export const WorkspacePatchRequestDTO$outboundSchema: z.ZodType<
   tags: z.array(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WorkspacePatchRequestDTO$ {
-  /** @deprecated use `WorkspacePatchRequestDTO$inboundSchema` instead. */
-  export const inboundSchema = WorkspacePatchRequestDTO$inboundSchema;
-  /** @deprecated use `WorkspacePatchRequestDTO$outboundSchema` instead. */
-  export const outboundSchema = WorkspacePatchRequestDTO$outboundSchema;
-  /** @deprecated use `WorkspacePatchRequestDTO$Outbound` instead. */
-  export type Outbound = WorkspacePatchRequestDTO$Outbound;
-}
-
 export function workspacePatchRequestDTOToJSON(
   workspacePatchRequestDTO: WorkspacePatchRequestDTO,
 ): string {
   return JSON.stringify(
     WorkspacePatchRequestDTO$outboundSchema.parse(workspacePatchRequestDTO),
-  );
-}
-
-export function workspacePatchRequestDTOFromJSON(
-  jsonString: string,
-): SafeParseResult<WorkspacePatchRequestDTO, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WorkspacePatchRequestDTO$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WorkspacePatchRequestDTO' from JSON`,
   );
 }

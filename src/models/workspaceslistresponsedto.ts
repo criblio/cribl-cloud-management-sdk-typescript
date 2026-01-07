@@ -9,8 +9,6 @@ import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import {
   WorkspaceSchema,
   WorkspaceSchema$inboundSchema,
-  WorkspaceSchema$Outbound,
-  WorkspaceSchema$outboundSchema,
 } from "./workspaceschema.js";
 
 export type WorkspacesListResponseDTO = {
@@ -33,43 +31,6 @@ export const WorkspacesListResponseDTO$inboundSchema: z.ZodType<
   items: z.array(WorkspaceSchema$inboundSchema),
   count: z.number(),
 });
-
-/** @internal */
-export type WorkspacesListResponseDTO$Outbound = {
-  items: Array<WorkspaceSchema$Outbound>;
-  count: number;
-};
-
-/** @internal */
-export const WorkspacesListResponseDTO$outboundSchema: z.ZodType<
-  WorkspacesListResponseDTO$Outbound,
-  z.ZodTypeDef,
-  WorkspacesListResponseDTO
-> = z.object({
-  items: z.array(WorkspaceSchema$outboundSchema),
-  count: z.number(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WorkspacesListResponseDTO$ {
-  /** @deprecated use `WorkspacesListResponseDTO$inboundSchema` instead. */
-  export const inboundSchema = WorkspacesListResponseDTO$inboundSchema;
-  /** @deprecated use `WorkspacesListResponseDTO$outboundSchema` instead. */
-  export const outboundSchema = WorkspacesListResponseDTO$outboundSchema;
-  /** @deprecated use `WorkspacesListResponseDTO$Outbound` instead. */
-  export type Outbound = WorkspacesListResponseDTO$Outbound;
-}
-
-export function workspacesListResponseDTOToJSON(
-  workspacesListResponseDTO: WorkspacesListResponseDTO,
-): string {
-  return JSON.stringify(
-    WorkspacesListResponseDTO$outboundSchema.parse(workspacesListResponseDTO),
-  );
-}
 
 export function workspacesListResponseDTOFromJSON(
   jsonString: string,
