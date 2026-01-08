@@ -3,21 +3,21 @@ id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
   docChecksum: 5a299b4b662ba6b29dd1a0d6675a1e51
   docVersion: "1.0"
-  speakeasyVersion: 1.682.0
-  generationVersion: 2.791.1
+  speakeasyVersion: 1.683.0
+  generationVersion: 2.792.0
   releaseVersion: 0.2.0
-  configChecksum: fd1141ba831142ee669e3e00f2394115
+  configChecksum: c2591d93de24e1d82e84bbe254c2be64
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 2a8bf81f-56e8-4d78-b310-651fdce04287
-  pristine_commit_hash: e6a48aeeb0420dbd4705df5f9832ffbb7fc1a53d
-  pristine_tree_hash: 67fd29adbb26e8b772492d8d0629488c8c05aa0a
+  generation_id: 430fcb10-d261-48ef-99c3-e605dbef9262
+  pristine_commit_hash: f516cd3e04015afb98e87469cafff919c6539013
+  pristine_tree_hash: fdbe9e8fc6ea2e5e8df08071539a54bb29d0f5b5
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.17
+    core: 3.26.18
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -29,7 +29,7 @@ features:
     methodArguments: 0.1.2
     nameOverrides: 2.81.2
     oauth2ClientCredentials: 1.1.1
-    openEnums: 0.1.1
+    openEnums: 0.1.2
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.4.0
@@ -220,8 +220,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:f8e9f10b8f5bc0018f80cc043c43c0370fb1e826
-    pristine_git_object: 5a5258b4de577ef3d0d1d352f07af6bb6d105f12
+    last_write_checksum: sha1:2fbf618a52bd52509bb0e3c8b231cfd1f41647ef
+    pristine_git_object: ee47b6e818f9daacbd6d4cabee7795717709dd1d
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
