@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:53c445fc05fb5410dc90c2a9211e3fbe8a4f4d01d41f9024b8ae1c92b2b11e1f
         sourceBlobDigest: sha256:1ccb8a118e39dc1d930b6a59e2d3b4826bb7e3e3817c2fee6c848bbd9c339539
         codeSamplesNamespace: cribl-cloud-management-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:de7353a85f56742099e1400b7eb874085bcfceba58a750a89d017e7da474fa4a
+        codeSamplesRevisionDigest: sha256:4e520117a954dc52754b405c5c35e3226485acb0573c4b4736f82d77003c046a
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.683.0
