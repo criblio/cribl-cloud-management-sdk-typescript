@@ -77,7 +77,7 @@ typescript:
   outputModelSuffix: output
   packageName: cribl-mgmt-plane
   preApplyUnionDiscriminators: true
-  preserveModelFieldNames: false
+  preserveModelFieldNames: true
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
