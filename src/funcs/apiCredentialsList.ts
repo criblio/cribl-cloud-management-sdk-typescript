@@ -20,25 +20,23 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
-import * as types$ from "../types/primitives.js";
 
 /**
- * Delete a Workspace
+ * List API credentials for an Organization
  *
  * @remarks
- * Delete the specified Workspace in the specified Organization.
+ * Retrieve all API credentials for the specified Organization.
  */
-export function workspacesDelete(
+export function apiCredentialsList(
   client: CriblMgmtPlaneCore,
-  request: operations.V1WorkspacesDeleteWorkspaceRequest,
+  request: operations.V1ApiCredentialsListApiCredentialsRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.DefaultErrorDTO | undefined,
+    operations.V1ApiCredentialsListApiCredentialsResponse,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -58,12 +56,12 @@ export function workspacesDelete(
 
 async function $do(
   client: CriblMgmtPlaneCore,
-  request: operations.V1WorkspacesDeleteWorkspaceRequest,
+  request: operations.V1ApiCredentialsListApiCredentialsRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.DefaultErrorDTO | undefined,
+      operations.V1ApiCredentialsListApiCredentialsResponse,
       | CriblMgmtPlaneError
       | ResponseValidationError
       | ConnectionError
@@ -79,7 +77,9 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.V1WorkspacesDeleteWorkspaceRequest$outboundSchema.parse(value),
+      operations.V1ApiCredentialsListApiCredentialsRequest$outboundSchema.parse(
+        value,
+      ),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -93,15 +93,11 @@ async function $do(
       explode: false,
       charEncoding: "percent",
     }),
-    workspaceId: encodeSimple("workspaceId", payload.workspaceId, {
-      explode: false,
-      charEncoding: "percent",
-    }),
   };
 
-  const path = pathToFunc(
-    "/v1/organizations/{organizationId}/workspaces/{workspaceId}",
-  )(pathParams);
+  const path = pathToFunc("/v1/organizations/{organizationId}/api-credentials")(
+    pathParams,
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -113,7 +109,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "v1.workspaces.deleteWorkspace",
+    operationID: "v1.apiCredentials.listApiCredentials",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -137,7 +133,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "DELETE",
+    method: "GET",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -162,7 +158,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    models.DefaultErrorDTO | undefined,
+    operations.V1ApiCredentialsListApiCredentialsResponse,
     | CriblMgmtPlaneError
     | ResponseValidationError
     | ConnectionError
@@ -172,10 +168,16 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.nil(202, types$.optional(models.DefaultErrorDTO$inboundSchema)),
+    M.json(
+      200,
+      operations.V1ApiCredentialsListApiCredentialsResponse$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
-    M.json("default", types$.optional(models.DefaultErrorDTO$inboundSchema)),
+    M.json(
+      "default",
+      operations.V1ApiCredentialsListApiCredentialsResponse$inboundSchema,
+    ),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

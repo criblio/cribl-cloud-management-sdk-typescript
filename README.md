@@ -131,6 +131,10 @@ The [Cribl.Cloud Authentication Example](https://github.com/criblio/cribl-cloud-
 <details open>
 <summary>Available methods</summary>
 
+### [ApiCredentials](docs/sdks/apicredentials/README.md)
+
+* [list](docs/sdks/apicredentials/README.md#list) - List API credentials for an Organization
+
 ### [Health](docs/sdks/health/README.md)
 
 * [get](docs/sdks/health/README.md#get) - Get the health status of the application
@@ -161,6 +165,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`apiCredentialsList`](docs/sdks/apicredentials/README.md#list) - List API credentials for an Organization
 - [`healthGet`](docs/sdks/health/README.md#get) - Get the health status of the application
 - [`workspacesCreate`](docs/sdks/workspaces/README.md#create) - Create a Workspace in the specified Organization
 - [`workspacesDelete`](docs/sdks/workspaces/README.md#delete) - Delete a Workspace
