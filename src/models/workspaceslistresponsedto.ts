@@ -5,6 +5,7 @@
 import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
+import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import {
   WorkspaceSchema,
@@ -29,7 +30,7 @@ export const WorkspacesListResponseDTO$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   items: z.array(WorkspaceSchema$inboundSchema),
-  count: z.number(),
+  count: types.number(),
 });
 
 export function workspacesListResponseDTOFromJSON(
