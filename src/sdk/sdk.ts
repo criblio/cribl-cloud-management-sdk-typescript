@@ -3,6 +3,7 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { ApiCredentials } from "./apicredentials.js";
 import { Health } from "./health.js";
 import { Workspaces } from "./workspaces.js";
 
@@ -10,6 +11,11 @@ export class CriblMgmtPlane extends ClientSDK {
   private _health?: Health;
   get health(): Health {
     return (this._health ??= new Health(this._options));
+  }
+
+  private _apiCredentials?: ApiCredentials;
+  get apiCredentials(): ApiCredentials {
+    return (this._apiCredentials ??= new ApiCredentials(this._options));
   }
 
   private _workspaces?: Workspaces;

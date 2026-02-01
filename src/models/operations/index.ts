@@ -3,6 +3,7 @@
  */
 
 export * from "./gethealthstatus.js";
+export * from "./v1apicredentialslistapicredentials.js";
 export * from "./v1workspacescreateworkspace.js";
 export * from "./v1workspacesdeleteworkspace.js";
 export * from "./v1workspacesgetworkspace.js";

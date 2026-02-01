@@ -24,6 +24,7 @@ import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
+import * as types$ from "../types/primitives.js";
 
 /**
  * Update a Workspace
@@ -174,10 +175,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.nil(204, models.DefaultErrorDTO$inboundSchema.optional()),
+    M.nil(204, types$.optional(models.DefaultErrorDTO$inboundSchema)),
     M.fail("4XX"),
     M.fail("5XX"),
-    M.json("default", models.DefaultErrorDTO$inboundSchema.optional()),
+    M.json("default", types$.optional(models.DefaultErrorDTO$inboundSchema)),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
