@@ -5,6 +5,7 @@
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
@@ -48,7 +49,7 @@ export const V1WorkspacesListWorkspacesResponse$inboundSchema: z.ZodType<
   V1WorkspacesListWorkspacesResponse,
   z.ZodTypeDef,
   unknown
-> = z.union([
+> = smartUnion([
   models.WorkspacesListResponseDTO$inboundSchema,
   models.DefaultErrorDTO$inboundSchema,
 ]);
