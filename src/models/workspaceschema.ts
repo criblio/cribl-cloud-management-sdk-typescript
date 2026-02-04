@@ -7,6 +7,7 @@ import { safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
+import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 /**
@@ -88,13 +89,13 @@ export const WorkspaceSchema$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  workspaceId: z.string(),
+  workspaceId: types.string(),
   region: Region$inboundSchema,
-  leaderFQDN: z.string(),
+  leaderFQDN: types.string(),
   state: State$inboundSchema,
-  alias: z.string().optional(),
-  description: z.string().optional(),
-  tags: z.array(z.string()).optional(),
+  alias: types.optional(types.string()),
+  description: types.optional(types.string()),
+  tags: types.optional(z.array(types.string())),
 });
 
 export function workspaceSchemaFromJSON(
