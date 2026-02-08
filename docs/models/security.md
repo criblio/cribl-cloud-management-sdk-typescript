@@ -11,7 +11,6 @@ let value: Security = {
     clientSecret: "<value>",
     audience: "https://api.cribl.cloud",
   },
-  bearerAuth: "<value>",
 };
 ```
 
