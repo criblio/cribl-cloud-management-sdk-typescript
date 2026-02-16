@@ -1,28 +1,28 @@
-speakeasyVersion: 1.701.0
+speakeasyVersion: 1.719.0
 sources:
     Cribl Cloud Management API:
         sourceNamespace: cribl-cloud-management-api
-        sourceRevisionDigest: sha256:53c445fc05fb5410dc90c2a9211e3fbe8a4f4d01d41f9024b8ae1c92b2b11e1f
-        sourceBlobDigest: sha256:1ccb8a118e39dc1d930b6a59e2d3b4826bb7e3e3817c2fee6c848bbd9c339539
+        sourceRevisionDigest: sha256:791de3cdb1ce4f4c6e6a45c575c06323866c94fc7c8fbe00e2d91d203e4e7d59
+        sourceBlobDigest: sha256:8f4a33897bac8b4e789881e2c49c3999e19e1efb53e51178c0732b6e85aeb39b
         tags:
             - latest
-            - speakeasy-sdk-regen-1761227577
+            - speakeasy-sdk-regen-openapi-prerelease-1771283058
             - "1.0"
 targets:
     cribl-mgmt-plane:
         source: Cribl Cloud Management API
         sourceNamespace: cribl-cloud-management-api
-        sourceRevisionDigest: sha256:53c445fc05fb5410dc90c2a9211e3fbe8a4f4d01d41f9024b8ae1c92b2b11e1f
-        sourceBlobDigest: sha256:1ccb8a118e39dc1d930b6a59e2d3b4826bb7e3e3817c2fee6c848bbd9c339539
+        sourceRevisionDigest: sha256:791de3cdb1ce4f4c6e6a45c575c06323866c94fc7c8fbe00e2d91d203e4e7d59
+        sourceBlobDigest: sha256:8f4a33897bac8b4e789881e2c49c3999e19e1efb53e51178c0732b6e85aeb39b
         codeSamplesNamespace: cribl-cloud-management-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:45539babcfaea3b98b49175b4ce66f2c60169dd6249d41fa99cf13e7ba82a45d
+        codeSamplesRevisionDigest: sha256:0f863fd5ff697dac2bb4d75500ed96d80db3d6ff61d7b9cceab2b2fa25a2de5b
 workflow:
     workflowVersion: 1.0.0
-    speakeasyVersion: 1.701.0
+    speakeasyVersion: 1.719.0
     sources:
         Cribl Cloud Management API:
             inputs:
-                - location: https://raw.githubusercontent.com/criblio/cribl-openapi-spec/main/specs/mgmt-plane.yml
+                - location: https://raw.githubusercontent.com/criblio/cribl-openapi-spec/main/specs/mgmt-plane-prerelease.yml
             output: .speakeasy/out.openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/cribl/cribl/cribl-cloud-management-api

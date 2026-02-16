@@ -1,6 +1,6 @@
 {
   "name": "cribl-mgmt-plane",
-  "version": "0.3.0-rc.1",
+  "version": "0.3.0-rc.2",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
@@ -30,8 +30,8 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
-    "eslint": "^9.19.0",
+    "@eslint/js": "^9.26.0",
+    "eslint": "^9.26.0",
     "globals": "^15.14.0",
     "tshy": "^2.0.0",
     "typescript": "~5.8.3",

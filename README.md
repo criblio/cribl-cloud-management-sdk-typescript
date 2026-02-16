@@ -131,14 +131,6 @@ The [Cribl.Cloud Authentication Example](https://github.com/criblio/cribl-cloud-
 <details open>
 <summary>Available methods</summary>
 
-### [ApiCredentials](docs/sdks/apicredentials/README.md)
-
-* [list](docs/sdks/apicredentials/README.md#list) - List API Credentials for an Organization
-* [create](docs/sdks/apicredentials/README.md#create) - Create an API Credential
-* [update](docs/sdks/apicredentials/README.md#update) - Update an API Credential
-* [delete](docs/sdks/apicredentials/README.md#delete) - Delete an API Credential
-* [get](docs/sdks/apicredentials/README.md#get) - Get an API Credential
-
 ### [Health](docs/sdks/health/README.md)
 
 * [get](docs/sdks/health/README.md#get) - Get the health status of the application
@@ -169,11 +161,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`apiCredentialsCreate`](docs/sdks/apicredentials/README.md#create) - Create an API Credential
-- [`apiCredentialsDelete`](docs/sdks/apicredentials/README.md#delete) - Delete an API Credential
-- [`apiCredentialsGet`](docs/sdks/apicredentials/README.md#get) - Get an API Credential
-- [`apiCredentialsList`](docs/sdks/apicredentials/README.md#list) - List API Credentials for an Organization
-- [`apiCredentialsUpdate`](docs/sdks/apicredentials/README.md#update) - Update an API Credential
 - [`healthGet`](docs/sdks/health/README.md#get) - Get the health status of the application
 - [`workspacesCreate`](docs/sdks/workspaces/README.md#create) - Create a Workspace in the specified Organization
 - [`workspacesDelete`](docs/sdks/workspaces/README.md#delete) - Delete a Workspace
@@ -376,19 +363,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { CriblMgmtPlane } from "cribl-mgmt-plane";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "cribl-mgmt-plane/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {
