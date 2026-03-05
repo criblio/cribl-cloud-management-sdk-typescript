@@ -8,11 +8,11 @@ Role assigned to the API Credential on the Workspace.
 import { WorkspaceRole } from "cribl-mgmt-plane/models";
 
 let value: WorkspaceRole = "admin";
+
+// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
-
-This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
 
 ```typescript
 "owner" | "admin" | "user" | "noaccess" | Unrecognized<string>
