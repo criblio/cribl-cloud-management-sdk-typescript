@@ -88,6 +88,6 @@ typescript:
   unionStrategy: populated-fields
   usageSDKInitImports: []
   useIndexModules: true
-  useOxlint: false
-  useTsgo: false
+  useOxlint: true
+  useTsgo: true
   zodVersion: v3
