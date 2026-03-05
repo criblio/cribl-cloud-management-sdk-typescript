@@ -26,10 +26,6 @@ export type ApiCredentialResponseSchema = {
    */
   enabled: boolean;
   /**
-   * Unique ID of the Workspace.
-   */
-  workspaceId: string;
-  /**
    * Unique ID of the Organization.
    */
   organizationId: string;
@@ -72,7 +68,6 @@ export const ApiCredentialResponseSchema$inboundSchema: z.ZodType<
   name: types.string(),
   description: types.string(),
   enabled: types.boolean(),
-  workspaceId: types.string(),
   organizationId: types.string(),
   clientId: types.string(),
   roles: ApiCredentialRolesSchema$inboundSchema,

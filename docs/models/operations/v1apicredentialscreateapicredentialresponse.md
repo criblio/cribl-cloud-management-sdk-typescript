@@ -10,7 +10,6 @@ const value: models.ApiCredentialResponseSchema = {
   name: "Auto-Manage-Workspaces",
   description: "Used for automated Workspace management",
   enabled: true,
-  workspaceId: "main",
   organizationId: "org-123",
   clientId: "clientIdabcd1234EXAMPLE",
   roles: {

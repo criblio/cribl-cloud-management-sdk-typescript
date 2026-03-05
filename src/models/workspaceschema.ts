@@ -11,7 +11,7 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 /**
- * AWS region where the workspace is deployed
+ * AWS region where the Workspace is deployed.
  */
 export const Region = {
   UsWest2: "us-west-2",
@@ -23,14 +23,18 @@ export const Region = {
   ApSoutheast1: "ap-southeast-1",
   ApSoutheast2: "ap-southeast-2",
   CaCentral1: "ca-central-1",
+  ApNortheast1: "ap-northeast-1",
+  SaEast1: "sa-east-1",
+  EuWest1: "eu-west-1",
+  EuWest3: "eu-west-3",
 } as const;
 /**
- * AWS region where the workspace is deployed
+ * AWS region where the Workspace is deployed.
  */
 export type Region = OpenEnum<typeof Region>;
 
 /**
- * Current state of the workspace
+ * Current state of the Workspace.
  */
 export const State = {
   Provisioning: "Provisioning",
@@ -40,37 +44,37 @@ export const State = {
   Deprovisioning: "Deprovisioning",
 } as const;
 /**
- * Current state of the workspace
+ * Current state of the Workspace.
  */
 export type State = OpenEnum<typeof State>;
 
 export type WorkspaceSchema = {
   /**
-   * Unique identifier for the workspace
+   * Unique identifier for the Workspace.
    */
   workspaceId: string;
   /**
-   * AWS region where the workspace is deployed
+   * AWS region where the Workspace is deployed.
    */
   region: Region;
   /**
-   * Fully Qualified Domain Name of the workspace leader
+   * Fully Qualified Domain Name (FQDN) of the Workspace Leader.
    */
   leaderFQDN: string;
   /**
-   * Current state of the workspace
+   * Current state of the Workspace.
    */
   state: State;
   /**
-   * User-friendly alias for the workspace
+   * User-friendly alias for the Workspace.
    */
   alias?: string | undefined;
   /**
-   * Detailed description of the workspace
+   * Brief description of the Workspace.
    */
   description?: string | undefined;
   /**
-   * Tags associated with the workspace
+   * Tags associated with the Workspace.
    */
   tags?: Array<string> | undefined;
 };

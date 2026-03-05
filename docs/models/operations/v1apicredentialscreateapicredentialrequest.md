@@ -11,7 +11,6 @@ let value: V1ApiCredentialsCreateApiCredentialRequest = {
     name: "Auto-Manage-Workspaces",
     description: "Used for automated Workspace management",
     enabled: true,
-    workspaceId: "main",
     roles: {
       organizationRole: "admin",
       workspaces: [

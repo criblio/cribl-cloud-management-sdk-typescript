@@ -10,7 +10,7 @@ let value: V1WorkspacesUpdateWorkspaceRequest = {
   workspaceId: "<id>",
   workspacePatchRequestDTO: {
     alias: "Production Environment",
-    description: "Main production workspace for customer data processing",
+    description: "Main production Workspace for customer data processing",
     tags: [
       "production",
       "customer-data",
