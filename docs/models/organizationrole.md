@@ -8,11 +8,11 @@ Organization-level Role assigned to the API Credential.
 import { OrganizationRole } from "cribl-mgmt-plane/models";
 
 let value: OrganizationRole = "admin";
+
+// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
-
-This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
 
 ```typescript
 "owner" | "admin" | "user" | Unrecognized<string>

@@ -23,10 +23,6 @@ export type ApiCredentialCreateRequestDTO = {
    */
   enabled: boolean;
   /**
-   * Unique ID of the Workspace.
-   */
-  workspaceId: string;
-  /**
    * Role assignments for the API Credential.
    */
   roles: ApiCredentialRolesSchema;
@@ -37,7 +33,6 @@ export type ApiCredentialCreateRequestDTO$Outbound = {
   name: string;
   description: string;
   enabled: boolean;
-  workspaceId: string;
   roles: ApiCredentialRolesSchema$Outbound;
 };
 
@@ -50,7 +45,6 @@ export const ApiCredentialCreateRequestDTO$outboundSchema: z.ZodType<
   name: z.string(),
   description: z.string(),
   enabled: z.boolean(),
-  workspaceId: z.string(),
   roles: ApiCredentialRolesSchema$outboundSchema,
 });
 

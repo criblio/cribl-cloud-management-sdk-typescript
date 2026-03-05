@@ -127,7 +127,6 @@ async function run() {
       name: "Auto-Manage-Workspaces",
       description: "Used for automated Workspace management",
       enabled: true,
-      workspaceId: "main",
       roles: {
         organizationRole: "admin",
         workspaces: [
@@ -180,7 +179,6 @@ async function run() {
       name: "Auto-Manage-Workspaces",
       description: "Used for automated Workspace management",
       enabled: true,
-      workspaceId: "main",
       roles: {
         organizationRole: "admin",
         workspaces: [

@@ -6,15 +6,15 @@ import * as z from "zod/v3";
 
 export type WorkspacePatchRequestDTO = {
   /**
-   * User-friendly alias for the workspace
+   * User-friendly alias for the Workspace.
    */
   alias?: string | undefined;
   /**
-   * Detailed description of the workspace
+   * Brief description of the Workspace.
    */
   description?: string | undefined;
   /**
-   * Tags associated with the workspace
+   * Tags associated with the Workspace.
    */
   tags?: Array<string> | undefined;
 };
