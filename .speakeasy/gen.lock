@@ -5,15 +5,15 @@ management:
   docVersion: "1.0"
   speakeasyVersion: 1.741.5
   generationVersion: 2.849.7
-  releaseVersion: 0.3.0-rc.5
-  configChecksum: 165f11e3b48f275596ea47839d56d738
+  releaseVersion: 0.3.0
+  configChecksum: 358344cfbe7788f96c599ea9b44e8054
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 9eb6071e-254e-47a3-abe6-6b12b0577b11
-  pristine_commit_hash: f7f70204d53f2f2dc94200de8f247b7e1bcc3c44
-  pristine_tree_hash: 8f950f769a4f80be575995cfcc86bbfc71c0a521
+  generation_id: 81083cc4-6615-4dad-b4de-387587e3830f
+  pristine_commit_hash: bff68812cedff01f3b6242ddcdcecc326f79f720
+  pristine_tree_hash: 16b453594f59d6b4ec8373717168849daf8471a5
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -54,6 +54,10 @@ trackedFiles:
     id: aa70c1f807c3
     last_write_checksum: sha1:6572da81f2e7a978ec29c22c2210bf461c5897b2
     pristine_git_object: 670ac0a62d7e568c9d44a14f5deafb8442a255d8
+  .oxlintrc.json:
+    id: 8b9b571b1983
+    last_write_checksum: sha1:f14bd09c455fa2de0d94641369b7888d23ee62f2
+    pristine_git_object: 6ee2921010070a544e252596defc55d501e1c1ae
   FUNCTIONS.md:
     id: 21b9df02aaeb
     last_write_checksum: sha1:c5fd64b72532203f0d279dfce70afcac21f9dd55
@@ -238,18 +242,14 @@ trackedFiles:
     id: 1f5b051a6380
     last_write_checksum: sha1:f0011667a6f7f16c97ed7c541881b973716545ec
     pristine_git_object: 5fc9c579dc24dc8bdb22841efb66ffc1f28ed9be
-  eslint.config.mjs:
-    id: 461c8d07f6da
-    last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
-    pristine_git_object: 67bccfec985be20a00970d90155752832dd47135
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:ab0e5e18e4f50c77131029d05920de309bbaa165
-    pristine_git_object: 269ceedda28c42153f7a9aab5a612bc3ca705652
+    last_write_checksum: sha1:b80d6439f4905e3fc24eddbe378a26da22aff3a9
+    pristine_git_object: f91552a4a07fc638ecb28d2ea9056e3ce077e01f
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:d421a54530b5ce778b50108d2bb8800509b236a1
-    pristine_git_object: 44533254d4e3e0901f1933c7659f09d551b8e43a
+    last_write_checksum: sha1:e3c2fb866cce1cefb66a480355440e4c694bc420
+    pristine_git_object: e32a733b064fb6848238728b61f2ab8a5b1a359e
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:aa936f7bd2a88be72ba9abff04f666ef9dd4aaf5
@@ -324,8 +324,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:380bbcab0dfa2ad1a59b078beea8837cbf0651c1
-    pristine_git_object: c3dda07745c1249cc26cdfb5d047884525b27251
+    last_write_checksum: sha1:101cd2f73e4f734df9d1c8f34362f1ba15881773
+    pristine_git_object: a402bdd6e2824de12e98c0f33b18bb046ac7112d
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -719,15 +719,21 @@ examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
 releaseNotes: |
-  ## Typescript SDK Changes:
-  * `criblmgmtplane.apiCredentials.list()`: **Added**
-  * `criblmgmtplane.apiCredentials.create()`: **Added**
-  * `criblmgmtplane.apiCredentials.update()`: **Added**
-  * `criblmgmtplane.apiCredentials.delete()`: **Added**
-  * `criblmgmtplane.apiCredentials.get()`: **Added**
-  * `criblmgmtplane.workspaces.create()`:  `response.region` **Changed**
-  * `criblmgmtplane.workspaces.list()`:  `response.items[].region` **Changed**
-  * `criblmgmtplane.workspaces.get()`:  `response.region` **Changed**
+  ## Typescript SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### Added new endpoints
+  * API Credentials:
+  * `criblmgmtplane.apiCredentials.list()` - List API Credentials for an Organization
+  * `criblmgmtplane.apiCredentials.create()` - Create an API Credential
+  * `criblmgmtplane.apiCredentials.update()` - Update an API Credential
+  * `criblmgmtplane.apiCredentials.delete()` - Delete an API Credential
+  * `criblmgmtplane.apiCredentials.get()` - Get an API Credential
+  *
+  ### Region enum
+  * Extended with additional AWS regions: `ap-northeast-1`, `sa-east-1`, `eu-west-1`, `eu-west-3`
+
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
