@@ -3,21 +3,21 @@ id: 39249540-9d0a-4399-912f-4b4bb9daeab4
 management:
   docChecksum: 56b557ce82cc3eaca25b70f5b4a9587e
   docVersion: "1.0"
-  speakeasyVersion: 1.741.5
-  generationVersion: 2.849.7
-  releaseVersion: 0.3.0-rc.5
-  configChecksum: 165f11e3b48f275596ea47839d56d738
+  speakeasyVersion: 1.749.1
+  generationVersion: 2.855.2
+  releaseVersion: 0.3.0-rc.6
+  configChecksum: f5531e1cb0eaba7d86fd34443af1ed83
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 9eb6071e-254e-47a3-abe6-6b12b0577b11
-  pristine_commit_hash: f7f70204d53f2f2dc94200de8f247b7e1bcc3c44
-  pristine_tree_hash: 8f950f769a4f80be575995cfcc86bbfc71c0a521
+  generation_id: 8c45a0fc-7445-4c34-a42e-a868ed1449fd
+  pristine_commit_hash: 8f51fb50f4e55287efbc8ba7a54cdbe359af2514
+  pristine_tree_hash: ce56753f25921a8c6f90ed676638cbed5638a959
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.40
+    core: 3.26.41
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -54,6 +54,10 @@ trackedFiles:
     id: aa70c1f807c3
     last_write_checksum: sha1:6572da81f2e7a978ec29c22c2210bf461c5897b2
     pristine_git_object: 670ac0a62d7e568c9d44a14f5deafb8442a255d8
+  .oxlintrc.json:
+    id: 8b9b571b1983
+    last_write_checksum: sha1:f14bd09c455fa2de0d94641369b7888d23ee62f2
+    pristine_git_object: 6ee2921010070a544e252596defc55d501e1c1ae
   FUNCTIONS.md:
     id: 21b9df02aaeb
     last_write_checksum: sha1:c5fd64b72532203f0d279dfce70afcac21f9dd55
@@ -238,18 +242,14 @@ trackedFiles:
     id: 1f5b051a6380
     last_write_checksum: sha1:f0011667a6f7f16c97ed7c541881b973716545ec
     pristine_git_object: 5fc9c579dc24dc8bdb22841efb66ffc1f28ed9be
-  eslint.config.mjs:
-    id: 461c8d07f6da
-    last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
-    pristine_git_object: 67bccfec985be20a00970d90155752832dd47135
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:ab0e5e18e4f50c77131029d05920de309bbaa165
-    pristine_git_object: 269ceedda28c42153f7a9aab5a612bc3ca705652
+    last_write_checksum: sha1:d95f71fccbeca8ee2f9ab41f0fff2026f7c419e1
+    pristine_git_object: 528dce5eaca312d57e27d6723d05c3a087d6e9df
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:d421a54530b5ce778b50108d2bb8800509b236a1
-    pristine_git_object: 44533254d4e3e0901f1933c7659f09d551b8e43a
+    last_write_checksum: sha1:087161742cda978cc1288a653820aa32346ac235
+    pristine_git_object: ce40d885133c93606e65f209ec6027856ae3014f
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:aa936f7bd2a88be72ba9abff04f666ef9dd4aaf5
@@ -324,8 +324,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:380bbcab0dfa2ad1a59b078beea8837cbf0651c1
-    pristine_git_object: c3dda07745c1249cc26cdfb5d047884525b27251
+    last_write_checksum: sha1:fdf8b085ba97861f47e7577c3419bbb20e172624
+    pristine_git_object: 50c9fc6df4c347d2ba9b08a9a8feca02c4aab661
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
