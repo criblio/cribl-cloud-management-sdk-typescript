@@ -19,7 +19,7 @@ export type V1ApiCredentialsCreateApiCredentialRequest = {
 };
 
 export type V1ApiCredentialsCreateApiCredentialResponse =
-  | models.ApiCredentialResponseSchema
+  | models.ApiCredentialCreateResponseSchema
   | models.DefaultErrorDTO;
 
 /** @internal */
@@ -62,7 +62,7 @@ export const V1ApiCredentialsCreateApiCredentialResponse$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = smartUnion([
-    models.ApiCredentialResponseSchema$inboundSchema,
+    models.ApiCredentialCreateResponseSchema$inboundSchema,
     models.DefaultErrorDTO$inboundSchema,
   ]);
 

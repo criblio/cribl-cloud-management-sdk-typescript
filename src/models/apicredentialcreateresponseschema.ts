@@ -12,7 +12,7 @@ import {
 } from "./apicredentialrolesschema.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
-export type ApiCredentialListItemSchema = {
+export type ApiCredentialCreateResponseSchema = {
   /**
    * Human-readable name of the API Credential.
    */
@@ -44,7 +44,7 @@ export type ApiCredentialListItemSchema = {
   /**
    * ISO 8601 timestamp when the API Credential was created.
    */
-  createdDate: string;
+  createdDate: Date;
   /**
    * Member who last updated the API Credential.
    */
@@ -52,12 +52,16 @@ export type ApiCredentialListItemSchema = {
   /**
    * ISO 8601 timestamp when the API Credential was last updated.
    */
-  lastUpdatedDate: string;
+  lastUpdatedDate: Date;
+  /**
+   * Client Secret for the API Credential. The Client Secret is sensitive information and should be kept private. Returned only in the <code>POST</code> response when the API Credential is created. Never returned in <code>GET</code> responses. If you need the Client Secret again, you must rotate credentials and retrieve the new Client Secret from the <code>POST</code> response.
+   */
+  clientSecret: string;
 };
 
 /** @internal */
-export const ApiCredentialListItemSchema$inboundSchema: z.ZodType<
-  ApiCredentialListItemSchema,
+export const ApiCredentialCreateResponseSchema$inboundSchema: z.ZodType<
+  ApiCredentialCreateResponseSchema,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -68,17 +72,18 @@ export const ApiCredentialListItemSchema$inboundSchema: z.ZodType<
   clientId: types.string(),
   roles: ApiCredentialRolesSchema$inboundSchema,
   createdBy: types.string(),
-  createdDate: types.string(),
+  createdDate: types.date(),
   lastUpdatedBy: types.string(),
-  lastUpdatedDate: types.string(),
+  lastUpdatedDate: types.date(),
+  clientSecret: types.string(),
 });
 
-export function apiCredentialListItemSchemaFromJSON(
+export function apiCredentialCreateResponseSchemaFromJSON(
   jsonString: string,
-): SafeParseResult<ApiCredentialListItemSchema, SDKValidationError> {
+): SafeParseResult<ApiCredentialCreateResponseSchema, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ApiCredentialListItemSchema$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ApiCredentialListItemSchema' from JSON`,
+    (x) => ApiCredentialCreateResponseSchema$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ApiCredentialCreateResponseSchema' from JSON`,
   );
 }

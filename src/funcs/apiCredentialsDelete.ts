@@ -173,7 +173,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.nil(202, types$.optional(models.DefaultErrorDTO$inboundSchema)),
+    M.nil(204, types$.optional(models.DefaultErrorDTO$inboundSchema)),
     M.fail("4XX"),
     M.fail("5XX"),
     M.json("default", types$.optional(models.DefaultErrorDTO$inboundSchema)),

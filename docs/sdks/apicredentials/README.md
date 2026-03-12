@@ -224,6 +224,7 @@ run();
 
 | Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.DefaultErrorDTO            | 422                               | application/json                  |
 | errors.CriblMgmtPlaneDefaultError | 4XX, 5XX                          | \*/\*                             |
 
 ## update
