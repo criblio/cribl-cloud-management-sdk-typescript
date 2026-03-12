@@ -266,13 +266,14 @@ run();
 
 [`CriblMgmtPlaneError`](./src/models/errors/criblmgmtplaneerror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Property            | Type       | Description                                            |
-| ------------------- | ---------- | ------------------------------------------------------ |
-| `error.message`     | `string`   | Error message                                          |
-| `error.statusCode`  | `number`   | HTTP response status code eg `404`                     |
-| `error.headers`     | `Headers`  | HTTP response headers                                  |
-| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned. |
-| `error.rawResponse` | `Response` | Raw HTTP response                                      |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
 ```typescript
@@ -292,15 +293,44 @@ const criblMgmtPlane = new CriblMgmtPlane({
 
 async function run() {
   try {
-    const result = await criblMgmtPlane.health.get();
+    const result = await criblMgmtPlane.apiCredentials.create({
+      organizationId: "<id>",
+      apiCredentialCreateRequestDTO: {
+        name: "Auto-Manage-Workspaces",
+        description: "Used for automated Workspace management",
+        enabled: true,
+        roles: {
+          organizationRole: "admin",
+          workspaces: [
+            {
+              workspaceId: "main",
+              workspaceRole: "admin",
+              products: [
+                {
+                  product: "stream",
+                  role: "admin",
+                },
+              ],
+            },
+          ],
+        },
+      },
+    });
 
     console.log(result);
   } catch (error) {
+    // The base class for HTTP error responses
     if (error instanceof errors.CriblMgmtPlaneError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
       console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.DefaultErrorDTO) {
+        console.log(error.data$.statusCode); // number
+        console.log(error.data$.message); // string
+      }
     }
   }
 }
@@ -313,7 +343,7 @@ run();
 **Primary error:**
 * [`CriblMgmtPlaneError`](./src/models/errors/criblmgmtplaneerror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (7)</summary>
 
 <br />
 
@@ -326,9 +356,12 @@ run();
 
 
 **Inherit from [`CriblMgmtPlaneError`](./src/models/errors/criblmgmtplaneerror.ts)**:
+* [`DefaultErrorDTO`](./src/models/errors/defaulterrordto.ts): API Credential limit reached. Status code `422`. Applicable to 1 of 11 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->

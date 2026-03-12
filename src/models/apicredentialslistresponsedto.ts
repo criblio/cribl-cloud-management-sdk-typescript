@@ -7,16 +7,16 @@ import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import {
-  ApiCredentialListItemSchema,
-  ApiCredentialListItemSchema$inboundSchema,
-} from "./apicredentiallistitemschema.js";
+  ApiCredentialResponseSchema,
+  ApiCredentialResponseSchema$inboundSchema,
+} from "./apicredentialresponseschema.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type ApiCredentialsListResponseDTO = {
   /**
    * List of API Credentials.
    */
-  items: Array<ApiCredentialListItemSchema>;
+  items: Array<ApiCredentialResponseSchema>;
   /**
    * Total number of API Credentials listed in the response.
    */
@@ -29,7 +29,7 @@ export const ApiCredentialsListResponseDTO$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  items: z.array(ApiCredentialListItemSchema$inboundSchema),
+  items: z.array(ApiCredentialResponseSchema$inboundSchema),
   count: types.number(),
 });
 

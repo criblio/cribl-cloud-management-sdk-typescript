@@ -3,7 +3,7 @@
  */
 
 export * from "./apicredentialcreaterequestdto.js";
-export * from "./apicredentiallistitemschema.js";
+export * from "./apicredentialcreateresponseschema.js";
 export * from "./apicredentialresponseschema.js";
 export * from "./apicredentialrolesschema.js";
 export * from "./apicredentialslistresponsedto.js";
