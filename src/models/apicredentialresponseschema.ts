@@ -44,7 +44,7 @@ export type ApiCredentialResponseSchema = {
   /**
    * ISO 8601 timestamp when the API Credential was created.
    */
-  createdDate: string;
+  createdDate: Date;
   /**
    * Member who last updated the API Credential.
    */
@@ -52,11 +52,7 @@ export type ApiCredentialResponseSchema = {
   /**
    * ISO 8601 timestamp when the API Credential was last updated.
    */
-  lastUpdatedDate: string;
-  /**
-   * Client Secret for the API Credential. The Client Secret is sensitive information and should be kept private. Only <code>POST</code> responses include the Client Secret. For other methods, responses return an empty string.
-   */
-  clientSecret: string;
+  lastUpdatedDate: Date;
 };
 
 /** @internal */
@@ -72,10 +68,9 @@ export const ApiCredentialResponseSchema$inboundSchema: z.ZodType<
   clientId: types.string(),
   roles: ApiCredentialRolesSchema$inboundSchema,
   createdBy: types.string(),
-  createdDate: types.string(),
+  createdDate: types.date(),
   lastUpdatedBy: types.string(),
-  lastUpdatedDate: types.string(),
-  clientSecret: types.string(),
+  lastUpdatedDate: types.date(),
 });
 
 export function apiCredentialResponseSchemaFromJSON(

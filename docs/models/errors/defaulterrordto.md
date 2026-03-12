@@ -3,12 +3,9 @@
 ## Example Usage
 
 ```typescript
-import { DefaultErrorDTO } from "cribl-mgmt-plane/models";
+import { DefaultErrorDTO } from "cribl-mgmt-plane/models/errors";
 
-let value: DefaultErrorDTO = {
-  statusCode: 400,
-  message: "Bad Request",
-};
+// No examples available for this model
 ```
 
 ## Fields

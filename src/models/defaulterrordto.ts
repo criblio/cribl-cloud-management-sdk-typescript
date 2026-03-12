@@ -9,7 +9,13 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type DefaultErrorDTO = {
+  /**
+   * HTTP status code.
+   */
   statusCode: number;
+  /**
+   * Human-readable error message.
+   */
   message: string;
 };
 

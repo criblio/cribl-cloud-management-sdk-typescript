@@ -16,8 +16,8 @@ const value: models.ApiCredentialsListResponseDTO = {
 
 ```typescript
 const value: models.DefaultErrorDTO = {
-  statusCode: 4882.16,
-  message: "<value>",
+  statusCode: 400,
+  message: "Bad Request",
 };
 ```
 

@@ -28,10 +28,9 @@ const value: models.ApiCredentialResponseSchema = {
     ],
   },
   createdBy: "user@example.com",
-  createdDate: "2024-08-15T12:34:56Z",
+  createdDate: new Date("2024-08-15T12:34:56Z"),
   lastUpdatedBy: "user@example.com",
-  lastUpdatedDate: "2024-08-15T12:34:56Z",
-  clientSecret: "clientSecretabcd1234EXAMPLE",
+  lastUpdatedDate: new Date("2024-08-15T12:34:56Z"),
 };
 ```
 
@@ -39,8 +38,8 @@ const value: models.ApiCredentialResponseSchema = {
 
 ```typescript
 const value: models.DefaultErrorDTO = {
-  statusCode: 4882.16,
-  message: "<value>",
+  statusCode: 400,
+  message: "Bad Request",
 };
 ```
 
