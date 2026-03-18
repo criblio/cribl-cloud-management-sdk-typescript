@@ -153,7 +153,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["422", "4XX", "5XX"],
+    errorCodes: ["409", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -183,7 +183,7 @@ async function $do(
       operations.V1ApiCredentialsCreateApiCredentialResponse$inboundSchema,
     ),
     M.jsonErr(422, errors.DefaultErrorDTO$inboundSchema),
-    M.fail("4XX"),
+    M.fail([409, "4XX"]),
     M.fail("5XX"),
     M.json(
       "default",
