@@ -152,7 +152,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["4XX", "5XX"],
+    errorCodes: ["404", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -176,7 +176,7 @@ async function $do(
       200,
       operations.V1ApiCredentialsGetApiCredentialResponse$inboundSchema,
     ),
-    M.fail("4XX"),
+    M.fail([404, "4XX"]),
     M.fail("5XX"),
     M.json(
       "default",
