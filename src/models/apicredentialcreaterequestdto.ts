@@ -26,6 +26,10 @@ export type ApiCredentialCreateRequestDTO = {
    * Role assignments for the API Credential.
    */
   roles: ApiCredentialRolesSchema;
+  /**
+   * CIDR range enforced as the IP allowlist for the API Credential.
+   */
+  ipAllowlist?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -34,6 +38,7 @@ export type ApiCredentialCreateRequestDTO$Outbound = {
   description: string;
   enabled: boolean;
   roles: ApiCredentialRolesSchema$Outbound;
+  ipAllowlist?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -46,6 +51,7 @@ export const ApiCredentialCreateRequestDTO$outboundSchema: z.ZodType<
   description: z.string(),
   enabled: z.boolean(),
   roles: ApiCredentialRolesSchema$outboundSchema,
+  ipAllowlist: z.array(z.string()).optional(),
 });
 
 export function apiCredentialCreateRequestDTOToJSON(

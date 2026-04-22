@@ -27,6 +27,9 @@ const value: models.ApiCredentialCreateResponseSchema = {
       },
     ],
   },
+  ipAllowlist: [
+    "10.0.0.1/32",
+  ],
   createdBy: "user@example.com",
   createdDate: new Date("2024-08-15T12:34:56Z"),
   lastUpdatedBy: "user@example.com",

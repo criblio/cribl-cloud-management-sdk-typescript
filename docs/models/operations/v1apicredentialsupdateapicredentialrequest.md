@@ -27,6 +27,9 @@ let value: V1ApiCredentialsUpdateApiCredentialRequest = {
         },
       ],
     },
+    ipAllowlist: [
+      "10.0.0.1/32",
+    ],
   },
 };
 ```
