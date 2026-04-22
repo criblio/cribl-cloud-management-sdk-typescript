@@ -314,6 +314,9 @@ async function run() {
             },
           ],
         },
+        ipAllowlist: [
+          "10.0.0.1/32",
+        ],
       },
     });
 
