@@ -38,6 +38,10 @@ export type ApiCredentialCreateResponseSchema = {
    */
   roles: ApiCredentialRolesSchema;
   /**
+   * CIDR range enforced as the IP allowlist for the API Credential. An empty array means that the API Credential has no IP restrictions.
+   */
+  ipAllowlist: Array<string>;
+  /**
    * Member who created the API Credential.
    */
   createdBy: string;
@@ -71,6 +75,7 @@ export const ApiCredentialCreateResponseSchema$inboundSchema: z.ZodType<
   organizationId: types.string(),
   clientId: types.string(),
   roles: ApiCredentialRolesSchema$inboundSchema,
+  ipAllowlist: z.array(types.string()),
   createdBy: types.string(),
   createdDate: types.date(),
   lastUpdatedBy: types.string(),

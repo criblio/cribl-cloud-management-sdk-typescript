@@ -142,6 +142,9 @@ async function run() {
           },
         ],
       },
+      ipAllowlist: [
+        "10.0.0.1/32",
+      ],
     },
   });
 
@@ -194,6 +197,9 @@ async function run() {
           },
         ],
       },
+      ipAllowlist: [
+        "10.0.0.1/32",
+      ],
     },
   });
   if (res.ok) {
@@ -271,6 +277,9 @@ async function run() {
           },
         ],
       },
+      ipAllowlist: [
+        "10.0.0.1/32",
+      ],
     },
   });
 
@@ -324,6 +333,9 @@ async function run() {
           },
         ],
       },
+      ipAllowlist: [
+        "10.0.0.1/32",
+      ],
     },
   });
   if (res.ok) {

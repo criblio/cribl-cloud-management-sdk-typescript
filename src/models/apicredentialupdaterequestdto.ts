@@ -26,6 +26,10 @@ export type ApiCredentialUpdateRequestDTO = {
    * Role assignments for the API Credential.
    */
   roles?: ApiCredentialRolesSchema | undefined;
+  /**
+   * Omit to leave unchanged. Pass an empty array to clear the stored IP allowlist.
+   */
+  ipAllowlist?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -34,6 +38,7 @@ export type ApiCredentialUpdateRequestDTO$Outbound = {
   description?: string | undefined;
   enabled?: boolean | undefined;
   roles?: ApiCredentialRolesSchema$Outbound | undefined;
+  ipAllowlist?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -46,6 +51,7 @@ export const ApiCredentialUpdateRequestDTO$outboundSchema: z.ZodType<
   description: z.string().optional(),
   enabled: z.boolean().optional(),
   roles: ApiCredentialRolesSchema$outboundSchema.optional(),
+  ipAllowlist: z.array(z.string()).optional(),
 });
 
 export function apiCredentialUpdateRequestDTOToJSON(
