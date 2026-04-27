@@ -728,7 +728,19 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
-releaseNotes: "## Typescript SDK Changes:\n* `criblmgmtplane.apiCredentials.list()`:  `response.items[].ipAllowlist` **Added**\n* `criblmgmtplane.apiCredentials.create()`: \n  *  `request.apiCredentialCreateRequestDto.ipAllowlist` **Added**\n  *  `response.ipAllowlist` **Added**\n* `criblmgmtplane.apiCredentials.update()`: \n  *  `request.apiCredentialUpdateRequestDto.ipAllowlist` **Added**\n* `criblmgmtplane.apiCredentials.get()`:  `response.ipAllowlist` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### API Credentials — IP allowlist
+
+  Optional CIDR-based IP restrictions on API credentials: set on create and update; returned on list and get.
+
+  * `criblmgmtplane.apiCredentials.list()` — `response.items[].ipAllowlist`
+  * `criblmgmtplane.apiCredentials.create()` — `request.apiCredentialCreateRequestDto.ipAllowlist`; `response.ipAllowlist`
+  * `criblmgmtplane.apiCredentials.update()` — `request.apiCredentialUpdateRequestDto.ipAllowlist`
+  * `criblmgmtplane.apiCredentials.get()` — `response.ipAllowlist`
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
