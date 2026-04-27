@@ -5,15 +5,15 @@ management:
   docVersion: "1.0"
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 0.3.1-rc.1
-  configChecksum: 2cfc467f7b7ca7508fecfa6de7988adb
+  releaseVersion: 0.3.1
+  configChecksum: a138f94e39f91b53a394dce6fde808de
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 3598a5e0-a1bf-46b8-ad57-99622f54a52a
-  pristine_commit_hash: 639b9b5898804a6799f273d3c168f96240f89abc
-  pristine_tree_hash: e4ec5d02ec8c696d1f9a6cc21613f6ea9aa04f13
+  generation_id: 95f569a2-1607-4502-bb31-f88f0119fc88
+  pristine_commit_hash: 221454644432b217df906e75e37a4a1a5ae079f6
+  pristine_tree_hash: 5b41bcf17958532a65f9351ceb494a118d683619
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -248,12 +248,12 @@ trackedFiles:
     pristine_git_object: 5fc9c579dc24dc8bdb22841efb66ffc1f28ed9be
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:fb9538e315783bc4cd667a2e4fbdc97e4cf8b94d
-    pristine_git_object: ce3eb43dafca9805527d8bb5c7b16ddac205f49b
+    last_write_checksum: sha1:f7da7d8a2e5d0274b1434accad073bf862ca9728
+    pristine_git_object: 709bf3b035f16cc1dc26eac33039f53bf77c216c
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:837729a7ef032234ce9092b8dcca31068507f495
-    pristine_git_object: 6a83e4a42ac3d4b017689170fe38ab9851096f4c
+    last_write_checksum: sha1:325f08ef9b2659ec1f7c0a778c12d0a609461c95
+    pristine_git_object: 0da8476631748413ccabf74013c587b4e240b993
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:aa936f7bd2a88be72ba9abff04f666ef9dd4aaf5
@@ -328,8 +328,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b1f0de006c4ce8b16f8df7d21aac4d051def9495
-    pristine_git_object: a50b8789e55877fed4b42a986d188f220c64d073
+    last_write_checksum: sha1:69e32f62d59d94b14c20a4623557d222441099b6
+    pristine_git_object: 99905c0bc1ccde32c498dc239549416ec8c2f590
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -728,7 +728,19 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
-releaseNotes: "## Typescript SDK Changes:\n* `criblmgmtplane.apiCredentials.list()`:  `response.items[].ipAllowlist` **Added**\n* `criblmgmtplane.apiCredentials.create()`: \n  *  `request.apiCredentialCreateRequestDto.ipAllowlist` **Added**\n  *  `response.ipAllowlist` **Added**\n* `criblmgmtplane.apiCredentials.update()`: \n  *  `request.apiCredentialUpdateRequestDto.ipAllowlist` **Added**\n* `criblmgmtplane.apiCredentials.get()`:  `response.ipAllowlist` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### API Credentials — IP allowlist
+
+  Optional CIDR-based IP restrictions on API credentials: set on create and update; returned on list and get.
+
+  * `criblmgmtplane.apiCredentials.list()` — `response.items[].ipAllowlist`
+  * `criblmgmtplane.apiCredentials.create()` — `request.apiCredentialCreateRequestDto.ipAllowlist`; `response.ipAllowlist`
+  * `criblmgmtplane.apiCredentials.update()` — `request.apiCredentialUpdateRequestDto.ipAllowlist`
+  * `criblmgmtplane.apiCredentials.get()` — `response.ipAllowlist`
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
