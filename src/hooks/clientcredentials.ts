@@ -26,7 +26,6 @@ type Credentials = {
   scopes: string[] | undefined;
   additionalProperties: Record<string, string>;
 };
-
 const TokenResponseDataSchema = z.object({
   access_token: z.string(),
   token_type: z.string(),
@@ -167,7 +166,6 @@ export class ClientCredentialsHook
       }
       throw new Error(errorMessage);
     }
-
     const rawData = await res.json();
     const tokenResponseData = parse(
       rawData,
