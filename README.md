@@ -118,7 +118,7 @@ Set the security scheme through the `security` parameter when initializing the S
 
 ### Authentication Example
 
-The [Cribl.Cloud Authentication Example](https://github.com/criblio/cribl-cloud-management-sdk-typescript/blob/main/examples/auth.example.ts) demonstrates how to configure authentication on Cribl.Cloud and in hybrid deployments. To obtain the Client ID and Client Secret you'll need to initialize using the `clientOauth` security schema, follow the [instructions for creating an API Credential](https://docs.cribl.io/cribl-as-code/sdks-auth/#sdks-auth-cloud) in the Cribl as Code documentation.
+The [Cribl.Cloud Authentication Example](https://github.com/Cribl-Community/cribl-cloud-management-sdk-typescript/blob/main/examples/auth.example.ts) demonstrates how to configure authentication on Cribl.Cloud and in hybrid deployments. To obtain the Client ID and Client Secret you'll need to initialize using the `clientOauth` security schema, follow the [instructions for creating an API Credential](https://docs.cribl.io/cribl-as-code/sdks-auth/#sdks-auth-cloud) in the Cribl as Code documentation.
 
 <!-- No Authentication [security] -->
 

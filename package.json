@@ -1,6 +1,6 @@
 {
   "name": "cribl-mgmt-plane",
-  "version": "0.3.1",
+  "version": "0.4.0-rc.1",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
@@ -22,7 +22,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/criblio/cribl-cloud-management-sdk-typescript.git"
+    "url": "https://github.com/Cribl-Community/cribl-cloud-management-sdk-typescript.git"
   },
   "scripts": {
     "lint": "oxlint --max-warnings=0 --deny-warnings src/**/*.ts src/**/*.tsx",
