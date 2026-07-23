@@ -96,7 +96,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Example: curl -s https://api.github.com/repos/criblio/cribl-cloud-management-sdk-typescript/releases/latest | jq -r '.tag_name'
+          # Example: curl -s https://api.github.com/repos/Cribl-Community/cribl-cloud-management-sdk-typescript/releases/latest | jq -r '.tag_name'
           echo "Fetching latest GA release from GitHub..."
           LAST_GA_TAG=$(curl -s "https://api.github.com/repos/${GH_REPOSITORY}/releases/latest" | jq -r '.tag_name')
           echo "✅ Latest GA tag: ${LAST_GA_TAG}"
