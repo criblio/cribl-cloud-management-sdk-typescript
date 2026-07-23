@@ -136,6 +136,13 @@ The [Cribl.Cloud Authentication Example](https://github.com/criblio/cribl-cloud-
 * [delete](docs/sdks/apicredentials/README.md#delete) - Delete an API Credential
 * [get](docs/sdks/apicredentials/README.md#get) - Get an API Credential
 
+### [Billing](docs/sdks/billing/README.md)
+
+* [getContractsUtilization](docs/sdks/billing/README.md#getcontractsutilization) - [In development] Get contract credit utilization
+* [getCreditsTimeseries](docs/sdks/billing/README.md#getcreditstimeseries) - [In development] Get credits timeseries
+* [getCreditsStats](docs/sdks/billing/README.md#getcreditsstats) - [In development] Get credit balance and consumption
+* [getCreditsGrants](docs/sdks/billing/README.md#getcreditsgrants) - [In development] Get credit grants
+
 ### [Health](docs/sdks/health/README.md)
 
 * [get](docs/sdks/health/README.md#get) - Get the health status of the application
@@ -171,6 +178,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`apiCredentialsGet`](docs/sdks/apicredentials/README.md#get) - Get an API Credential
 - [`apiCredentialsList`](docs/sdks/apicredentials/README.md#list) - List API Credentials for an Organization
 - [`apiCredentialsUpdate`](docs/sdks/apicredentials/README.md#update) - Update an API Credential
+- [`billingGetContractsUtilization`](docs/sdks/billing/README.md#getcontractsutilization) - [In development] Get contract credit utilization
+- [`billingGetCreditsGrants`](docs/sdks/billing/README.md#getcreditsgrants) - [In development] Get credit grants
+- [`billingGetCreditsStats`](docs/sdks/billing/README.md#getcreditsstats) - [In development] Get credit balance and consumption
+- [`billingGetCreditsTimeseries`](docs/sdks/billing/README.md#getcreditstimeseries) - [In development] Get credits timeseries
 - [`healthGet`](docs/sdks/health/README.md#get) - Get the health status of the application
 - [`workspacesCreate`](docs/sdks/workspaces/README.md#create) - Create a Workspace in the specified Organization
 - [`workspacesDelete`](docs/sdks/workspaces/README.md#delete) - Delete a Workspace
@@ -356,7 +367,7 @@ run();
 
 
 **Inherit from [`CriblMgmtPlaneError`](./src/models/errors/criblmgmtplaneerror.ts)**:
-* [`DefaultErrorDTO`](./src/models/errors/defaulterrordto.ts): API Credential limit reached. Status code `422`. Applicable to 1 of 11 methods.*
+* [`DefaultErrorDTO`](./src/models/errors/defaulterrordto.ts): API Credential limit reached. Status code `422`. Applicable to 1 of 15 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
