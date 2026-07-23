@@ -720,6 +720,19 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:33:07+02:00"
+releaseNotes: |
+  ## Typescript SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### SDK Discontinuation Notice
+
+  Cribl has stopped active development of the TypeScript SDK for the management plane. The SDK will remain an open-source, community resource on the [Cribl Community GitHub organization](https://github.com/Cribl-Community). You can continue using the TypeScript SDK and build on it, but Cribl support will be limited to critical issues only for the defined transition period. Support will end on October 1, 2026.
+
+  If you prefer to stay on a supported integration, consider migrating to:
+  * [Python SDK](https://github.com/criblio/cribl_cloud_management_sdk_python)
+  * [Terraform provider](https://github.com/criblio/terraform-provider-criblio)
+  * [Direct Cribl API access](https://docs.cribl.io/cribl-as-code/api/)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
